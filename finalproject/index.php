@@ -158,18 +158,8 @@ include("includes/main.php");
         <div class="container clearfix">
 
           <div class="copyright">
-            &copy; <?php echo date("Y");?> Ecommerce Website-PHP&trade;
-          </div>
-
-          <div class="developer">
-            Developed by Yasser Dalouzi
-          </div>
-
-          <div class="designby">
-            Design by Yasser Dalouzi
-          </div>
-
-        </div>
+            &copy; <?php echo date("Y");?> Kiat Teknik;
+          </div></div>
       </div>
     </footer>
 </body>
