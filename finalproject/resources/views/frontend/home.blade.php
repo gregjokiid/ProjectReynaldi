@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-6 p-0">
                     <div class="categories__item categories__large__item set-bg"
-                        data-setbg="{{ asset('me') }}/img/goku.png">
+                        data-setbg="{{ asset('me') }}/img/kiat-teknik.png">
                         <div class="categories__text">
                             <p>Beragam Merchandise Anime Mulai Dari Tshirt, Hoddie, Action Figure Semuanya Tersedia Di Anime
                                 Store.</p>
