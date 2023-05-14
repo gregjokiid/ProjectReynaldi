@@ -18,14 +18,14 @@ class WebConfigSeeder extends Seeder
         //     0 = TEXT,
         //     1 = TEXTAREA,
         //     2 = FILE,
-        //     3 = SELECT, 
-        // ] 
+        //     3 = SELECT,
+        // ]
 
         // WEB
         WebConfig::create([
             'name'  => 'app_name',
             'label' => 'Application Name',
-            'value' => 'Anime Store',
+            'value' => 'Kiat Teknik',
             'type'  => 0
         ]);
 
@@ -34,6 +34,6 @@ class WebConfigSeeder extends Seeder
             'label' => 'Logo',
             'type'  => 2
         ]);
-        
+
     }
 }
