@@ -7,7 +7,8 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
                         <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
-                        <a href="">{{ $data['product']->Category->name }}</a>
+                        <a href="{{ route('category.index') }}">Category</a>
+                        <a href="{{ route('category.show',$data['product']->Category->slug) }}">{{ $data['product']->Category->name }}</a>
                         <span>{{ $data['product']->name }}</span>
                     </div>
                 </div>
