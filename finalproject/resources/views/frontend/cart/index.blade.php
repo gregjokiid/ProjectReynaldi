@@ -71,7 +71,10 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="cart__btn update__btn">
-                        <button type="submit"><span class="icon_loading"></span> Update cart</button>
+                        @if(empty($carts))
+                        @else
+                            <button type="submit"><span class="icon_loading"></span> Update cart</button>
+                        @endif
                     </form>
                     </div>
                 </div>
