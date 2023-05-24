@@ -34,6 +34,5 @@ class WebConfigSeeder extends Seeder
             'label' => 'Logo',
             'type'  => 2
         ]);
-
     }
 }
