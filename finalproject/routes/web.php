@@ -33,19 +33,17 @@ use Spatie\Permission\Contracts\Role;
 Route::post('payments/midtrans-notification', [MidtransController::class, 'receive']);
 Route::post('payments/midtrans-success', [MidtransController::class, 'success']);
 
-
-
 Route::prefix('app')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::get('dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
-        
+
 
         Route::prefix('customer')->name('customer.')->group(function () {
             Route::get('/', [CustomerController::class, 'index'])->name('index');
         });
 
         Route::prefix('master')->name('master.')->group(function(){
-            
+
             Route::prefix('category')->name('category.')->group(function(){
                 Route::get('/',[CategoryController::class,'index'])->name('index');
                 Route::get('/create',[CategoryController::class,'create'])->name('create');
@@ -69,29 +67,24 @@ Route::prefix('app')->group(function () {
         });
 
         Route::prefix('feature')->name('feature.')->group(function(){
-
             Route::prefix('order')->name('order.')->group(function(){
                 Route::get('/{status?}',[OrderController::class,'index'])->name('index');
                 Route::get('/detail/{id}',[OrderController::class,'show'])->name('show');
                 Route::post('/detail/input-resi',[OrderController::class,'inputResi'])->name('inputresi');
             });
-
         });
 
         Route::prefix('setting')->name('setting.')->group(function(){
                 Route::get('/shipping',[WebconfigController::class,'shipping'])->name('shipping');
                 Route::post('/shipping',[WebconfigController::class,'shippingUpdate'])->name('shippingUpdate');
-                
+
                 Route::get('/web',[WebconfigController::class,'web'])->name('web');
                 Route::post('/web',[WebconfigController::class,'webUpdate'])->name('web.update');
         });
-
     });
-
 });
 
 Route::middleware('auth','role:user')->group(function(){
-
     Route::prefix('cart')->name('cart.')->group(function(){
         Route::get('/',[CartController::class,'index'])->name('index');
         Route::post('/store',[CartController::class,'store'])->name('store');
@@ -114,8 +107,6 @@ Route::middleware('auth','role:user')->group(function(){
     Route::prefix('account')->name('account.')->group(function(){
         Route::get('/',[AccountController::class,'index'])->name('index');
     });
-
-
 });
 
 Route::prefix('rajaongkir')->name('rajaongkir.')->group(function(){
@@ -123,20 +114,15 @@ Route::prefix('rajaongkir')->name('rajaongkir.')->group(function(){
     Route::get('/province/{id}',[RajaongkirController::class,'getCity'])->name('city');
 });
 
-
 Route::get('/', [HomeController::class,'index'])->name('home');
 // Route Product
 Route::get('/product', [FrontendProductController::class,'index'])->name('product.index');
 
 Route::get('/search',[FrontendProductController::class,'search'])->name('product.search');
-
 // Ruote Category
 Route::get('/category', [FrontendCategoryController::class,'index'])->name('category.index');
 Route::get('/category/{slug}', [FrontendCategoryController::class,'show'])->name('category.show');
 
-
-
 Route::get('/product/{categoriSlug}/{productSlug}',[FrontendProductController::class,'show'])->name('product.show');
-
 
 require __DIR__ . '/auth.php';
