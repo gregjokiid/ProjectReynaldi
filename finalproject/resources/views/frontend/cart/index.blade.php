@@ -79,19 +79,32 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                </div>
-                <div class="col-lg-4 offset-lg-2">
-                    <div class="cart__total__procced">
-                        <h6>Cart total</h6>
-                        <ul>
-                            <li>Total <span>{{ rupiah($data['carts']->sum('total_price_per_product')) }}</span></li>
-                        </ul>
-                        <a href="{{ route('checkout.index') }}" class="primary-btn">Proceed to checkout</a>
+            @if(empty($carts))
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            @else
+                <div class="row">
+                    <div class="col-lg-6">
+                    </div>
+                    <div class="col-lg-4 offset-lg-2">
+                        <div class="cart__total__procced">
+                            <h6>Cart total</h6>
+                            <ul>
+                                <li>Total <span>{{ rupiah($data['carts']->sum('total_price_per_product')) }}</span></li>
+                            </ul>
+                            <a href="{{ route('checkout.index') }}" class="primary-btn">Proceed to checkout</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
         </div>
     </section>
 @endsection
