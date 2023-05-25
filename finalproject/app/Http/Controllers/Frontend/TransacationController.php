@@ -10,7 +10,7 @@ use App\Services\Midtrans\CreateSnapTokenService;
 use Illuminate\Http\Request;
 
 class TransacationController extends Controller
-{   
+{
     protected $orderService;
     protected $order;
     public function __construct(OrderService $orderService,Order $order)
