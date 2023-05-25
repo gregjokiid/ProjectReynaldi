@@ -7,21 +7,20 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="text-md-right">
-                                <button class="float-lg-left mb-lg-0 mb-3  btn btn-warning btn-icon icon-left"><i
-                                        class="fa fa-print"></i> Print</button>
+{{--                                <button class="float-lg-left mb-lg-0 mb-3  btn btn-warning btn-icon icon-left"><i--}}
+{{--                                        class="fa fa-print"></i> Print</button>--}}
                                 <div class="mb-lg-0 mb-3">
-                                    <a href="javascript:;" class="btn btn-success btn-icon icon-left" data-toggle="modal"
-                                        data-target="#resiModal" data-id="{{ $data['order']->invoice_number }}"><i
-                                            class="fa fa-truck"></i>
-                                        Input Resi</a>
+{{--                                    <a href="javascript:;" class="btn btn-success btn-icon icon-left" data-toggle="modal"--}}
+{{--                                        data-target="#resiModal" data-id="{{ $data['order']->invoice_number }}"><i--}}
+{{--                                            class="fa fa-truck"></i>--}}
+{{--                                        Input Resi</a>--}}
                                     <a href="{{ route('feature.order.index') }}"
                                         class="btn btn-primary btn-icon icon-left"><i class="fa fa-arrow-left"></i>
                                         Kembali</a>
-                                    <a href="{{ route('feature.order.accept', $data['order']->id) }}" class="btn btn-primary btn-icon icon-left" id="pay-button"><i
-                                            class="fa fa-credit-card"></i>
-                                        Process Payment</a>
+                                    <a href="{{ route('feature.order.accept', $data['order']->id) }}" class="btn btn-primary btn-icon icon-left"><i class="fa fa-check"></i>
+                                        Terima</a>
                                     <a href="{{ route('feature.order.refuse', $data['order']->id) }}" class="btn btn-danger btn-icon icon-left"><i class="fa fa-times"></i>
-                                        Cancel Order</a>
+                                        Tolak</a>
                                 </div>
                             </div>
                             <hr class="mb-2">

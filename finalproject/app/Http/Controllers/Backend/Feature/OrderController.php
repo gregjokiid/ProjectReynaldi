@@ -46,7 +46,7 @@ class OrderController extends Controller
 
     public function refuse($id)
     {
-        $this->order->Query()->where('id',$id)->first()->update(['status' => 2]);
+        $this->order->Query()->where('id',$id)->first()->update(['status' => 4]);
         return back()->with('success',__('message.order_received'));
     }
 }
