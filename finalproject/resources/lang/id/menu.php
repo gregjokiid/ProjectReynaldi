@@ -14,6 +14,7 @@ return [
     'order_shipped'     => 'Pembayaran Selesai',
     'order_completed'   => 'Pesanan Selesai',
     'order_canceled'   => 'Pesanan Dibatalkan',
+    'order_offline'     => 'Pesanan Offline',
 
     // Setting
 

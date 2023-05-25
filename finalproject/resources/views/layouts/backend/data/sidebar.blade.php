@@ -26,6 +26,7 @@
               <li><a class="nav-link" href="{{ route('feature.order.index',2) }}">{{ __('menu.order_shipped') }}</a></li>
               <li><a class="nav-link" href="{{ route('feature.order.index',3) }}">{{ __('menu.order_completed') }}</a></li>
               <li><a class="nav-link" href="{{ route('feature.order.index',4) }}">{{ __('menu.order_canceled') }}</a></li>
+                <li><a class="nav-link" href="{{ route('feature.order.index',5) }}">{{ __('menu.order_offline') }}</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
