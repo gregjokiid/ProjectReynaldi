@@ -63,4 +63,16 @@ class TransacationController extends Controller
 
         return redirect()->route('transaction.index')->with('success',__('message.store'));
     }
+
+    public function offline($invoice_number)
+    {
+        $data['order'] = $this->order->Query()->where('invoice_number',$invoice_number)->first();
+        return view('frontend.transaction.offline',compact('data'));
+    }
+
+    public function offlinePayment($invoice_number)
+    {
+        $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['status' => 2]);
+        return back()->with('success',__('message.order_received'));
+    }
 }

@@ -97,6 +97,9 @@ Route::middleware('auth','role:user')->group(function(){
         Route::get('/{invoice_number}/canceled',[TransacationController::class,'canceled'])->name('canceled');
         Route::get('/{invoice_number}/payment',[TransacationController::class,'payment'])->name('payment');
         Route::post('/{invoice_number}/paymentChecking',[TransacationController::class,'paymentChecking'])->name('paymentChecking');
+
+        Route::get('/{invoice_number}/offline',[TransacationController::class,'offline'])->name('offline');
+        Route::get('/{invoice_number}/offlinePayment',[TransacationController::class,'offlinePayment'])->name('offlinePayment');
     });
 
     Route::prefix('checkout')->name('checkout.')->group(function(){

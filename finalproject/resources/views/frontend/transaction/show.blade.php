@@ -143,6 +143,8 @@
                                         Process Payment</a>
                                     <a href="{{ route('transaction.canceled', $data['order']->invoice_number) }}" class="btn btn-danger btn-icon icon-left"><i class="fa fa-times"></i>
                                         Cancel Order</a>
+                                    <a href="{{ route('transaction.offline', $data['order']->invoice_number) }}" class="btn btn-warning btn-icon icon-left"><i class="fa fa-credit-card"></i>
+                                        Pay Offline</a>
                                 @elseif ($data['order']->status == 2)
                                     <a href="{{ route('transaction.received', $data['order']->invoice_number) }}"
                                         class="btn btn-primary text-white btn-icon icon-left"><i
