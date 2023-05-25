@@ -45,7 +45,11 @@
                                 </div>
                                 <input type="hidden" name="cart_product_id" value="{{ $data['product']->id }}">
                             </div>
-                            <button type="submit" class="cart-btn"><span class="icon_bag_alt"></span> Tambah Ke Keranjang</button>
+                            @if(empty($data['product']->stock))
+                                <button type="submit" class="cart-btn" disabled><span class="icon_bag_alt"></span> Tambah Ke Keranjang</button>
+                            @else
+                                <button type="submit" class="cart-btn"><span class="icon_bag_alt"></span> Tambah Ke Keranjang</button>
+                            @endif
                         </div>
                         <div class="product__details__widget">
                         </form>
