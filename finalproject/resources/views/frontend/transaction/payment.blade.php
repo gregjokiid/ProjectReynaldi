@@ -39,7 +39,7 @@
                                 </div>
                                 <hr>
                                 <div class="text-md-right">
-                                    <a href="{{ Route('master.product.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
+                                    <a href="{{ Route('transaction.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
                                     <button type="submit" class="btn btn-primary " href="#">Submit</button>
                                 </div>
                             </div>
