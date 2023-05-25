@@ -29,6 +29,7 @@
                                 $product->slug]))
                                 @slot('name', $product->name)
                                 @slot('price', $product->price)
+                                @slot('stock', $product->stock)
                             @endcomponent
                         </div>
                         @endforeach
