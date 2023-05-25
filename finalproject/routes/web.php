@@ -12,7 +12,6 @@ use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 use App\Http\Controllers\Frontend\TransacationController;
-use App\Http\Controllers\Midtrans\MidtransController;
 use App\Http\Controllers\Rajaongkir\RajaongkirController;
 use App\Http\Controllers\Setting\WebconfigController;
 use App\Http\Controllers\UserController;
@@ -29,9 +28,6 @@ use Spatie\Permission\Contracts\Role;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::post('payments/midtrans-notification', [MidtransController::class, 'receive']);
-Route::post('payments/midtrans-success', [MidtransController::class, 'success']);
 
 Route::prefix('app')->group(function () {
     Route::middleware(['auth'])->group(function () {
