@@ -17,6 +17,11 @@
                                     <a href="{{ route('feature.order.index') }}"
                                         class="btn btn-primary btn-icon icon-left"><i class="fa fa-arrow-left"></i>
                                         Kembali</a>
+                                    <a href="{{ route('feature.order.accept', $data['order']->id) }}" class="btn btn-primary btn-icon icon-left" id="pay-button"><i
+                                            class="fa fa-credit-card"></i>
+                                        Process Payment</a>
+                                    <a href="{{ route('feature.order.refuse', $data['order']->id) }}" class="btn btn-danger btn-icon icon-left"><i class="fa fa-times"></i>
+                                        Cancel Order</a>
                                 </div>
                             </div>
                             <hr class="mb-2">

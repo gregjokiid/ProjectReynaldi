@@ -64,6 +64,8 @@ Route::prefix('app')->group(function () {
 
         Route::prefix('feature')->name('feature.')->group(function(){
             Route::prefix('order')->name('order.')->group(function(){
+                Route::get('/detail/{id}/accept',[OrderController::class,'accept'])->name('accept');
+                Route::get('/detail/{id}/refuse',[OrderController::class,'refuse'])->name('refuse');
                 Route::get('/{status?}',[OrderController::class,'index'])->name('index');
                 Route::get('/detail/{id}',[OrderController::class,'show'])->name('show');
                 Route::post('/detail/input-resi',[OrderController::class,'inputResi'])->name('inputresi');
