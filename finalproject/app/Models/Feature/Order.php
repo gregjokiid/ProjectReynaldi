@@ -30,17 +30,17 @@ class Order extends Model
     {
         $status = $this->status;
         if($status == 0){
-            return 'Pending';
+            return 'Menunggu Pembayaran';
         }elseif($status == 1){
-            return 'Dikemas';
+            return 'Mengkonfirmasi Pembayaran';
         }elseif($status == 2){
-            return 'Dikirim';
+            return 'Pembayaran Selesai';
         }elseif($status == 3){
-            return 'Selesai';
+            return 'Pesanan Selesai';
         }elseif($status == 4){
-            return 'Dibatalkan';
+            return 'Pesanan Dibatalkan';
         }else{
-            return 'Kadaluarsa';
+            return 'Pesanan Kadaluarsa';
         }
     }
 
@@ -48,11 +48,11 @@ class Order extends Model
     {
         $status = [
             '0' => '<div class="badge badge-warning">Menunggu Pembayaran</div>',
-            '1' => '<div class="badge badge-primary">Dikemas</div>',
-            '2' => '<div class="badge badge-info">Dikirim</div>',
-            '3' => '<div class="badge badge-success">Selesai</div>',
-            '4' => '<div class="badge badge-secondary">Dibatalkan</div>',
-            '5' => '<div class="badge badge-secondary">Kadaluarsa</div>',
+            '1' => '<div class="badge badge-primary">Mengkonfirmasi Pembayaran</div>',
+            '2' => '<div class="badge badge-info">Pembayaran Selesai</div>',
+            '3' => '<div class="badge badge-success">Pesanan Selesai</div>',
+            '4' => '<div class="badge badge-secondary">Pesanan Dibatalkan</div>',
+            '5' => '<div class="badge badge-secondary">Pesanan Kadaluarsa</div>',
         ];
         return $status[$this->status];
     }
