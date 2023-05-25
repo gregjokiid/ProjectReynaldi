@@ -33,14 +33,7 @@
                 <div class="col-lg-6">
                     <div class="product__details__text">
                         <h3>{{ $data['product']->name }} <span>Kategori: {{ $data['product']->Category->name }}</span></h3>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <span>( 138 reviews )</span>
-                        </div>
+                        <span>Stok: {{ $data['product']->stock }}</span>
                         <form action="{{ route('cart.store') }}" method="POST">
                         <div class="product__details__price">{{ $data['product']->price }} <span></div>
                         @csrf
