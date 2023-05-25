@@ -48,14 +48,22 @@ class TransacationController extends Controller
         return view('frontend.transaction.payment',compact('data'));
     }
 
-    public function paymentChecking(Request $request,$id)
+    public function paymentChecking(Request $request, $invoice_number)
     {
-        if(isset($request->payment)){
-            $this->order->update($id,$request->all('_token'),true,['thumbnails'],'product/thumbnails');
-        }else{
-            $this->order->update($id,$request->except('_token'));
-        }
-        return redirect()->route('master.product.index')->with('success',__('message.store'));
+        $request->validate([
+            'payment' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imageName = time().'.'.$request->payment->extension();
+
+        $request->payment->move(public_path('images'), $imageName);
+
+        /* Store $imageName name in DATABASE from HERE */
+        $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['snap_token' => $imageName]);
+
+        return back()
+            ->with('success','You have successfully upload image.')
+            ->with('image',$imageName);
     }
 
     public function edit($id)
