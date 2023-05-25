@@ -9,9 +9,9 @@ return [
     // Order
     'order'             => 'Pesanan',
     'order_all'         => 'Semua Pesanan',
-    'order_pending'     => 'Pesanan Pending',
-    'order_process'     => 'Pesanan Dikemas',
-    'order_shipped'     => 'Pesanan Dikirim',
+    'order_pending'     => 'Menunggu Pembayaran',
+    'order_process'     => 'Mengkonfirmasi Pembayaran',
+    'order_shipped'     => 'Pembayaran Selesai',
     'order_completed'   => 'Pesanan Selesai',
     'order_canceled'   => 'Pesanan Dibatalkan',
 
