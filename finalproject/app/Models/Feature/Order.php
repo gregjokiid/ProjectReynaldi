@@ -40,7 +40,7 @@ class Order extends Model
         }elseif($status == 4){
             return 'Pesanan Dibatalkan';
         }else{
-            return 'Pesanan Kadaluarsa';
+            return 'Pesanan Offline';
         }
     }
 
@@ -52,7 +52,7 @@ class Order extends Model
             '2' => '<div class="badge badge-info">Pembayaran Selesai</div>',
             '3' => '<div class="badge badge-success">Pesanan Selesai</div>',
             '4' => '<div class="badge badge-secondary">Pesanan Dibatalkan</div>',
-            '5' => '<div class="badge badge-secondary">Pesanan Kadaluarsa</div>',
+            '5' => '<div class="badge badge-secondary">Pesanan Offline</div>',
         ];
         return $status[$this->status];
     }

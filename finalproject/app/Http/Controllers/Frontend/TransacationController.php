@@ -72,7 +72,7 @@ class TransacationController extends Controller
 
     public function offlinePayment($invoice_number)
     {
-        $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['status' => 2]);
+        $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['status' => 5]);
         return back()->with('success',__('message.order_received'));
     }
 }
