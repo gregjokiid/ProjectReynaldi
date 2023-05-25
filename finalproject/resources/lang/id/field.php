@@ -11,6 +11,7 @@ return [
     'created_at' => 'Dibuat',
     'price' => 'Harga',
     'description' => 'Deskripsi',
+    'stock' => 'Stok Barang',
 
     // Category
     'category_name' => 'Nama Kategori',

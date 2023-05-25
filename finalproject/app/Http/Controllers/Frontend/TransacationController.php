@@ -48,10 +48,30 @@ class TransacationController extends Controller
         return view('frontend.transaction.payment',compact('data'));
     }
 
-    public function paymentChecking($invoice_number)
+    public function paymentChecking(Request $request,$id)
     {
-        $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['status' => 1]);
-        $data['orders'] = $this->orderService->getUserOrder(auth()->user()->id);
-        return view('frontend.transaction.index',compact('data'));
+        if(isset($request->payment)){
+            $this->order->update($id,$request->all('_token'),true,['thumbnails'],'product/thumbnails');
+        }else{
+            $this->order->update($id,$request->except('_token'));
+        }
+        return redirect()->route('master.product.index')->with('success',__('message.store'));
+    }
+
+    public function edit($id)
+    {
+        $data['product'] = $this->product->find($id);
+        $data['category'] = $this->category->get();
+        return view('backend.master.product.edit',compact('data'));
+    }
+
+    public function update(Request $request,$id)
+    {
+        if(isset($request->thumbnails)){
+            $this->product->update($id,$request->all('_token'),true,['thumbnails'],'product/thumbnails');
+        }else{
+            $this->product->update($id,$request->except('_token'));
+        }
+        return redirect()->route('master.product.index')->with('success',__('message.store'));
     }
 }

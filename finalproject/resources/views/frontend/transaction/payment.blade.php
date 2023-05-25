@@ -16,29 +16,37 @@
     </div>
 
     <section class="shop-cart spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="invoice" style="border-top: 2px solid #6777ef;">
-                        <div class="invoice-print">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="invoice-title">
-                                        <h2>Upload Bukti Pembayaran</h2>
-                                        <div class="invoice-number">Total {{ rupiah($data['order']->total_pay) }}</div>
+        @component('components.backend.card.card-form')
+            @slot('isfile', true)
+            @slot('action', route('transaction.paymentChecking', $data['order']->invoice_number))
+            @slot('method', 'POST')
+            @slot('content')
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="invoice" style="border-top: 2px solid #6777ef;">
+                                <div class="invoice-print">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="invoice-title">
+                                                <h2>Upload Bukti Pembayaran</h2>
+                                                <div class="invoice-number">Total {{ rupiah($data['order']->total_pay) }}</div>
+                                            </div>
+                                            <hr>
+                                            <x-forms.input type="file" name="payment" id="payment" :label="__('field.payment')" :isRequired="true" />
+                                        </div>
                                     </div>
-                                    <hr>
-                                    <x-forms.input type="file" name="payment" id="payment" :label="__('field.payment')" :isRequired="true" />
+                                </div>
+                                <hr>
+                                <div class="text-md-right">
+                                    <a href="{{ Route('master.product.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
+                                    <button type="submit" class="btn btn-primary " href="#">Submit</button>
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <div class="text-md-right">
-                            <a href="{{ route('transaction.paymentChecking', $data['order']->invoice_number) }}" class="btn btn-primary btn-icon icon-left"><i class="fa fa-print"></i> Submit</a>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            @endslot
+        @endcomponent
     </section>
 @endsection

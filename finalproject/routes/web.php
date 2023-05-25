@@ -94,7 +94,7 @@ Route::middleware('auth','role:user')->group(function(){
         Route::get('/{invoice_number}/received',[TransacationController::class,'received'])->name('received');
         Route::get('/{invoice_number}/canceled',[TransacationController::class,'canceled'])->name('canceled');
         Route::get('/{invoice_number}/payment',[TransacationController::class,'payment'])->name('payment');
-        Route::get('/{invoice_number}/paymentChecking',[TransacationController::class,'paymentChecking'])->name('paymentChecking');
+        Route::post('/{invoice_number}/paymentChecking',[TransacationController::class,'paymentChecking'])->name('paymentChecking');
     });
 
     Route::prefix('checkout')->name('checkout.')->group(function(){
