@@ -56,7 +56,7 @@ class TransacationController extends Controller
 
         $imageName = time().'.'.$request->payment->extension();
 
-        $request->payment->move(public_path('order/payment'), $imageName);
+        $request->payment->move(storage_path('order/payment'), $imageName);
 
         $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['snap_token' => $imageName]);
         $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['status' => 1]);
