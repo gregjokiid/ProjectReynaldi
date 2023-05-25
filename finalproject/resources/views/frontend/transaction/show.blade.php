@@ -94,41 +94,53 @@
                                         </table>
                                     </div>
                                     <div class="row mt-4">
-                                        <div class="col-lg-8">
-                                            <address>
-                                                <strong>{{ __('text.shipping_method') }}:</strong>
-                                                <div class="mt-2">
-                                                    <p class="section-lead text-uppercase">{{ $data['order']->courier }}
-                                                        {{ $data['order']->shipping_method }}</p>
-                                                </div>
-                                            </address>
-                                            @if ($data['order']->receipt_number != null)
+                                        @if ($data['order']->status == 5)
+                                            <div class="col-lg-8"></div>
+                                        @else
+                                            <div class="col-lg-8">
                                                 <address>
-                                                    <strong>{{ __('text.receipt_number') }}:</strong>
+                                                    <strong>{{ __('text.shipping_method') }}:</strong>
                                                     <div class="mt-2">
-                                                        <p class="section-lead text-uppercase">
-                                                            {{ $data['order']->receipt_number }}</p>
+                                                        <p class="section-lead text-uppercase">{{ $data['order']->courier }}
+                                                            {{ $data['order']->shipping_method }}</p>
                                                     </div>
                                                 </address>
-                                            @endif
-                                        </div>
+                                                @if ($data['order']->receipt_number != null)
+                                                    <address>
+                                                        <strong>{{ __('text.receipt_number') }}:</strong>
+                                                        <div class="mt-2">
+                                                            <p class="section-lead text-uppercase">
+                                                                {{ $data['order']->receipt_number }}</p>
+                                                        </div>
+                                                    </address>
+                                                @endif
+                                            </div>
+                                        @endif
+
                                         <div class="col-lg-4 text-right">
                                             <div class="invoice-detail-item">
-                                                <div class="invoice-detail-name">Subtotal</div>
+                                                @if ($data['order']->status == 5)
+                                                    <div class="invoice-detail-name">Total</div>
+                                                @else
+                                                    <div class="invoice-detail-name">Subtotal</div>
+                                                @endif
                                                 <div class="invoice-detail-value">{{ rupiah($data['order']->subtotal) }}
                                                 </div>
                                             </div>
-                                            <div class="invoice-detail-item">
-                                                <div class="invoice-detail-name">{{ __('text.shipping_cost') }}</div>
-                                                <div class="invoice-detail-value">
-                                                    {{ rupiah($data['order']->shipping_cost) }}</div>
-                                            </div>
-                                            <hr class="mt-2 mb-2">
-                                            <div class="invoice-detail-item">
-                                                <div class="invoice-detail-name">Total</div>
-                                                <div class="invoice-detail-value invoice-detail-value-lg">
-                                                    {{ rupiah($data['order']->total_pay) }}</div>
-                                            </div>
+                                            @if ($data['order']->status == 5)
+                                            @else
+                                                <div class="invoice-detail-item">
+                                                    <div class="invoice-detail-name">{{ __('text.shipping_cost') }}</div>
+                                                    <div class="invoice-detail-value">
+                                                        {{ rupiah($data['order']->shipping_cost) }}</div>
+                                                </div>
+                                                <hr class="mt-2 mb-2">
+                                                <div class="invoice-detail-item">
+                                                    <div class="invoice-detail-name">Total</div>
+                                                    <div class="invoice-detail-value invoice-detail-value-lg">
+                                                        {{ rupiah($data['order']->total_pay) }}</div>
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
