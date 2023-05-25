@@ -41,7 +41,7 @@
                             <div class="quantity">
                                 <span>Jumlah:</span>
                                 <div class="pro-qty">
-                                    <input type="text" name="cart_qty" value="1">
+                                    <input type="number" name="cart_qty" value="1" max="{{ $data['product']->stock }}">
                                 </div>
                                 <input type="hidden" name="cart_product_id" value="{{ $data['product']->id }}">
                             </div>
