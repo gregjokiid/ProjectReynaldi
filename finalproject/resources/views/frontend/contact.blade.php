@@ -1,71 +1,37 @@
 @extends('layouts.frontend.app')
 @section('content')
-    <!-- Categories Section Begin -->
-    <section class="categories">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6 p-0">
-                    <div class="categories__item categories__large__item set-bg"
-                         data-setbg="{{ asset('me') }}/img/kiat-teknik.png">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="row">
-                        @foreach ($data['new_categories'] as $category)
-                            <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                                <div class="categories__item set-bg"
-                                     data-setbg="{{ asset('storage/' . $category->thumbnails) }}">
-                                    <div class="categories__text">
-                                        <h4>{{ $category->name }}</h4>
-                                        <p>{{ $category->Products()->count() }} item</p>
-                                        <a href="{{ route('category.show',$category->slug) }}">Jelajahi</a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Categories Section End -->
-
-    <!-- Product Section Begin -->
-    <section class="product spad">
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <div class="section-title">
-                        <h4>New product</h4>
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
+                        <span>Contact</span>
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-8">
-                    <ul class="filter__controls">
-                        <li class="active" data-filter="*">All</li>
-                        @foreach ($data['new_categories'] as $new_categories)
-                            <li data-filter=".{{ $new_categories->slug }}">{{ $new_categories->name }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-            <div class="row property__gallery">
-                @foreach ($data['new_categories'] as $new_categories2)
-                    @foreach ($new_categories2->Products()->limit(4)->get()
-        as $product)
-                        <div class="col-lg-3 col-md-4 col-sm-6 mix {{ $new_categories2->slug }}">
-                            @component('components.frontend.product-card')
-                                @slot('image', asset('storage/' . $product->thumbnails))
-                                @slot('route', route('product.show', ['categoriSlug' => $new_categories2->slug, 'productSlug' =>
-                                    $product->slug]))
-                                @slot('name', $product->name)
-                                @slot('price', $product->price)
-                                @slot('stock', $product->stock)
-                            @endcomponent
-                        </div>
-                    @endforeach
-                @endforeach
             </div>
         </div>
-    </section>
-    <!-- Product Section End -->
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Categories Section Begin -->
+    <section class="categories">
+        <div class="container">
+            <div class="row">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.0118517608125!2d112.7416719752892!3d-7.239485992766832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f916da0110cd%3A0xc31f1ae503f20ab0!2sJl.%20Sambongan%20IV%20No.11%2C%20RT.002%2FRW.05%2C%20Bongkaran%2C%20Kec.%20Pabean%20Cantikan%2C%20Surabaya%2C%20Jawa%20Timur%2060161!5e0!3m2!1sen!2sid!4v1684997788135!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="col-lg-4 col-md-4 col-sm-4 p-0 ">
+                    <div class="categories__item">
+                        <div class="categories__text">
+                            <h4>Kiat Teknik Surabaya</h4>
+                            <p>Jl. Sambongan IV No.11</p>
+                            <p>082232769157</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+        </div>
 @endsection
