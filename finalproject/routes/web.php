@@ -102,6 +102,9 @@ Route::middleware('auth','role:user')->group(function(){
     Route::prefix('checkout')->name('checkout.')->group(function(){
         Route::get('/',[CheckoutController::class,'index'])->name('index');
         Route::post('/process',[CheckoutController::class,'process'])->name('process');
+
+        Route::get('/offline',[CheckoutController::class,'offline'])->name('offline');
+        Route::post('/offline/process',[CheckoutController::class,'offlineProcess'])->name('offlineProcess');
     });
 
     Route::prefix('account')->name('account.')->group(function(){

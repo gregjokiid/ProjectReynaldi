@@ -101,6 +101,8 @@
                                 <li>Total <span>{{ rupiah($data['carts']->sum('total_price_per_product')) }}</span></li>
                             </ul>
                             <a href="{{ route('checkout.index') }}" class="primary-btn">Proceed to checkout</a>
+                            <br/>
+                            <center><a href="{{ route('checkout.offline') }}" class="cart-btn">Pay offline</a></center>
                         </div>
                     </div>
                 </div>
