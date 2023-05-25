@@ -56,30 +56,11 @@ class TransacationController extends Controller
 
         $imageName = time().'.'.$request->payment->extension();
 
-        $request->payment->move(public_path('images'), $imageName);
+        $request->payment->move(public_path('order/payment'), $imageName);
 
-        /* Store $imageName name in DATABASE from HERE */
         $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['snap_token' => $imageName]);
+        $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['status' => 1]);
 
-        return back()
-            ->with('success','You have successfully upload image.')
-            ->with('image',$imageName);
-    }
-
-    public function edit($id)
-    {
-        $data['product'] = $this->product->find($id);
-        $data['category'] = $this->category->get();
-        return view('backend.master.product.edit',compact('data'));
-    }
-
-    public function update(Request $request,$id)
-    {
-        if(isset($request->thumbnails)){
-            $this->product->update($id,$request->all('_token'),true,['thumbnails'],'product/thumbnails');
-        }else{
-            $this->product->update($id,$request->except('_token'));
-        }
-        return redirect()->route('master.product.index')->with('success',__('message.store'));
+        return redirect()->route('transaction.index')->with('success',__('message.store'));
     }
 }
