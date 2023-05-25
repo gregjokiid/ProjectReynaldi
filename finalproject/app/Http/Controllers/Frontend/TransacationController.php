@@ -41,4 +41,17 @@ class TransacationController extends Controller
         $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['status' => 4]);
         return back()->with('success',__('message.order_canceled'));
     }
+
+    public function payment($invoice_number)
+    {
+        $data['order'] = $this->order->Query()->where('invoice_number',$invoice_number)->first();
+        return view('frontend.transaction.payment',compact('data'));
+    }
+
+    public function paymentChecking($invoice_number)
+    {
+        $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['status' => 1]);
+        $data['orders'] = $this->orderService->getUserOrder(auth()->user()->id);
+        return view('frontend.transaction.index',compact('data'));
+    }
 }

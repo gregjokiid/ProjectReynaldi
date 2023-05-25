@@ -7,6 +7,7 @@ return [
     'slug' => 'Slug',
     'action' => 'Aksi',
     'thumbnails' => 'Thumbnails',
+    'payment' => 'Bukti Pembayaran',
     'created_at' => 'Dibuat',
     'price' => 'Harga',
     'description' => 'Deskripsi',
