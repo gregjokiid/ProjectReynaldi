@@ -30,8 +30,9 @@
                          <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
                          <li class="{{ request()->is('product*') ? 'active' : '' }}"><a href="{{ route('product.index') }}">Shop</a></li>
                          <li class="{{ request()->is('category*') ? 'active' : '' }}"><a href="{{ route('category.index') }}">Category</a></li>
+                         <li class="{{ request()->is('contact') ? 'active' : '' }}"><a href="{{ route('contact.index') }}">Contact</a></li>
                          @auth
-                          <li class="{{ request()->is('category*') ? 'active' : '' }}"><a href="#"><i class="fa fa-angle-down"></i> {{ auth()->user()->name }}</a>
+                          <li class="#"><a href="#"><i class="fa fa-angle-down"></i> {{ auth()->user()->name }}</a>
                             <ul class="dropdown">
                                 <li><a href="{{ route('transaction.index') }}">Riwayat Belanja</a></li>
                                 <li><a href="{{ route('account.index') }}">Pengaturan Akun</a></li>
