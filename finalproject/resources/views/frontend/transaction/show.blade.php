@@ -138,9 +138,9 @@
                         <div class="text-md-right">
                             <div class="float-lg-left mb-lg-0 mb-3">
                                 @if ($data['order']->status == 0)
-                                    <button class="btn btn-primary btn-icon icon-left" id="pay-button"><i
+                                    <a href="{{ route('transaction.canceled', $data['order']->invoice_number) }}" class="btn btn-primary btn-icon icon-left" id="pay-button"><i
                                             class="fa fa-credit-card"></i>
-                                        Process Payment</button>
+                                        Process Payment</a>
                                     <a href="{{ route('transaction.canceled', $data['order']->invoice_number) }}" class="btn btn-danger btn-icon icon-left"><i class="fa fa-times"></i>
                                         Cancel Order</a>
                                 @elseif ($data['order']->status == 2)
