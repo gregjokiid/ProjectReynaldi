@@ -4,6 +4,7 @@ namespace App\Models\Master;
 
 use App\Models\Feature\Order;
 use App\Models\Feature\OrderDetail;
+use App\Models\PurchaseOrder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -38,5 +39,10 @@ class Product extends Model
         return $this->OrderDetails()->whereHas('Order',function($q){
             $q->whereIn('status',[2,3]);
         })->sum('qty');
+    }
+
+    public function PurchaseOrders()
+    {
+        return $this->hasMany(PurchaseOrder::class,'product_id','id');
     }
 }
