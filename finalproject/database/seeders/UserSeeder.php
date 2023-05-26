@@ -17,6 +17,9 @@ class UserSeeder extends Seeder
         // Create Role
         Role::create(['name' => 'admin']);
         Role::create(['name' => 'user']);
+        Role::create(['name' => 'purchasing']);
+        Role::create(['name' => 'cashier']);
+        Role::create(['name' => 'owner']);
 
         // Create User
         $user = User::create([
