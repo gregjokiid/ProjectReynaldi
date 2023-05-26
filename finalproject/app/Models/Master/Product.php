@@ -2,6 +2,7 @@
 
 namespace App\Models\Master;
 
+use App\Models\DeliveryOrder;
 use App\Models\Feature\Order;
 use App\Models\Feature\OrderDetail;
 use App\Models\PurchaseOrder;
@@ -44,5 +45,10 @@ class Product extends Model
     public function PurchaseOrders()
     {
         return $this->hasMany(PurchaseOrder::class,'product_id','id');
+    }
+
+    public function DeliveryOrders()
+    {
+        return $this->hasMany(DeliveryOrder::class,'product_id','id');
     }
 }
