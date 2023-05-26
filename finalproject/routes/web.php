@@ -5,7 +5,6 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Feature\OrderController;
 use App\Http\Controllers\Backend\Master\CategoryController;
 use App\Http\Controllers\Backend\Master\ProductController;
-use App\Http\Controllers\Frontend\AccountController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
 use App\Http\Controllers\Frontend\CheckoutController;
@@ -105,10 +104,6 @@ Route::middleware('auth','role:user')->group(function(){
     Route::prefix('checkout')->name('checkout.')->group(function(){
         Route::get('/',[CheckoutController::class,'index'])->name('index');
         Route::post('/process',[CheckoutController::class,'process'])->name('process');
-    });
-
-    Route::prefix('account')->name('account.')->group(function(){
-        Route::get('/',[AccountController::class,'index'])->name('index');
     });
 });
 
