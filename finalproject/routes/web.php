@@ -13,7 +13,6 @@ use App\Http\Controllers\Frontend\ProductController as FrontendProductController
 use App\Http\Controllers\Frontend\TransacationController;
 use App\Http\Controllers\Rajaongkir\RajaongkirController;
 use App\Http\Controllers\Setting\WebconfigController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Contracts\Role;
 
