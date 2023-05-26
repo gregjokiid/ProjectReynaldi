@@ -142,6 +142,7 @@
                                         </div>
                                     @endif
                                 </div>
+                                    <img src=" {{ $path.$file_path }}" alt="" width="1000">
                             </div>
                         </div>
                     </div>

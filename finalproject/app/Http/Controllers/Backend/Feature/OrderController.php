@@ -28,7 +28,9 @@ class OrderController extends Controller
     public function show($id)
     {
         $data['order'] = Order::find($id);
-        return view('backend.feature.order.show',compact('data'));
+        $path = '/storage/file/order/payment/';
+        $file_path = $data['order']->snap_token;
+        return view('backend.feature.order.show',compact(['data', 'path', 'file_path']));
     }
 
     public function inputResi(Request $request)
