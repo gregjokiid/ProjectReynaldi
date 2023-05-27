@@ -43,8 +43,6 @@ class Order extends Model
             return 'Pesanan Selesai - Offline';
         }elseif($status == 6){
             return 'Menunggu Pembayaran - Offline';
-        }elseif($status == 7){
-            return 'Pembayaran Selesai - Offline';
         }
     }
 
@@ -58,7 +56,6 @@ class Order extends Model
             '4' => '<div class="badge badge-secondary">Pesanan Dibatalkan</div>',
             '5' => '<div class="badge badge-secondary">Pesanan Selesai - Offline</div>',
             '6' => '<div class="badge badge-secondary">Menunggu Pembayaran - Offline</div>',
-            '7' => '<div class="badge badge-secondary">Pembayaran Selesai - Offline</div>',
         ];
         return $status[$this->status];
     }
