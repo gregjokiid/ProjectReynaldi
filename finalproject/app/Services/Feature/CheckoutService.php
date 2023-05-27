@@ -3,19 +3,17 @@ namespace App\Services\Feature;
 
 use App\Models\Feature\Order;
 use App\Models\Feature\OrderDetail;
-use App\Models\Master\Product;
 use App\Repositories\CrudRepositories;
 use Illuminate\Support\Str;
 
 class CheckoutService{
 
-    protected $order,$ordeDetail,$product;
+    protected $order,$ordeDetail;
     protected $cartService;
-    public function __construct(Order $order,OrderDetail $orderDetail,CartService $cartService,Product $product)
+    public function __construct(Order $order,OrderDetail $orderDetail,CartService $cartService)
     {
         $this->order = new CrudRepositories($order);
         $this->orderDetail = new CrudRepositories($orderDetail);
-        $this->product = new CrudRepositories($product);
         $this->cartService = $cartService;
     }
 
@@ -45,10 +43,6 @@ class CheckoutService{
                 'product_id' => $cart->product_id,
                 'qty' => $cart->qty
             ]);
-
-            $cek = $this->product->Query()->where(['id' => $cart->product_id])->first();
-            $cek->stock = $cek->stock - $cart->qty;
-            $cek->update();
         }
         $this->cartService->deleteUserCart();
     }
