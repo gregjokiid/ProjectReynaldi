@@ -164,47 +164,10 @@
                                         Order Received</a>
                                 @endif
                             </div>
-{{--                            <button class="btn btn-warning btn-icon icon-left"><i class="fa fa-print"></i> Print</button>--}}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-{{--    <section>--}}
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-md-12">--}}
-{{--                    <div class="card card-primary">--}}
-{{--                        <div class="card-header">--}}
-{{--                            <h4 class="card-title">Order Track</h4>--}}
-{{--                        </div>--}}
-{{--                        <div class="card-body">--}}
-{{--                            <div class="row">--}}
-{{--                                <div class="col-12">--}}
-{{--                                    <div class="activities">--}}
-{{--                                        @foreach ($data['order']->OrderTrack()->get() as $orderTrack)--}}
-{{--                                            <div class="activity">--}}
-{{--                                                <div class="activity-icon bg-primary text-white shadow-primary">--}}
-{{--                                                    <i class="{{ $orderTrack->icon }}"></i>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="activity-detail bg-primary text-white">--}}
-{{--                                                    <div class="mb-2">--}}
-{{--                                                        <span class="text-job text-white">{{ $orderTrack->created_at->diffForHumans() }}</span>--}}
-{{--                                                        <span class="bullet"></span>--}}
-{{--                                                    </div>--}}
-{{--                                                    <p>{{ __($orderTrack->description) }}</p>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        @endforeach--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
 @endsection

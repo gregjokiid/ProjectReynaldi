@@ -7,13 +7,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="text-md-right">
-{{--                                <button class="float-lg-left mb-lg-0 mb-3  btn btn-warning btn-icon icon-left"><i--}}
-{{--                                        class="fa fa-print"></i> Print</button>--}}
                                 <div class="mb-lg-0 mb-3">
-{{--                                    <a href="javascript:;" class="btn btn-success btn-icon icon-left" data-toggle="modal"--}}
-{{--                                        data-target="#resiModal" data-id="{{ $data['order']->invoice_number }}"><i--}}
-{{--                                            class="fa fa-truck"></i>--}}
-{{--                                        Input Resi</a>--}}
                                     <a href="{{ route('feature.order.index') }}"
                                         class="btn btn-primary btn-icon icon-left"><i class="fa fa-arrow-left"></i>
                                         Kembali</a>
@@ -152,79 +146,7 @@
                     </div>
                 </div>
                 <hr>
-
             </div>
         </div>
     </div>
-  <div class="card">
-    <div class="card-header">
-        <h4 class="card-title">Order Track</h4>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-12">
-                <div class="activities">
-                    @foreach ($data['order']->OrderTrack()->get() as $orderTrack)
-                        <div class="activity">
-                            <div class="activity-icon bg-primary text-white shadow-primary">
-                                <i class="{{ $orderTrack->icon }}"></i>
-                            </div>
-                            <div class="activity-detail bg-primary text-white">
-                                <div class="mb-2">
-                                    <span class="text-job text-white">{{ $orderTrack->created_at->diffForHumans() }}</span>
-                                    <span class="bullet"></span>
-                                </div>
-                                <p>{{ __($orderTrack->description) }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
 @endsection
-@push('modal')
-    <div class="modal fade" id="resiModal" tabindex="-1" role="dialog" aria-labelledby="resiModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <form action="{{ route('feature.order.inputresi') }}" method="POST">
-                @csrf
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="resiModalLabel">Input Resi Pengiriman</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="">Nomor Pesanan</label>
-                            <input type="text" class="form-control" name="invoice_number" id="invoice_number"
-                                readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Nomor Resi</label>
-                            <input type="text" class="form-control" name="receipt_number" id="receipt_number"
-                                required>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary"
-                            data-dismiss="modal">{{ __('button.cancel') }}</button>
-                        <button type="submit" class="btn btn-primary">{{ __('button.save') }}</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-@endpush
-@push('js')
-    <script>
-        $('#resiModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget);
-            var id = button.data('id');
-            $('#invoice_number').val(id);
-        });
-    </script>
-@endpush

@@ -5,7 +5,7 @@
             @component('components.backend.card.card-table')
                 @slot('header')
                     <h4 class="card-title">{{ __('menu.order') }}</h4>
-                  
+
                 @endslot
                 @slot('thead')
                     <tr>
