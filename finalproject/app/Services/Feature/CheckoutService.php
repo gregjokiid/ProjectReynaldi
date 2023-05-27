@@ -21,7 +21,7 @@ class CheckoutService{
     {
         $userCart = $this->cartService->getUserCart();
         $subtotal =  $userCart->sum('total_price_per_product');
-        $total_pay = $subtotal + $request['shipping_cost']; 
+        $total_pay = $subtotal + $request['shipping_cost'];
         $dataOrder = [
             'invoice_number' => strtoupper(Str::random('6')),
             'total_pay' => $total_pay,
