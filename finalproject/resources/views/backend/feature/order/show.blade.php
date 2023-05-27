@@ -23,6 +23,10 @@
                                         <a href="{{ route('feature.order.refuse', $data['order']->id) }}" class="btn btn-danger btn-icon icon-left"><i class="fa fa-times"></i>
                                             Tolak</a>
                                     @endif
+                                    @if ($data['order']->status == 6)
+                                        <a href="{{ route('feature.order.payOffline', $data['order']->id) }}" class="btn btn-primary btn-icon icon-left"><i class="fa fa-check"></i>
+                                            Terima</a>
+                                    @endif
                                 </div>
                             </div>
                             <hr class="mb-2">

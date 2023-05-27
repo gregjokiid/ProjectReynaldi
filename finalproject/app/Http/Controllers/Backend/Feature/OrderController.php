@@ -54,4 +54,10 @@ class OrderController extends Controller
         $this->order->Query()->where('id',$id)->first()->update(['status' => 4]);
         return back()->with('success',__('message.order_received'));
     }
+
+    public function payOffline($id)
+    {
+        $this->order->Query()->where('id',$id)->first()->update(['status' => 5]);
+        return back()->with('success',__('message.order_received'));
+    }
 }
