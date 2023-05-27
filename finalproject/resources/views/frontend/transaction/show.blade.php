@@ -94,7 +94,7 @@
                                         </table>
                                     </div>
                                     <div class="row mt-4">
-                                        @if ($data['order']->status == 5)
+                                        @if ($data['order']->status == 5 || $data['order']->status == 6 || $data['order']->status == 7)
                                             <div class="col-lg-8"></div>
                                         @else
                                             <div class="col-lg-8">
@@ -119,7 +119,7 @@
 
                                         <div class="col-lg-4 text-right">
                                             <div class="invoice-detail-item">
-                                                @if ($data['order']->status == 5)
+                                                @if ($data['order']->status == 5 || $data['order']->status == 6 || $data['order']->status == 7)
                                                     <div class="invoice-detail-name">Total</div>
                                                 @else
                                                     <div class="invoice-detail-name">Subtotal</div>
@@ -127,7 +127,7 @@
                                                 <div class="invoice-detail-value">{{ rupiah($data['order']->subtotal) }}
                                                 </div>
                                             </div>
-                                            @if ($data['order']->status == 5)
+                                            @if ($data['order']->status == 5 || $data['order']->status == 6 || $data['order']->status == 7)
                                             @else
                                                 <div class="invoice-detail-item">
                                                     <div class="invoice-detail-name">{{ __('text.shipping_cost') }}</div>
