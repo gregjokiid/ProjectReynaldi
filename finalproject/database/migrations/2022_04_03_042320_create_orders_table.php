@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->string('invoice_number');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->bigInteger('total_pay');
-            $table->integer('status',0)->comment('0 = Menunggu Pembayaran','1 = Mengkonfirmasi Pembayaran','2 = Pembayaran Selesai','3 = Pesanan Selesai','4 = Pesanan Dibatalkan, 5 = Pesanan Kadaluarsa');
+            $table->integer('status',0)->comment('0 = Menunggu Pembayaran','1 = Mengkonfirmasi Pembayaran','2 = Pembayaran Selesai','3 = Pesanan Selesai','4 = Pesanan Dibatalkan', '5 = Pesanan Selesai - Offline', '6 = Menunggu Pembayaran - Offline', '7 = Pembayaran Selesai - Offline');
             $table->timestamp('paid_at')->nullable();
             $table->string('recipient_name');
             $table->string('proof')->nullable();
