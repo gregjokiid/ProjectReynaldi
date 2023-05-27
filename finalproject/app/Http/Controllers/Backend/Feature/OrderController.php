@@ -57,6 +57,7 @@ class OrderController extends Controller
 
     public function payOffline($id)
     {
+        $this->orderAcceptService->process($id);
         $this->order->Query()->where('id',$id)->first()->update(['status' => 5]);
         return back()->with('success',__('message.order_received'));
     }
