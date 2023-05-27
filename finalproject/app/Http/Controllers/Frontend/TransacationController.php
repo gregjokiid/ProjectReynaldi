@@ -67,6 +67,7 @@ class TransacationController extends Controller
     public function offline($invoice_number)
     {
         $data['order'] = $this->order->Query()->where('invoice_number',$invoice_number)->first();
+        $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['status' => 6]);
         return view('frontend.transaction.offline',compact('data'));
     }
 
