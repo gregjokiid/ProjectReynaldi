@@ -10,13 +10,11 @@ use Illuminate\Support\Str;
 class OrderAcceptService{
 
     protected $order,$ordeDetail,$product;
-    protected $cartService;
-    public function __construct(Order $order,OrderDetail $orderDetail,CartService $cartService,Product $product)
+    public function __construct(Order $order,OrderDetail $orderDetail,Product $product)
     {
         $this->order = new CrudRepositories($order);
         $this->orderDetail = new CrudRepositories($orderDetail);
         $this->product = new CrudRepositories($product);
-        $this->cartService = $cartService;
     }
 
     public function process($request)
