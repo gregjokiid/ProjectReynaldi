@@ -5,14 +5,16 @@ namespace App\Http\Controllers\Backend\Feature;
 use App\Http\Controllers\Controller;
 use App\Models\Feature\Order;
 use App\Repositories\CrudRepositories;
+use App\Services\Feature\OrderAcceptService;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
     protected $order;
-    public function __construct(Order $order)
+    public function __construct(Order $order, OrderAcceptService $orderAcceptService)
     {
         $this->order = new CrudRepositories($order);
+        $this->orderAcceptService = $orderAcceptService;
     }
 
     public function index($status = null)
@@ -42,6 +44,7 @@ class OrderController extends Controller
 
     public function accept($id)
     {
+        $this->orderAcceptService->process($id);
         $this->order->Query()->where('id',$id)->first()->update(['status' => 2]);
         return back()->with('success',__('message.order_received'));
     }
