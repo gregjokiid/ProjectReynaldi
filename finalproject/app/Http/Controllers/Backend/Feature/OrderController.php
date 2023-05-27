@@ -29,7 +29,7 @@ class OrderController extends Controller
     {
         $data['order'] = Order::find($id);
         $path = '/storage/file/order/payment/';
-        $file_path = $data['order']->snap_token;
+        $file_path = $data['order']->proof;
         return view('backend.feature.order.show',compact(['data', 'path', 'file_path']));
     }
 

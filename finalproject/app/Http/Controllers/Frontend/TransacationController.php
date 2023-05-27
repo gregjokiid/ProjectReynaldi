@@ -58,7 +58,7 @@ class TransacationController extends Controller
 
         $request->payment->move(storage_path('app/public/file/order/payment'), $imageName);
 
-        $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['snap_token' => $imageName]);
+        $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['proof' => $imageName]);
         $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['status' => 1]);
 
         return redirect()->route('transaction.index')->with('success',__('message.store'));
