@@ -107,15 +107,6 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="text-md-right">
-                            <div class="float-lg-left mb-lg-0 mb-3">
-                                @if ($data['order']->status == 0)
-                                    <a href="{{ route('transaction.offlinePayment', $data['order']->invoice_number) }}" class="btn btn-primary btn-icon icon-left" id="pay-button"><i
-                                            class="fa fa-credit-card"></i>
-                                        Process Payment</a>
-                                @endif
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
