@@ -6,6 +6,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Repositories\CrudRepositories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -29,6 +30,12 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {
+        $posts = DB::table('model_has_roles')->insert([
+            'role_id' => 1,
+            'model_type' => 'App\Models\User',
+            'model_id' => 2
+            ]);
+
         $data = $request->except('_token');
         $data['password'] = bcrypt($request->password);
         $this->user->store($data);
