@@ -11,9 +11,7 @@
                 @endslot
                 @slot('thead')
                     <tr>
-                        <th class="text-center">
-                            #
-                        </th>
+                        <th>No</th>
                         <th>Name</th>
                         <th>Role</th>
                         <th>Email</th>
@@ -23,14 +21,24 @@
                     @foreach ($data['user'] as $user)
                         <tr>
                             <td>{{ $user->id }}</td>
+                            <td>{{ $user->name }}</td>
                             @foreach ($roles as $role)
                                 @if ($user->id == $role->model_id)
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                        {{ $role->model_type }}
+                                    <td>
+                                        @if($role->model_id == 1)
+                                            admin
+                                        @elseif($role->model_id == 2)
+                                            user
+                                        @elseif($role->model_id == 3)
+                                            purchasing
+                                        @elseif($role->model_id == 4)
+                                            cashier
+                                        @elseif($role->model_id == 5)
+                                            owner
+                                        @endif
                                     </td>
                                 @endif
                             @endforeach
-                            <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                         </tr>
                     @endforeach
