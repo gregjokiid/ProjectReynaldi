@@ -20,7 +20,9 @@ class UserController extends Controller
     public function index()
     {
         $data['user'] = $this->user->get();
-        return view('user.index',compact('data'));
+        $roles = DB::table('model_has_roles')->get();
+        return view('user.index',compact('data', 'roles'));
+//        return dd($roles);
     }
 
     public function create()

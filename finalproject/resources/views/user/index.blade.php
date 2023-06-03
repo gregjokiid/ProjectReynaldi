@@ -23,10 +23,13 @@
                     @foreach ($data['user'] as $user)
                         <tr>
                             <td>{{ $user->id }}</td>
-                            @if($user->role == 1)
-                                <td>user</td>
-                            @endif
-
+                            @foreach ($roles as $role)
+                                @if ($user->id == $role->model_id)
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        {{ $role->model_type }}
+                                    </td>
+                                @endif
+                            @endforeach
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                         </tr>
