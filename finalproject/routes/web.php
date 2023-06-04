@@ -14,7 +14,6 @@ use App\Http\Controllers\Frontend\TransacationController;
 use App\Http\Controllers\Rajaongkir\RajaongkirController;
 use App\Http\Controllers\Setting\WebconfigController;
 use Illuminate\Support\Facades\Route;
-use Spatie\Permission\Contracts\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -143,9 +142,9 @@ Route::get('/product/{categoriSlug}/{productSlug}',[FrontendProductController::c
 Route::get('/contact', [\App\Http\Controllers\Frontend\ContactController::class,'index'])->name('contact.index');
 
 Route::prefix('user')->name('user.')->group(function(){
-    Route::get('/',[\App\Http\Controllers\UserController::class,'index'])->name('index');
-    Route::get('/create',[\App\Http\Controllers\UserController::class,'create'])->name('create');
-    Route::post('/create',[\App\Http\Controllers\UserController::class,'store'])->name('store');
+    Route::get('/',[\App\Http\Controllers\Backend\UserController::class,'index'])->name('index');
+    Route::get('/create',[\App\Http\Controllers\Backend\UserController::class,'create'])->name('create');
+    Route::post('/create',[\App\Http\Controllers\Backend\UserController::class,'store'])->name('store');
 });
 
 require __DIR__ . '/auth.php';
