@@ -18,7 +18,8 @@ class PurchaseOrderController extends Controller
     {
         $purchaseOrders = PurchaseOrder::all();
         $products = Product::all();
-        return view('backend.master.purchaseOrder.index', compact('purchaseOrders', 'products'));
+        $suppliers = Supplier::all();
+        return view('backend.master.purchaseOrder.index', compact('purchaseOrders', 'products', 'suppliers'));
     }
 
     /**
@@ -29,7 +30,8 @@ class PurchaseOrderController extends Controller
     public function create()
     {
         $products = Product::all();
-        return view('backend.master.purchaseOrder.create', compact('products'));
+        $suppliers = Supplier::all();
+        return view('backend.master.purchaseOrder.create', compact('products', 'suppliers'));
     }
 
     /**
@@ -42,15 +44,17 @@ class PurchaseOrderController extends Controller
     {
         $data = $request->validate([
             'product_id' => 'required|integer',
-            'name' => 'required|string',
-            'quantity'=>'required|string',
+            'supplier_id' => 'required|integer',
+            'status' => 'required|integer',
+            'qty'=>'required|integer',
             'price' => 'required|string',
         ]);
 
         PurchaseOrder::create([
             'product_id' => $data['product_id'],
-            'name' => $data['name'],
-            'quantity'=> $data['quantity'],
+            'supplier_id' => $data['supplier_id'],
+            'status' => $data['status'],
+            'qty' => $data['qty'],
             'price' => $data['price'],
         ]);
 
@@ -77,7 +81,8 @@ class PurchaseOrderController extends Controller
     public function edit(PurchaseOrder $purchaseOrder)
     {
         $products = Product::all();
-        return view('backend.master.purchaseOrder.edit', compact('purchaseOrder', 'products'));
+        $suppliers = Supplier::all();
+        return view('backend.master.purchaseOrder.edit', compact('purchaseOrder', 'products', 'suppliers'));
     }
 
     /**
