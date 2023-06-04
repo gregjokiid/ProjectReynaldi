@@ -11,16 +11,15 @@
                 @endslot
                 @slot('thead')
                     <tr>
-                        <th>No</th>
-                        <th>Name</th>
+                        <th>Nama</th>
                         <th>Role</th>
                         <th>Email</th>
+                        <th>Bergabung</th>
                     </tr>
                 @endslot
                 @slot('tbody')
                     @foreach ($data['user'] as $user)
                         <tr>
-                            <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             @foreach ($roles as $role)
                                 @if ($user->id == $role->model_id)
@@ -40,6 +39,7 @@
                                 @endif
                             @endforeach
                             <td>{{ $user->email }}</td>
+                            <td>{{ tanggal($user->created_at) }}</td>
                         </tr>
                     @endforeach
                 @endslot
