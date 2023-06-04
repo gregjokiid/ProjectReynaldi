@@ -21,12 +21,12 @@ class UserController extends Controller
     {
         $data['user'] = $this->user->get();
         $roles = DB::table('model_has_roles')->get();
-        return view('user.index',compact('data', 'roles'));
+        return view('backend.user.index',compact('data', 'roles'));
     }
 
     public function create()
     {
-        return view('user.create');
+        return view('backend.user.create');
     }
 
     public function store(UserRequest $request)
@@ -41,6 +41,6 @@ class UserController extends Controller
             'model_type' => 'App\Models\User',
             'model_id' => $user_count,
         ]);
-        return redirect()->route('user.index')->with('success',__('message.store'));
+        return redirect()->route('backend.user.index')->with('success',__('message.store'));
     }
 }
