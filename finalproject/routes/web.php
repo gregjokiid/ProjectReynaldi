@@ -50,24 +50,6 @@ Route::prefix('app')->group(function () {
                 Route::post('/update/{id}',[ProductController::class,'update'])->name('update');
                 Route::get('/delete/{id}',[ProductController::class,'delete'])->name('delete');
             });
-
-            Route::prefix('purchaseOrder')->name('purchaseOrder.')->group(function(){
-                Route::get('/',[\App\Http\Controllers\PurchaseOrderController::class,'index'])->name('index');
-                Route::get('/create',[\App\Http\Controllers\PurchaseOrderController::class,'create'])->name('create');
-                Route::post('/create',[\App\Http\Controllers\PurchaseOrderController::class,'store'])->name('store');
-                Route::get('/edit/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'edit'])->name('edit');
-                Route::post('/update/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'update'])->name('update');
-                Route::get('/delete/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'delete'])->name('delete');
-            });
-
-            Route::prefix('deliveryOrder')->name('deliveryOrder.')->group(function(){
-                Route::get('/',[\App\Http\Controllers\DeliveryOrderController::class,'index'])->name('index');
-                Route::get('/create',[\App\Http\Controllers\DeliveryOrderController::class,'create'])->name('create');
-                Route::post('/create',[\App\Http\Controllers\DeliveryOrderController::class,'store'])->name('store');
-                Route::get('/edit/{id}',[\App\Http\Controllers\DeliveryOrderController::class,'edit'])->name('edit');
-                Route::post('/update/{id}',[\App\Http\Controllers\DeliveryOrderController::class,'update'])->name('update');
-                Route::get('/delete/{id}',[\App\Http\Controllers\DeliveryOrderController::class,'delete'])->name('delete');
-            });
         });
 
         Route::prefix('feature')->name('feature.')->group(function(){
@@ -123,18 +105,12 @@ Route::prefix('rajaongkir')->name('rajaongkir.')->group(function(){
 });
 
 Route::get('/', [HomeController::class,'index'])->name('home');
-// Route Product
 Route::get('/product', [FrontendProductController::class,'index'])->name('product.index');
-
 Route::get('/search',[FrontendProductController::class,'search'])->name('product.search');
-// Ruote Category
 Route::get('/category', [FrontendCategoryController::class,'index'])->name('category.index');
 Route::get('/category/{slug}', [FrontendCategoryController::class,'show'])->name('category.show');
-
 Route::get('/product/{categoriSlug}/{productSlug}',[FrontendProductController::class,'show'])->name('product.show');
-
 Route::get('/contact', [\App\Http\Controllers\Frontend\ContactController::class,'index'])->name('contact.index');
-
 Route::prefix('user')->name('user.')->group(function(){
     Route::get('/',[\App\Http\Controllers\Backend\UserController::class,'index'])->name('index');
     Route::get('/create',[\App\Http\Controllers\Backend\UserController::class,'create'])->name('create');
