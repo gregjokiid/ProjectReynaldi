@@ -9,7 +9,7 @@
       <ul class="sidebar-menu">
           <li class="menu-header">Menu Admin</li>
           <li><a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fas fa-tachometer-alt"></i> <span> {{ __('menu.dashboard') }}</span></a></li>
-          <li><a class="nav-link" href="{{ route('customer.index') }}"><i class="fas fa-users"></i> <span> {{ __('menu.customer') }}</span></a></li>
+          <li><a class="nav-link" href="{{ route('user.index') }}"><i class="fas fa-users"></i> <span> User</span></a></li>
           <li><a class="nav-link" href="{{ route('master.purchaseOrder.index') }}"><i class="fas fa-users"></i> <span> Purchase Order</span></a></li>
           <li><a class="nav-link" href="{{ route('master.deliveryOrder.index') }}"><i class="fas fa-tachometer-alt"></i> <span> Delivery Order</span></a></li>
           <li class="nav-item dropdown">
