@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Master\Product;
 use App\Models\PurchaseOrder;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class PurchaseOrderController extends Controller
@@ -14,7 +16,10 @@ class PurchaseOrderController extends Controller
      */
     public function index()
     {
-        //
+        $purchaseOrders = PurchaseOrder::all();
+        $products = Product::all();
+        $suppliers = Supplier::all();
+        return view('backend.master.purchaseOrder.index', compact('purchaseOrders', 'products', 'suppliers'));
     }
 
     /**
