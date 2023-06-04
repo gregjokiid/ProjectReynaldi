@@ -18,8 +18,7 @@ class PurchaseOrderController extends Controller
     {
         $purchaseOrders = PurchaseOrder::all();
         $products = Product::all();
-        $suppliers = Supplier::all();
-        return view('backend.master.purchaseOrder.index', compact('purchaseOrders', 'products', 'suppliers'));
+        return view('backend.master.purchaseOrder.index', compact('purchaseOrders', 'products'));
     }
 
     /**
@@ -29,7 +28,8 @@ class PurchaseOrderController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::all();
+        return view('backend.master.purchaseOrder.create', compact('products'));
     }
 
     /**
@@ -40,7 +40,21 @@ class PurchaseOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'product_id' => 'required|integer',
+            'name' => 'required|string',
+            'quantity'=>'required|string',
+            'price' => 'required|string',
+        ]);
+
+        PurchaseOrder::create([
+            'product_id' => $data['product_id'],
+            'name' => $data['name'],
+            'quantity'=> $data['quantity'],
+            'price' => $data['price'],
+        ]);
+
+        return redirect()->route('master.purchaseOrder.index');
     }
 
     /**
@@ -62,7 +76,8 @@ class PurchaseOrderController extends Controller
      */
     public function edit(PurchaseOrder $purchaseOrder)
     {
-        //
+        $products = Product::all();
+        return view('backend.master.purchaseOrder.edit', compact('purchaseOrder', 'products'));
     }
 
     /**
@@ -74,7 +89,8 @@ class PurchaseOrderController extends Controller
      */
     public function update(Request $request, PurchaseOrder $purchaseOrder)
     {
-        //
+        $purchaseOrder->update($request->all());
+        return redirect()->route('master.purchaseOrder.index');
     }
 
     /**
@@ -83,8 +99,9 @@ class PurchaseOrderController extends Controller
      * @param  \App\Models\PurchaseOrder  $purchaseOrder
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PurchaseOrder $purchaseOrder)
+    public function delete(PurchaseOrder $purchaseOrder)
     {
-        //
+        $purchaseOrder->delete();
+        return redirect()->route('master.purchaseOrder.index');
     }
 }
