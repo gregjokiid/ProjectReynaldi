@@ -44,11 +44,6 @@ class Product extends Model
 
     public function PurchaseOrders()
     {
-        return $this->hasMany(PurchaseOrder::class,'product_id','id');
-    }
-
-    public function DeliveryOrders()
-    {
-        return $this->hasMany(DeliveryOrder::class,'product_id','id');
+        return $this->hasMany(PurchaseOrder::class);
     }
 }
