@@ -91,7 +91,7 @@ Route::prefix('app')->group(function () {
     });
 });
 
-Route::middleware('auth','role:user')->group(function(){
+Route::middleware('verified','role:user')->group(function(){
     Route::prefix('cart')->name('cart.')->group(function(){
         Route::get('/',[CartController::class,'index'])->name('index');
         Route::post('/store',[CartController::class,'store'])->name('store');
