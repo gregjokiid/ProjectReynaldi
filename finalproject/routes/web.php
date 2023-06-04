@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Feature\OrderController;
 use App\Http\Controllers\Backend\Master\CategoryController;
@@ -29,11 +28,6 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('app')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::get('dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
-
-
-        Route::prefix('customer')->name('customer.')->group(function () {
-            Route::get('/', [CustomerController::class, 'index'])->name('index');
-        });
 
         Route::prefix('master')->name('master.')->group(function(){
 
