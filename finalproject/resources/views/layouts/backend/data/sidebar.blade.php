@@ -9,7 +9,7 @@
       <ul class="sidebar-menu">
           @php($user_id = \Illuminate\Support\Facades\DB::table('model_has_roles')->where('model_id', '=', \Illuminate\Support\Facades\Auth::id())->get())
           @foreach($user_id as $id)
-              @if($id->role_id == 1 || $id->role_id == 3 || $id->role_id == 4 || $id->role_id == 5)
+              @if($id->role_id == 1)
                   <li class="menu-header">Menu Admin</li>
                   <li><a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fas fa-tachometer-alt"></i> <span> {{ __('menu.dashboard') }}</span></a></li>
                   <li><a class="nav-link" href="{{ route('user.index') }}"><i class="fas fa-users"></i> <span> User</span></a></li>
