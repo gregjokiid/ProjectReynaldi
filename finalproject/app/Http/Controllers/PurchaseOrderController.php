@@ -5,10 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Master\Product;
 use App\Models\PurchaseOrder;
 use App\Models\Supplier;
+use App\Repositories\CrudRepositories;
 use Illuminate\Http\Request;
 
 class PurchaseOrderController extends Controller
 {
+    protected $purchaseOrder;
+    public function __construct(PurchaseOrder $purchaseOrder)
+    {
+        $this->purchaseOrder = new CrudRepositories($purchaseOrder);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -78,8 +84,9 @@ class PurchaseOrderController extends Controller
      * @param  \App\Models\PurchaseOrder  $purchaseOrder
      * @return \Illuminate\Http\Response
      */
-    public function edit(PurchaseOrder $purchaseOrder)
+    public function edit($id)
     {
+        $purchaseOrder = PurchaseOrder::find($id);
         $products = Product::all();
         $suppliers = Supplier::all();
         return view('backend.master.purchaseOrder.edit', compact('purchaseOrder', 'products', 'suppliers'));
@@ -104,9 +111,9 @@ class PurchaseOrderController extends Controller
      * @param  \App\Models\PurchaseOrder  $purchaseOrder
      * @return \Illuminate\Http\Response
      */
-    public function delete(PurchaseOrder $purchaseOrder)
+    public function delete($id)
     {
-        $purchaseOrder->delete();
-        return redirect()->route('master.purchaseOrder.index');
+        $this->purchaseOrder->hardDelete($id);
+        return back()->with('success',__('message.harddelete'));
     }
 }
