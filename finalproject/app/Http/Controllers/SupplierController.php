@@ -90,9 +90,9 @@ class SupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Supplier $supplier)
+    public function update(Request $request, $id)
     {
-        $supplier->update($request->all());
+        $this->supplier->update($id,$request->except('_token'));
         return redirect()->route('master.supplier.index');
     }
 

@@ -8,13 +8,13 @@
                 @slot('method', 'POST')
                 @slot('content')
 
-                    <x-forms.input name="name" id="name" label="Name" :isRequired="true" value="{{ $supplier->name }}"/>
+                    <x-forms.input type="text" name="name" id="name" label="Nama" :isRequired="true" value="{{ $supplier->name }}"/>
 
-                    <x-forms.input name="address" id="address" label="Address" :isRequired="true" value="{{ $supplier->address }}"/>
+                    <x-forms.input type="text" name="address" id="address" label="Address" :isRequired="true" value="{{ $supplier->address }}"/>
 
-                    <x-forms.input type="number" name="phone" id="phone" label="Kuantitas" :isRequired="true" value="{{ $supplier->phone }}"/>
+                    <x-forms.input type="number" name="phone" id="phone" label="Phone" :isRequired="true" value="{{ $supplier->phone }}"/>
 
-                    <x-forms.input type="email" name="email" id="email" label="Harga" :isRequired="true" value="{{ $supplier->email }}"/>
+                    <x-forms.input type="email" name="email" id="email" label="Email" :isRequired="true" value="{{ $supplier->email }}"/>
 
                     <div class="text-right">
                         <a href="{{ Route('master.supplier.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
