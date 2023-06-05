@@ -26,11 +26,11 @@
                         </select>
                     </div>
 
-                    <x-forms.input name="status" id="status" :label="__('field.product_name')" :isRequired="true" />
+                    <x-forms.input name="status" id="status" value=0 hidden/>
 
                     <x-forms.input type="number" name="qty" id="qty" label="Kuantitas" :isRequired="true" />
 
-                    <x-forms.input type="number" name="price" id="price" :label="__('field.price')" :isRequired="true" />
+                    <x-forms.input type="number" name="price" id="price" label="Harga" :isRequired="true" />
 
                     <div class="text-right">
                         <a href="{{ Route('master.purchaseOrder.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
