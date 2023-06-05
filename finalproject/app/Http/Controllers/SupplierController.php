@@ -73,8 +73,7 @@ class SupplierController extends Controller
      */
     public function edit(Supplier $supplier)
     {
-        $suppliers = Supplier::all();
-        return view('backend.master.supplier.edit', compact('suppliers'));
+        return view('backend.master.supplier.edit', compact('supplier'));
     }
 
     /**
