@@ -22,7 +22,7 @@ class PurchaseOrderController extends Controller
      */
     public function index()
     {
-        $purchaseOrders = PurchaseOrder::all();
+        $purchaseOrders = PurchaseOrder::where('status', '=', 0)->get();
         $products = Product::all();
         $suppliers = Supplier::all();
         return view('backend.master.purchaseOrder.index', compact('purchaseOrders', 'products', 'suppliers'));
