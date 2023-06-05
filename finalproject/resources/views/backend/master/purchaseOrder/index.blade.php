@@ -34,7 +34,14 @@
                                         <td>{{ $supplier->name }}</td>
                                     @endif
                                 @endforeach
-                            <td>{{ $purchaseOrder->status }}</td>
+
+                                @if($purchaseOrder->status == 0)
+                                    <td>Ongoing</td>
+                                @endif
+
+                                @if($purchaseOrder->status == 1)
+                                    <td>Done</td>
+                                @endif
                             <td>{{ $purchaseOrder->qty }}</td>
                             <td>{{ $purchaseOrder->price }}</td>
                             <td>
