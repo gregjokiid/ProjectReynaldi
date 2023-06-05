@@ -99,9 +99,9 @@ class PurchaseOrderController extends Controller
      * @param  \App\Models\PurchaseOrder  $purchaseOrder
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PurchaseOrder $purchaseOrder)
+    public function update(Request $request, $id)
     {
-        $purchaseOrder->update($request->all());
+        $this->purchaseOrder->update($id,$request->except('_token'));
         return redirect()->route('master.purchaseOrder.index');
     }
 
