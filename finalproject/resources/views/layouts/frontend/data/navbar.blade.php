@@ -28,43 +28,38 @@
                  <nav class="header__menu">
                      <ul>
                          <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
-                         @php($user_id = \Illuminate\Support\Facades\DB::table('model_has_roles')->where('model_id', '=', \Illuminate\Support\Facades\Auth::id())->get())
-                         @foreach($user_id as $id)
-                             @if($id->role_id == 1)
-
-                             @endif
-
-                             @if($id->role_id == 2)
-
-                             @endif
-
-                             @if($id->role_id == 3)
-
-                             @endif
-
-                             @if($id->role_id == 4)
-
-                             @endif
-
-                             @if($id->role_id == 5)
-
-                             @endif
-                         @endforeach
                          <li class="{{ request()->is('product*') ? 'active' : '' }}"><a href="{{ route('product.index') }}">Shop</a></li>
                          <li class="{{ request()->is('category*') ? 'active' : '' }}"><a href="{{ route('category.index') }}">Category</a></li>
                          <li class="{{ request()->is('contact') ? 'active' : '' }}"><a href="{{ route('contact.index') }}">Contact</a></li>
                          @auth
                           <li class="#"><a href="#"><i class="fa fa-angle-down"></i> {{ auth()->user()->name }}</a>
                             <ul class="dropdown">
-                                <li><a href="{{ route('transaction.index') }}">Riwayat Belanja</a></li>
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <li>
-                                        <a href="{{ route('logout')  }}" onclick="event.preventDefault();
+                                @php($user_id = \Illuminate\Support\Facades\DB::table('model_has_roles')->where('model_id', '=', \Illuminate\Support\Facades\Auth::id())->get())
+                                @foreach($user_id as $id)
+                                    @if($id->role_id == 1 || $id->role_id == 3 || $id->role_id == 4 || $id->role_id == 5)
+                                        <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <li>
+                                                <a href="{{ route('logout')  }}" onclick="event.preventDefault();
                                         this.closest('form').submit();" > Logout
-                                    </a>
-                                    </li>
-                                </form>
+                                                </a>
+                                            </li>
+                                        </form>
+                                    @endif
+
+                                    @if($id->role_id == 2)
+                                            <li><a href="{{ route('transaction.index') }}">Riwayat Belanja</a></li>
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                                                <li>
+                                                    <a href="{{ route('logout')  }}" onclick="event.preventDefault();
+                                        this.closest('form').submit();" > Logout
+                                                    </a>
+                                                </li>
+                                            </form>
+                                    @endif
+                                @endforeach
                             </ul>
                         </li>
                              @else
