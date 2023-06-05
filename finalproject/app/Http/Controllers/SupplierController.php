@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
+    protected $supplier;
+    public function __construct(Supplier $supplier)
+    {
+        $this->supplier = new CrudRepositories($supplier);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -71,9 +76,10 @@ class SupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supplier $supplier)
+    public function edit($id)
     {
-        return view('backend.master.supplier.edit', compact('supplier'));
+        $suppliers = Supplier::all();
+        return view('backend.master.supplier.edit', compact('suppliers'));
     }
 
     /**
@@ -95,9 +101,9 @@ class SupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete(Supplier $supplier)
+    public function delete($id)
     {
-        $supplier->delete();
-        return redirect()->route('master.supplier.index');
+        $this->supplier->hardDelete($id);
+        return back()->with('success',__('message.harddelete'));
     }
 }
