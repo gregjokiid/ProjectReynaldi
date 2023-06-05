@@ -43,7 +43,16 @@
                   </li>
               @endif
 
-              @if($id->role_id == 2)
+              @if($id->role_id == 3)
+                      <li class="menu-header">Menu Purchasing</li>
+              @endif
+
+              @if($id->role_id == 4)
+                      <li class="menu-header">Menu Cashier</li>
+              @endif
+
+              @if($id->role_id == 5)
+                      <li class="menu-header">Menu Owner</li>
               @endif
           @endforeach
         </ul>
