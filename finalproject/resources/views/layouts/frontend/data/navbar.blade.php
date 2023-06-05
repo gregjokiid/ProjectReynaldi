@@ -46,9 +46,8 @@
                                                 </a>
                                             </li>
                                         </form>
-                                    @endif
 
-                                    @if($id->role_id == 2)
+                                    @elseif($id->role_id == 2)
                                             <li><a href="{{ route('transaction.index') }}">Riwayat Belanja</a></li>
                                             <form method="POST" action="{{ route('logout') }}">
                                                 @csrf
