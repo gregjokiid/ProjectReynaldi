@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Supplier;
+use App\Repositories\CrudRepositories;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller
