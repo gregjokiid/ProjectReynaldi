@@ -130,6 +130,7 @@ Route::get('/category', [FrontendCategoryController::class,'index'])->name('cate
 Route::get('/category/{slug}', [FrontendCategoryController::class,'show'])->name('category.show');
 Route::get('/product/{categoriSlug}/{productSlug}',[FrontendProductController::class,'show'])->name('product.show');
 Route::get('/contact', [\App\Http\Controllers\Frontend\ContactController::class,'index'])->name('contact.index');
+
 Route::prefix('user')->name('user.')->group(function(){
     Route::get('/',[\App\Http\Controllers\Backend\UserController::class,'index'])->name('index');
     Route::get('/create',[\App\Http\Controllers\Backend\UserController::class,'create'])->name('create');

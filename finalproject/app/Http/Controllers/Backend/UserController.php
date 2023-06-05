@@ -41,6 +41,6 @@ class UserController extends Controller
             'model_type' => 'App\Models\User',
             'model_id' => $user_count,
         ]);
-        return redirect()->route('backend.user.index')->with('success',__('message.store'));
+        return redirect()->route('user.index')->with('success',__('message.store'));
     }
 }
