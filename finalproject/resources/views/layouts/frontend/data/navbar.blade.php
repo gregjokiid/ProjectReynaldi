@@ -28,6 +28,12 @@
                  <nav class="header__menu">
                      <ul>
                          <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
+                         @php($user_id = \Illuminate\Support\Facades\DB::table('model_has_roles')->where('model_id', '=', \Illuminate\Support\Facades\Auth::id())->get())
+                         @foreach($user_id as $id)
+                             @if($id->role_id == 4)
+                                 kocak
+                             @endif
+                         @endforeach
                          <li class="{{ request()->is('product*') ? 'active' : '' }}"><a href="{{ route('product.index') }}">Shop</a></li>
                          <li class="{{ request()->is('category*') ? 'active' : '' }}"><a href="{{ route('category.index') }}">Category</a></li>
                          <li class="{{ request()->is('contact') ? 'active' : '' }}"><a href="{{ route('contact.index') }}">Contact</a></li>
