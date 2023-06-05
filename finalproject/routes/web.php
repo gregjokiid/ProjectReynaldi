@@ -51,6 +51,16 @@ Route::prefix('app')->group(function () {
                 Route::get('/delete/{id}',[ProductController::class,'delete'])->name('delete');
             });
 
+            Route::prefix('supplier')->name('supplier.')->group(function(){
+                Route::get('/',[\App\Http\Controllers\SupplierController::class,'index'])->name('index');
+                Route::get('/create',[\App\Http\Controllers\SupplierController::class,'create'])->name('create');
+                Route::post('/create',[\App\Http\Controllers\SupplierController::class,'store'])->name('store');
+                Route::get('/show/{id}',[\App\Http\Controllers\SupplierController::class,'show'])->name('show');
+                Route::get('/edit/{id}',[\App\Http\Controllers\SupplierController::class,'edit'])->name('edit');
+                Route::post('/update/{id}',[\App\Http\Controllers\SupplierController::class,'update'])->name('update');
+                Route::get('/delete/{id}',[\App\Http\Controllers\SupplierController::class,'delete'])->name('delete');
+            });
+
             Route::prefix('purchaseOrder')->name('purchaseOrder.')->group(function(){
                 Route::get('/',[\App\Http\Controllers\PurchaseOrderController::class,'index'])->name('index');
                 Route::get('/create',[\App\Http\Controllers\PurchaseOrderController::class,'create'])->name('create');

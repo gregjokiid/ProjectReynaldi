@@ -10,6 +10,14 @@ class PurchaseOrder extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'product_id',
+        'supplier_id',
+        'status',
+        'qty',
+        'price',
+    ];
+
     public function Product()
     {
         return $this->belongsTo(Product::class,'product_id');
