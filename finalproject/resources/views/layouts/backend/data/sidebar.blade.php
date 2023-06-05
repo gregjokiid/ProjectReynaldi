@@ -24,7 +24,7 @@
               @if($id->role_id == 5)
                       <li class="menu-header">Menu Owner</li>
                       <li><a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fas fa-tachometer-alt"></i> <span> {{ __('menu.dashboard') }}</span></a></li>
-                      <li><a class="nav-link" href="{{ route('user.index') }}"><i class="fas fa-users"></i> <span> User</span></a></li>
+                      <li><a class="nav-link" href="{{ route('user.index') }}"><i class="fas fa-users"></i> <span>User</span></a></li>
                       <li class="nav-item dropdown">
                           <a href="#" class="nav-link has-dropdown"><i class="fas fa-table"></i><span>Master</span></a>
                           <ul class="dropdown-menu">
