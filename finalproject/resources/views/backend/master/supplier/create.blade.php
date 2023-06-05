@@ -8,13 +8,13 @@
                 @slot('method', 'POST')
                 @slot('content')
 
-                    <x-forms.input name="name" id="name" :label="__('field.product_name')" :isRequired="true" />
+                    <x-forms.input type="text" name="name" id="name" label="Nama" :isRequired="true" />
 
-                    <x-forms.input name="address" id="address" :label="__('field.product_name')" :isRequired="true" />
+                    <x-forms.input type="text" name="address" id="address" label="Alamat" :isRequired="true" />
 
-                    <x-forms.input type="number" name="phone" id="phone" label="Kuantitas" :isRequired="true" />
+                    <x-forms.input type="number" name="phone" id="phone" label="Nomor Telepon" :isRequired="true" />
 
-                    <x-forms.input type="email" name="email" id="email" :label="__('field.price')" :isRequired="true" />
+                    <x-forms.input type="email" name="email" id="email" label="Email" :isRequired="true" />
 
                     <div class="text-right">
                         <a href="{{ Route('master.supplier.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
