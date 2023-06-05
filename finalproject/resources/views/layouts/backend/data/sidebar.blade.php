@@ -15,6 +15,8 @@
             <ul class="dropdown-menu">
               <li><a class="nav-link" href="{{ route('master.category.index') }}">{{ __('menu.category') }}</a></li>
               <li><a class="nav-link" href="{{ route('master.product.index') }}">{{ __('menu.product') }}</a></li>
+                <li><a class="nav-link" href="{{ route('master.supplier.index') }}">Supplier</a></li>
+                <li><a class="nav-link" href="{{ route('master.purchaseOrder.index') }}">Purchase Order</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
