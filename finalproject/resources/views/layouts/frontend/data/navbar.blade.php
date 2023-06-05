@@ -30,8 +30,24 @@
                          <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
                          @php($user_id = \Illuminate\Support\Facades\DB::table('model_has_roles')->where('model_id', '=', \Illuminate\Support\Facades\Auth::id())->get())
                          @foreach($user_id as $id)
+                             @if($id->role_id == 1)
+
+                             @endif
+
+                             @if($id->role_id == 2)
+
+                             @endif
+
+                             @if($id->role_id == 3)
+
+                             @endif
+
                              @if($id->role_id == 4)
-                                 kocak
+
+                             @endif
+
+                             @if($id->role_id == 5)
+
                              @endif
                          @endforeach
                          <li class="{{ request()->is('product*') ? 'active' : '' }}"><a href="{{ route('product.index') }}">Shop</a></li>
