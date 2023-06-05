@@ -17,9 +17,18 @@
                         </select>
                     </div>
 
-                    <x-forms.input name="name" id="name" :label="__('field.product_name')" :isRequired="true" />
+                    <div class="form-group">
+                        <label>Pilih Supplier :</label>
+                        <select class="custom-select" name="supplier_id" onmouseover="this.style.boxShadow='0px 0px 15px LightSkyBlue'" onmouseout="this.style.boxShadow='0px 0px 0px LightSkyBlue'">
+                            @foreach ($suppliers as $supplier)
+                                <option value="{{ $supplier->id }}">{{$supplier->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-                    <x-forms.input type="number" name="quantity" id="quantity" label="Kuantitas" :isRequired="true" />
+                    <x-forms.input name="status" id="status" :label="__('field.product_name')" :isRequired="true" />
+
+                    <x-forms.input type="number" name="qty" id="qty" label="Kuantitas" :isRequired="true" />
 
                     <x-forms.input type="number" name="price" id="price" :label="__('field.price')" :isRequired="true" />
 

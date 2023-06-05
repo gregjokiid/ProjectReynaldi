@@ -12,26 +12,31 @@
                 @endslot
                 @slot('thead')
                     <tr>
-                        <th>Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
                         <th>Product ID</th>
-                        <th>Tanggal Dibuat</th>
+                        <th>Supplier ID</th>
+                        <th>Status</th>
+                        <th>Qty</th>
+                        <th>Price</th>
                         <th>Action</th>
                     </tr>
                 @endslot
                 @slot('tbody')
                     @foreach ($purchaseOrders as $purchaseOrder)
                         <tr>
-                            <td>{{ $purchaseOrder->name }}</td>
-                            <td>{{ $purchaseOrder->quantity }}</td>
-                            <td>{{ $purchaseOrder->price }}</td>
                             @foreach ($products as $product)
                                 @if ($purchaseOrder->product_id == $product->id)
                                     <td>{{ $product->name }}</td>
                                 @endif
                             @endforeach
-                            <td>{{ tanggal($purchaseOrder->created_at) }}</td>
+
+                                @foreach ($suppliers as $supplier)
+                                    @if ($purchaseOrder->supplier_id == $supplier->id)
+                                        <td>{{ $supplier->name }}</td>
+                                    @endif
+                                @endforeach
+                            <td>{{ $purchaseOrder->status }}</td>
+                            <td>{{ $purchaseOrder->qty }}</td>
+                            <td>{{ $purchaseOrder->price }}</td>
                             <td>
                                 <x-button.dropdown-button :title="__('field.action')">
                                     <a class="dropdown-item has-icon" href="{{ route('master.purchaseOrder.edit',$purchaseOrder->id) }}"><i class="far fa-edit"></i>
