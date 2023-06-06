@@ -107,6 +107,9 @@
                             </div>
                         </div>
                         <hr>
+                        <div class="text-md-right">
+                            <a href="{{ Route('transaction.index') }}" class="btn btn-primary " href="#">Kembali</a>
+                        </div>
                     </div>
                 </div>
             </div>
