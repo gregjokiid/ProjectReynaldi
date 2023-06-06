@@ -11,7 +11,7 @@
           @foreach($user_id as $id)
               @if($id->role_id == 1)
                   <li class="menu-header">Menu Admin</li>
-                  <li><a class="nav-link" href="{{ route('master.purchaseOrder.index') }}"><i class="fas fa-warehouse"></i> <span>Purchase Order</span></a></li>
+                  <li><a class="nav-link" href="{{ route('purchaseOrder.index') }}"><i class="fas fa-warehouse"></i> <span>Purchase Order</span></a></li>
                   <li><a class="nav-link" href="{{ route('feature.order.index',0) }}"><i class="fas fa-shopping-cart"></i> <span>Menunggu Pembayaran</span></a></li>
                   <li><a class="nav-link" href="{{ route('feature.order.index',1) }}"><i class="fas fa-shopping-cart"></i> <span>Mengkonfirmasi Pembayaran</span></a></li>
                   <li><a class="nav-link" href="{{ route('feature.order.index',2) }}"><i class="fas fa-shopping-cart"></i> <span>Pembayaran Selesai</span></a></li>
@@ -21,7 +21,7 @@
 
               @if($id->role_id == 3)
                       <li class="menu-header">Menu Purchasing</li>
-                      <li><a class="nav-link" href="{{ route('master.deliveryOrder.index') }}"><i class="fas fa-boxes"></i> <span>Delivery Order</span></a></li>
+                      <li><a class="nav-link" href="{{ route('deliveryOrder.index') }}"><i class="fas fa-boxes"></i> <span>Delivery Order</span></a></li>
               @endif
 
               @if($id->role_id == 4)
@@ -34,8 +34,8 @@
                       <li class="menu-header">Menu Owner</li>
                       <li><a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fas fa-tachometer-alt"></i> <span> {{ __('menu.dashboard') }}</span></a></li>
                       <li><a class="nav-link" href="{{ route('user.index') }}"><i class="fas fa-users"></i> <span>User</span></a></li>
-                      <li><a class="nav-link" href="{{ route('master.purchaseOrder.index') }}"><i class="fas fa-warehouse"></i> <span>Purchase Order</span></a></li>
-                      <li><a class="nav-link" href="{{ route('master.deliveryOrder.index') }}"><i class="fas fa-boxes"></i> <span>Delivery Order</span></a></li>
+                      <li><a class="nav-link" href="{{ route('purchaseOrder.index') }}"><i class="fas fa-warehouse"></i> <span>Purchase Order</span></a></li>
+                      <li><a class="nav-link" href="{{ route('deliveryOrder.index') }}"><i class="fas fa-boxes"></i> <span>Delivery Order</span></a></li>
                       <li class="nav-item dropdown">
                           <a href="#" class="nav-link has-dropdown"><i class="fas fa-table"></i><span>Master</span></a>
                           <ul class="dropdown-menu">
