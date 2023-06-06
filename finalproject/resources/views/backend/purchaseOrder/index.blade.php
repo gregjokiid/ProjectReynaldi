@@ -35,11 +35,11 @@
                                 @endforeach
 
                                 @if($purchaseOrder->status == 0)
-                                    <td>Ongoing</td>
+                                    <td>Sedang Diproses</td>
                                 @endif
 
                                 @if($purchaseOrder->status == 1)
-                                    <td>Done</td>
+                                    <td>Selesai</td>
                                 @endif
                             <td>{{ $purchaseOrder->qty }}</td>
                             <td>
