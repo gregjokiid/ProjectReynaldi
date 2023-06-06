@@ -11,6 +11,11 @@
           @foreach($user_id as $id)
               @if($id->role_id == 1)
                   <li class="menu-header">Menu Admin</li>
+                  <li><a class="nav-link" href="{{ route('feature.order.index',0) }}"><i class="fas fa-shopping-cart"></i> <span>Menunggu Pembayaran</span></a></li>
+                  <li><a class="nav-link" href="{{ route('feature.order.index',1) }}"><i class="fas fa-shopping-cart"></i> <span>Mengkonfirmasi Pembayaran</span></a></li>
+                  <li><a class="nav-link" href="{{ route('feature.order.index',2) }}"><i class="fas fa-shopping-cart"></i> <span>Pembayaran Selesai</span></a></li>
+                  <li><a class="nav-link" href="{{ route('feature.order.index',3) }}"><i class="fas fa-shopping-cart"></i> <span>Pesanan Selesai</span></a></li>
+                  <li><a class="nav-link" href="{{ route('feature.order.index',4) }}"><i class="fas fa-shopping-cart"></i> <span>Pesanan Dibatalkan</span></a></li>
               @endif
 
               @if($id->role_id == 3)
