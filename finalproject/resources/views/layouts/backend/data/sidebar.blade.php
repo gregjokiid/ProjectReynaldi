@@ -32,14 +32,14 @@
                       <li class="menu-header">Menu Owner</li>
                       <li><a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fas fa-tachometer-alt"></i> <span> {{ __('menu.dashboard') }}</span></a></li>
                       <li><a class="nav-link" href="{{ route('user.index') }}"><i class="fas fa-users"></i> <span>User</span></a></li>
+                      <li><a class="nav-link" href="{{ route('master.purchaseOrder.index') }}"><i class="fas fa-warehouse"></i> <span>Purchase Order</span></a></li>
+                      <li><a class="nav-link" href="{{ route('master.deliveryOrder.index') }}"><i class="fas fa-boxes"></i> <span>Delivery Order</span></a></li>
                       <li class="nav-item dropdown">
                           <a href="#" class="nav-link has-dropdown"><i class="fas fa-table"></i><span>Master</span></a>
                           <ul class="dropdown-menu">
                               <li><a class="nav-link" href="{{ route('master.category.index') }}">{{ __('menu.category') }}</a></li>
                               <li><a class="nav-link" href="{{ route('master.product.index') }}">{{ __('menu.product') }}</a></li>
                               <li><a class="nav-link" href="{{ route('master.supplier.index') }}">Supplier</a></li>
-                              <li><a class="nav-link" href="{{ route('master.purchaseOrder.index') }}">Purchase Order</a></li>
-                              <li><a class="nav-link" href="{{ route('master.deliveryOrder.index') }}">Delivery Order</a></li>
                           </ul>
                       </li>
                       <li class="nav-item dropdown">
