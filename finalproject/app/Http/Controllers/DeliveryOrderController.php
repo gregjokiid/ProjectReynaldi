@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Master\Product;
 use App\Models\PurchaseOrder;
+use App\Models\Supplier;
 use App\Repositories\CrudRepositories;
 use Illuminate\Http\Request;
 
@@ -20,10 +22,10 @@ class DeliveryOrderController extends Controller
      */
     public function index()
     {
-        $purchaseOrders = PurchaseOrder::where('status', '=', 0)->get();
+        $purchaseOrders = PurchaseOrder::where('status', '=', 1)->get();
         $products = Product::all();
         $suppliers = Supplier::all();
-        return view('backend.purchaseOrder.index', compact('purchaseOrders', 'products', 'suppliers'));
+        return view('backend.deliveryOrder.index', compact('purchaseOrders', 'products', 'suppliers'));
     }
 
     /**
@@ -33,9 +35,7 @@ class DeliveryOrderController extends Controller
      */
     public function create()
     {
-        $products = Product::all();
-        $suppliers = Supplier::all();
-        return view('backend.purchaseOrder.create', compact('products', 'suppliers'));
+        //
     }
 
     /**
@@ -46,21 +46,7 @@ class DeliveryOrderController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'product_id' => 'required|integer',
-            'supplier_id' => 'required|integer',
-            'status' => 'required|integer',
-            'qty'=>'required|integer',
-        ]);
-
-        PurchaseOrder::create([
-            'product_id' => $data['product_id'],
-            'supplier_id' => $data['supplier_id'],
-            'status' => $data['status'],
-            'qty' => $data['qty'],
-        ]);
-
-        return redirect()->route('purchaseOrder.index');
+        //
     }
 
     /**
@@ -85,7 +71,7 @@ class DeliveryOrderController extends Controller
         $purchaseOrder = PurchaseOrder::find($id);
         $products = Product::all();
         $suppliers = Supplier::all();
-        return view('backend.purchaseOrder.edit', compact('purchaseOrder', 'products', 'suppliers'));
+        return view('backend.deliveryOrder.edit', compact('purchaseOrder', 'products', 'suppliers'));
     }
 
     /**
@@ -98,7 +84,7 @@ class DeliveryOrderController extends Controller
     public function update(Request $request, $id)
     {
         $this->purchaseOrder->update($id,$request->except('_token'));
-        return redirect()->route('purchaseOrder.index');
+        return redirect()->route('deliveryOrder.index');
     }
 
     /**
@@ -109,7 +95,6 @@ class DeliveryOrderController extends Controller
      */
     public function delete($id)
     {
-        $this->purchaseOrder->hardDelete($id);
-        return back()->with('success',__('message.harddelete'));
+        //
     }
 }
