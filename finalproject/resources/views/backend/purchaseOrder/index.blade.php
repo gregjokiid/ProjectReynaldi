@@ -16,6 +16,8 @@
                         <th>Supplier ID</th>
                         <th>Status</th>
                         <th>Qty</th>
+                        <th>Dibuat</th>
+                        <th>Diupdate</th>
                         <th>Action</th>
                     </tr>
                 @endslot
@@ -42,6 +44,8 @@
                                     <td>Selesai</td>
                                 @endif
                             <td>{{ $purchaseOrder->qty }}</td>
+                            <td>{{ $purchaseOrder->created_at }}</td>
+                            <td>{{ $purchaseOrder->updated_at }}</td>
                             <td>
                                 <x-button.dropdown-button :title="__('field.action')">
                                     <a class="dropdown-item has-icon" href="{{ route('purchaseOrder.edit',$purchaseOrder->id) }}"><i class="far fa-edit"></i>
