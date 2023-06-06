@@ -114,4 +114,10 @@ class PurchaseOrderController extends Controller
         $this->purchaseOrder->hardDelete($id);
         return back()->with('success',__('message.harddelete'));
     }
+
+    public function done($id)
+    {
+        $this->purchaseOrder->Query()->where('id',$id)->first()->update(['status' => 1]);
+        return back()->with('success',__('message.order_received'));
+    }
 }

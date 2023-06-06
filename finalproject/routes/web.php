@@ -42,6 +42,7 @@ Route::prefix('app')->group(function () {
             Route::get('/edit/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'edit'])->name('edit');
             Route::post('/update/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'update'])->name('update');
             Route::get('/delete/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'delete'])->name('delete');
+            Route::get('/{id}/done',[\App\Http\Controllers\PurchaseOrderController::class,'done'])->name('done');
         });
 
         Route::prefix('deliveryOrder')->name('deliveryOrder.')->group(function(){
