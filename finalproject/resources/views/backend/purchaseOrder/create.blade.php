@@ -12,7 +12,7 @@
                         <label>Pilih Produk :</label>
                         <select class="custom-select" name="product_id" onmouseover="this.style.boxShadow='0px 0px 15px LightSkyBlue'" onmouseout="this.style.boxShadow='0px 0px 0px LightSkyBlue'">
                             @foreach ($products as $product)
-                                <option value="{{ $product->id }}">{{$product->name}} (Stok : {{$product->stock}})</option>
+                                <option value="{{ $product->id }}">{{$product->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -21,7 +21,7 @@
                         <label>Pilih Supplier :</label>
                         <select class="custom-select" name="supplier_id" onmouseover="this.style.boxShadow='0px 0px 15px LightSkyBlue'" onmouseout="this.style.boxShadow='0px 0px 0px LightSkyBlue'">
                             @foreach ($suppliers as $supplier)
-                                <option value="{{ $supplier->id }}">{{$supplier->name}} (Alamat : {{$supplier->address}})</option>
+                                <option value="{{ $supplier->id }}">{{$supplier->name}}</option>
                             @endforeach
                         </select>
                     </div>
