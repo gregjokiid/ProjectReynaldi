@@ -19,6 +19,8 @@
 
               @if($id->role_id == 4)
                       <li class="menu-header">Menu Cashier</li>
+                      <li><a class="nav-link" href="{{ route('feature.order.index',6) }}"><i class="fas fa-shopping-cart"></i> <span>Menunggu Pembayaran</span></a></li>
+                      <li><a class="nav-link" href="{{ route('feature.order.index',5) }}"><i class="fas fa-shopping-cart"></i> <span>Pesanan Selesai</span></a></li>
               @endif
 
               @if($id->role_id == 5)
@@ -39,12 +41,13 @@
                           <a href="#" class="nav-link has-dropdown"><i class="fas fa-shopping-cart"></i><span>{{ __('menu.order') }}</span></a>
                           <ul class="dropdown-menu">
                               <li><a class="nav-link" href="{{ route('feature.order.index') }}">{{ __('menu.order_all') }}</a></li>
-                              <li><a class="nav-link" href="{{ route('feature.order.index',0) }}">{{ __('menu.order_pending') }}</a></li>
-                              <li><a class="nav-link" href="{{ route('feature.order.index',1) }}">{{ __('menu.order_process') }}</a></li>
-                              <li><a class="nav-link" href="{{ route('feature.order.index',2) }}">{{ __('menu.order_shipped') }}</a></li>
-                              <li><a class="nav-link" href="{{ route('feature.order.index',3) }}">{{ __('menu.order_completed') }}</a></li>
-                              <li><a class="nav-link" href="{{ route('feature.order.index',4) }}">{{ __('menu.order_canceled') }}</a></li>
-                              <li><a class="nav-link" href="{{ route('feature.order.index',5) }}">{{ __('menu.order_offline') }}</a></li>
+                              <li><a class="nav-link" href="{{ route('feature.order.index',0) }}">Menunggu Pembayaran</a></li>
+                              <li><a class="nav-link" href="{{ route('feature.order.index',1) }}">Mengkonfirmasi Pembayaran</a></li>
+                              <li><a class="nav-link" href="{{ route('feature.order.index',2) }}">Pembayaran Selesai</a></li>
+                              <li><a class="nav-link" href="{{ route('feature.order.index',3) }}">Pesanan Selesai</a></li>
+                              <li><a class="nav-link" href="{{ route('feature.order.index',6) }}">Menunggu Pembayaran - Offline</a></li>
+                              <li><a class="nav-link" href="{{ route('feature.order.index',5) }}">Pesanan Selesai - Offline</a></li>
+                              <li><a class="nav-link" href="{{ route('feature.order.index',4) }}">Pesanan Dibatalkan</a></li>
                           </ul>
                       </li>
                       <li class="nav-item dropdown">
