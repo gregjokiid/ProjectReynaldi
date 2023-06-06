@@ -29,8 +29,31 @@ Route::prefix('app')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::get('dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
 
-        Route::prefix('master')->name('master.')->group(function(){
+        Route::prefix('user')->name('user.')->group(function(){
+            Route::get('/',[\App\Http\Controllers\Backend\UserController::class,'index'])->name('index');
+            Route::get('/create',[\App\Http\Controllers\Backend\UserController::class,'create'])->name('create');
+            Route::post('/create',[\App\Http\Controllers\Backend\UserController::class,'store'])->name('store');
+        });
 
+        Route::prefix('purchaseOrder')->name('purchaseOrder.')->group(function(){
+            Route::get('/',[\App\Http\Controllers\PurchaseOrderController::class,'index'])->name('index');
+            Route::get('/create',[\App\Http\Controllers\PurchaseOrderController::class,'create'])->name('create');
+            Route::post('/create',[\App\Http\Controllers\PurchaseOrderController::class,'store'])->name('store');
+            Route::get('/edit/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'edit'])->name('edit');
+            Route::post('/update/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'update'])->name('update');
+            Route::get('/delete/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'delete'])->name('delete');
+        });
+
+        Route::prefix('deliveryOrder')->name('deliveryOrder.')->group(function(){
+            Route::get('/',[\App\Http\Controllers\PurchaseOrderController::class,'index'])->name('index');
+            Route::get('/create',[\App\Http\Controllers\PurchaseOrderController::class,'create'])->name('create');
+            Route::post('/create',[\App\Http\Controllers\PurchaseOrderController::class,'store'])->name('store');
+            Route::get('/edit/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'edit'])->name('edit');
+            Route::post('/update/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'update'])->name('update');
+            Route::get('/delete/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'delete'])->name('delete');
+        });
+
+        Route::prefix('master')->name('master.')->group(function(){
             Route::prefix('category')->name('category.')->group(function(){
                 Route::get('/',[CategoryController::class,'index'])->name('index');
                 Route::get('/create',[CategoryController::class,'create'])->name('create');
@@ -59,24 +82,6 @@ Route::prefix('app')->group(function () {
                 Route::get('/edit/{id}',[\App\Http\Controllers\SupplierController::class,'edit'])->name('edit');
                 Route::post('/update/{id}',[\App\Http\Controllers\SupplierController::class,'update'])->name('update');
                 Route::get('/delete/{id}',[\App\Http\Controllers\SupplierController::class,'delete'])->name('delete');
-            });
-
-            Route::prefix('purchaseOrder')->name('purchaseOrder.')->group(function(){
-                Route::get('/',[\App\Http\Controllers\PurchaseOrderController::class,'index'])->name('index');
-                Route::get('/create',[\App\Http\Controllers\PurchaseOrderController::class,'create'])->name('create');
-                Route::post('/create',[\App\Http\Controllers\PurchaseOrderController::class,'store'])->name('store');
-                Route::get('/edit/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'edit'])->name('edit');
-                Route::post('/update/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'update'])->name('update');
-                Route::get('/delete/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'delete'])->name('delete');
-            });
-
-            Route::prefix('deliveryOrder')->name('deliveryOrder.')->group(function(){
-                Route::get('/',[\App\Http\Controllers\PurchaseOrderController::class,'index'])->name('index');
-                Route::get('/create',[\App\Http\Controllers\PurchaseOrderController::class,'create'])->name('create');
-                Route::post('/create',[\App\Http\Controllers\PurchaseOrderController::class,'store'])->name('store');
-                Route::get('/edit/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'edit'])->name('edit');
-                Route::post('/update/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'update'])->name('update');
-                Route::get('/delete/{id}',[\App\Http\Controllers\PurchaseOrderController::class,'delete'])->name('delete');
             });
         });
 
@@ -139,11 +144,5 @@ Route::get('/category', [FrontendCategoryController::class,'index'])->name('cate
 Route::get('/category/{slug}', [FrontendCategoryController::class,'show'])->name('category.show');
 Route::get('/product/{categoriSlug}/{productSlug}',[FrontendProductController::class,'show'])->name('product.show');
 Route::get('/contact', [\App\Http\Controllers\Frontend\ContactController::class,'index'])->name('contact.index');
-
-Route::prefix('user')->name('user.')->group(function(){
-    Route::get('/',[\App\Http\Controllers\Backend\UserController::class,'index'])->name('index');
-    Route::get('/create',[\App\Http\Controllers\Backend\UserController::class,'create'])->name('create');
-    Route::post('/create',[\App\Http\Controllers\Backend\UserController::class,'store'])->name('store');
-});
 
 require __DIR__ . '/auth.php';
