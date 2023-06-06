@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-6 p-0">
                     <div class="categories__item categories__large__item set-bg"
-                        data-setbg="{{ asset('me') }}/img/kiat-teknik.png">
+                        data-setbg="{{ asset('ashion') }}/img/kiat-teknik.png">
                     </div>
                 </div>
                 <div class="col-lg-6">
