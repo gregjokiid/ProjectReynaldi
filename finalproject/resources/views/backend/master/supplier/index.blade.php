@@ -4,7 +4,7 @@
         <div class="col-md-12">
             @component('components.backend.card.card-table')
                 @slot('header')
-                    <h4 class="card-title">{{ __('menu.product') }}</h4>
+                    <h4 class="card-title">Supplier</h4>
                     <div class="card-header-action">
                         <a href="{{ route('master.supplier.create') }}" class="btn btn-primary">{{ __('button.add') }}
                             {{ __('menu.product') }}</a>
