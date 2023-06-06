@@ -48,8 +48,10 @@
                             <td>{{ $purchaseOrder->updated_at }}</td>
                             <td>
                                 <x-button.dropdown-button :title="__('field.action')">
-                                    <a class="dropdown-item has-icon" href="{{ route('purchaseOrder.done',$purchaseOrder->id) }}"><i class="far fa-check"></i>
-                                        Tandai selesai</a>
+                                    @if($purchaseOrder->status == 0)
+                                        <a class="dropdown-item has-icon" href="{{ route('purchaseOrder.done',$purchaseOrder->id) }}"><i class="far fa-check"></i>
+                                            Tandai selesai</a>
+                                    @endif
                                     <a class="dropdown-item has-icon" href="{{ route('purchaseOrder.edit',$purchaseOrder->id) }}"><i class="far fa-edit"></i>
                                         {{ __('button.edit') }}</a>
                                     <a class="dropdown-item has-icon btn-delete" href="{{ route('purchaseOrder.delete',$purchaseOrder->id) }}"><i class="fa fa-trash"></i>
