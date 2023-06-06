@@ -53,7 +53,6 @@ class PurchaseOrderController extends Controller
             'supplier_id' => 'required|integer',
             'status' => 'required|integer',
             'qty'=>'required|integer',
-            'price' => 'required|string',
         ]);
 
         PurchaseOrder::create([
@@ -61,7 +60,6 @@ class PurchaseOrderController extends Controller
             'supplier_id' => $data['supplier_id'],
             'status' => $data['status'],
             'qty' => $data['qty'],
-            'price' => $data['price'],
         ]);
 
         return redirect()->route('purchaseOrder.index');

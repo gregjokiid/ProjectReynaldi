@@ -19,7 +19,7 @@ class CreatePurchaseOrdersTable extends Migration
             $table->foreignId('supplier_id')->constrained()->onDelete('cascade');
             $table->integer('status');
             $table->integer('qty');
-            $table->string('price');
+            $table->string('price')->nullable();
             $table->timestamps();
         });
     }
