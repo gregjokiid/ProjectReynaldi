@@ -47,11 +47,8 @@ Route::prefix('app')->group(function () {
 
         Route::prefix('deliveryOrder')->name('deliveryOrder.')->group(function(){
             Route::get('/',[\App\Http\Controllers\DeliveryOrderController::class,'index'])->name('index');
-            Route::get('/create',[\App\Http\Controllers\DeliveryOrderController::class,'create'])->name('create');
-            Route::post('/create',[\App\Http\Controllers\DeliveryOrderController::class,'store'])->name('store');
             Route::get('/edit/{id}',[\App\Http\Controllers\DeliveryOrderController::class,'edit'])->name('edit');
             Route::post('/update/{id}',[\App\Http\Controllers\DeliveryOrderController::class,'update'])->name('update');
-            Route::get('/delete/{id}',[\App\Http\Controllers\DeliveryOrderController::class,'delete'])->name('delete');
         });
 
         Route::prefix('master')->name('master.')->group(function(){
