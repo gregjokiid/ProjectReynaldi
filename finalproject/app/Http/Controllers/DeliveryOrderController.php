@@ -64,7 +64,7 @@ class DeliveryOrderController extends Controller
             'price' => $data['price'],
         ]);
 
-        return redirect()->route('master.purchaseOrder.index');
+        return redirect()->route('purchaseOrder.index');
     }
 
     /**
@@ -102,7 +102,7 @@ class DeliveryOrderController extends Controller
     public function update(Request $request, $id)
     {
         $this->purchaseOrder->update($id,$request->except('_token'));
-        return redirect()->route('master.purchaseOrder.index');
+        return redirect()->route('purchaseOrder.index');
     }
 
     /**

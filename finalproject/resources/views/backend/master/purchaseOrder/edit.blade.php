@@ -4,7 +4,7 @@
         <div class="col-12">
             @component('components.backend.card.card-form')
                 @slot('isfile', true)
-                @slot('action', Route('master.purchaseOrder.update',$purchaseOrder->id))
+                @slot('action', Route('purchaseOrder.update',$purchaseOrder->id))
                 @slot('method', 'POST')
                 @slot('content')
 
@@ -43,7 +43,7 @@
                     <x-forms.input type="number" name="price" id="price" label="Harga" :isRequired="true" value="{{ $purchaseOrder->price }}"/>
 
                     <div class="text-right">
-                        <a href="{{ Route('master.purchaseOrder.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
+                        <a href="{{ Route('purchaseOrder.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
                         <button type="submit" class="btn btn-primary " href="#">{{ __('button.save') }}</button>
                     </div>
 

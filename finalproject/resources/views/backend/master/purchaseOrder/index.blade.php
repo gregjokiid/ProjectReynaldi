@@ -6,7 +6,7 @@
                 @slot('header')
                     <h4 class="card-title">Purchase Order</h4>
                     <div class="card-header-action">
-                        <a href="{{ route('master.purchaseOrder.create') }}" class="btn btn-primary">{{ __('button.add') }}
+                        <a href="{{ route('purchaseOrder.create') }}" class="btn btn-primary">{{ __('button.add') }}
                             {{ __('menu.product') }}</a>
                     </div>
                 @endslot
@@ -46,11 +46,11 @@
                             <td>{{ $purchaseOrder->price }}</td>
                             <td>
                                 <x-button.dropdown-button :title="__('field.action')">
-                                    <a class="dropdown-item has-icon" href="{{ route('master.purchaseOrder.edit',$purchaseOrder->id) }}"><i class="far fa-edit"></i>
+                                    <a class="dropdown-item has-icon" href="{{ route('purchaseOrder.edit',$purchaseOrder->id) }}"><i class="far fa-edit"></i>
                                         {{ __('button.edit') }}</a>
                                     {{--                                    <a class="dropdown-item has-icon" href="{{ route('master.purchaseOrder.show',$purchaseOrder->id) }}"><i class="far fa-eye"></i>--}}
                                     {{--                                        {{ __('button.detail') }}</a>--}}
-                                    <a class="dropdown-item has-icon btn-delete" href="{{ route('master.purchaseOrder.delete',$purchaseOrder->id) }}"><i class="fa fa-trash"></i>
+                                    <a class="dropdown-item has-icon btn-delete" href="{{ route('purchaseOrder.delete',$purchaseOrder->id) }}"><i class="fa fa-trash"></i>
                                         {{ __('button.delete') }}</a>
                                 </x-button.dropdown-button>
                             </td>
