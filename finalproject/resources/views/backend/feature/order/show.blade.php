@@ -19,7 +19,7 @@
                                     @endif
                                     @if ($data['order']->status == 6)
                                         <a href="{{ route('feature.order.payOffline', $data['order']->id) }}" class="btn btn-primary btn-icon icon-left"><i class="fa fa-check"></i>
-                                            Terima</a>
+                                            Proses</a>
                                     @endif
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                                 </table>
                             </div>
                             <div class="row mt-4">
-                                @if ($data['order']->status == 5)
+                                @if ($data['order']->status == 5 || $data['order']->status == 6)
                                     <div class="col-lg-8"></div>
                                 @else
                                     <div class="col-lg-8">
@@ -118,14 +118,14 @@
                                 @endif
                                 <div class="col-lg-4 text-right">
                                     <div class="invoice-detail-item">
-                                        @if ($data['order']->status == 5)
+                                        @if ($data['order']->status == 5 || $data['order']->status == 6)
                                             <div class="invoice-detail-name">Total</div>
                                         @else
                                             <div class="invoice-detail-name">Subtotal</div>
                                         @endif
                                         <div class="invoice-detail-value">{{ rupiah($data['order']->subtotal) }}</div>
                                     </div>
-                                    @if ($data['order']->status == 5)
+                                    @if ($data['order']->status == 5 || $data['order']->status == 6)
                                     @else
                                         <div class="invoice-detail-item">
                                             <div class="invoice-detail-name">{{ __('text.shipping_cost') }}</div>
