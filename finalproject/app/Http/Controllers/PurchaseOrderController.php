@@ -25,7 +25,7 @@ class PurchaseOrderController extends Controller
         $purchaseOrders = PurchaseOrder::where('status', '=', 0)->get();
         $products = Product::all();
         $suppliers = Supplier::all();
-        return view('backend.master.purchaseOrder.index', compact('purchaseOrders', 'products', 'suppliers'));
+        return view('backend.purchaseOrder.index', compact('purchaseOrders', 'products', 'suppliers'));
     }
 
     /**
@@ -37,7 +37,7 @@ class PurchaseOrderController extends Controller
     {
         $products = Product::all();
         $suppliers = Supplier::all();
-        return view('backend.master.purchaseOrder.create', compact('products', 'suppliers'));
+        return view('backend.purchaseOrder.create', compact('products', 'suppliers'));
     }
 
     /**
@@ -89,7 +89,7 @@ class PurchaseOrderController extends Controller
         $purchaseOrder = PurchaseOrder::find($id);
         $products = Product::all();
         $suppliers = Supplier::all();
-        return view('backend.master.purchaseOrder.edit', compact('purchaseOrder', 'products', 'suppliers'));
+        return view('backend.purchaseOrder.edit', compact('purchaseOrder', 'products', 'suppliers'));
     }
 
     /**
