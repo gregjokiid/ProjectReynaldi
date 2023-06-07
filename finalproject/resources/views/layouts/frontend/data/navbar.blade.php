@@ -36,8 +36,8 @@
                             <ul class="dropdown">
                                 @php($user_id = \Illuminate\Support\Facades\DB::table('model_has_roles')->where('model_id', '=', \Illuminate\Support\Facades\Auth::id())->get())
                                 @foreach($user_id as $id)
-                                    @if($id->role_id == 1 || $id->role_id == 3 || $id->role_id == 4 || $id->role_id == 5)
-                                        <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                    @if($id->role_id == 1)
+                                        <li><a href="{{ route('deliveryOrder.index') }}">Dashboard</a></li>
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
                                             <li>
@@ -46,7 +46,6 @@
                                                 </a>
                                             </li>
                                         </form>
-
                                     @elseif($id->role_id == 2)
                                             <li><a href="{{ route('transaction.index') }}">Riwayat Belanja</a></li>
                                             <form method="POST" action="{{ route('logout') }}">
@@ -57,6 +56,36 @@
                                                     </a>
                                                 </li>
                                             </form>
+                                    @elseif($id->role_id == 3)
+                                        <li><a href="{{ route('purchaseOrder.index') }}">Dashboard</a></li>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <li>
+                                                <a href="{{ route('logout')  }}" onclick="event.preventDefault();
+                                        this.closest('form').submit();" > Logout
+                                                </a>
+                                            </li>
+                                        </form>
+                                    @elseif($id->role_id == 4)
+                                        <li><a href="{{ route('feature.order.index') }}">Dashboard</a></li>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <li>
+                                                <a href="{{ route('logout')  }}" onclick="event.preventDefault();
+                                        this.closest('form').submit();" > Logout
+                                                </a>
+                                            </li>
+                                        </form>
+                                    @elseif($id->role_id == 5)
+                                        <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <li>
+                                                <a href="{{ route('logout')  }}" onclick="event.preventDefault();
+                                        this.closest('form').submit();" > Logout
+                                                </a>
+                                            </li>
+                                        </form>
                                     @endif
                                 @endforeach
                             </ul>
