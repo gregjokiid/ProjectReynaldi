@@ -15,25 +15,9 @@
                         <div class="col-md-6">
                             <table>
                                 <tr>
-                                    <td>{{ __('field.product_name') }}</td>
+                                    <td>{{ __('field.category_name') }}</td>
                                     <td>: {{ $data['category']->name }}</td>
                                 </tr>
-{{--                                <tr>--}}
-{{--                                    <td>{{ __('field.price') }}</td>--}}
-{{--                                    <td>: {{ rupiah($data['product']->price) }}</td>--}}
-{{--                                </tr>--}}
-{{--                                <tr>--}}
-{{--                                    <td>{{ __('field.weight') }}</td>--}}
-{{--                                    <td>: {{ $data['product']->weight }}</td>--}}
-{{--                                </tr>--}}
-{{--                                <tr>--}}
-{{--                                    <td>{{ __('field.stock') }}</td>--}}
-{{--                                    <td>: {{ $data['product']->stock }}</td>--}}
-{{--                                </tr>--}}
-{{--                                <tr>--}}
-{{--                                    <td>{{ __('field.description') }}</td>--}}
-{{--                                    <td>: {!! $data['product']->description !!}</td>--}}
-{{--                                </tr>--}}
                             </table>
                         </div>
                         <div class="col-md-6">
