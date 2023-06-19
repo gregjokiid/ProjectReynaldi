@@ -23,7 +23,6 @@ class CreateProductsTable extends Migration
             $table->string('weight');
             $table->string('stock');
             $table->text('description');
-            $table->integer('status');
             $table->timestamps();
         });
     }
