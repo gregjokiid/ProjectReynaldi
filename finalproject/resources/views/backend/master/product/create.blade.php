@@ -30,8 +30,6 @@
 
                     <x-forms.input type="file" name="thumbnails" id="thumbnails" :label="__('field.thumbnails')" :isRequired="true" />
 
-                    <x-forms.input type="number" name="status" id="status" :isRequired="true" value=1 hidden/>
-
 
                     <div class="text-right">
                         <a href="{{ Route('master.product.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
