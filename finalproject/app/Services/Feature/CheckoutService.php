@@ -19,11 +19,12 @@ class CheckoutService{
 
     public function process($request)
     {
+        date_default_timezone_set("Asia/Jakarta");
         $userCart = $this->cartService->getUserCart();
         $subtotal =  $userCart->sum('total_price_per_product');
         $total_pay = $subtotal + $request['shipping_cost'];
         $dataOrder = [
-            'invoice_number' => strtoupper(Str::random('6')),
+            'invoice_number' => auth()->user()->id.date("YmdHis"),
             'total_pay' => $total_pay,
             'recipient_name' => $request['recipient_name'],
             'destination' =>  $request['city_id'] . ', ' . $request['province_id'] ,
