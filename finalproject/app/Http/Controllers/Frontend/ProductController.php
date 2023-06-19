@@ -17,7 +17,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $data['product'] = $this->product->getPaginate(12);
+        $data['product'] = Product::where('status', '=', 1)->orderBy('created_at','DESC')->paginate(12);
         return view('frontend.product.index',compact('data'));
     }
 
