@@ -10,9 +10,9 @@
         <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
                 class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right">
-                <div class="dropdown-header">Notifications
+                <div class="dropdown-header">Notifikasi
                     <div class="float-right">
-                        <a href="#">Mark All As Read</a>
+                        <a href="#">Tandai sudah dibaca</a>
                     </div>
                 </div>
                 <div class="dropdown-list-content dropdown-list-icons">
@@ -21,31 +21,31 @@
                             <i class="fas fa-code"></i>
                         </div>
                         <div class="dropdown-item-desc">
-                            Template update is available now!
-                            <div class="time text-primary">2 Min Ago</div>
+                            Template versi terbaru telah tersedia!
+                            <div class="time text-primary">2 menit lalu</div>
                         </div>
                     </a>
                 </div>
                 <div class="dropdown-footer text-center">
-                    <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                    <a href="#">Lihat semua <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
         </li>
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 <img alt="image" src="{{ asset('stisla') }}/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div>
+                <div class="d-sm-none d-lg-inline-block">Hai, {{ auth()->user()->name }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">Logged in 5 min ago</div>
+                <div class="dropdown-title">Login 5 menit yang lalu</div>
                 <a href="#" class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Profile
+                    <i class="far fa-user"></i> Profil
                 </a>
                 <a href="#" class="dropdown-item has-icon">
-                    <i class="fas fa-bolt"></i> Activities
+                    <i class="fas fa-bolt"></i> Aktivitas
                 </a>
                 <a href="#" class="dropdown-item has-icon">
-                    <i class="fas fa-cog"></i> Settings
+                    <i class="fas fa-cog"></i> Pengaturan
                 </a>
                 <div class="dropdown-divider"></div>
                 <form method="POST" action="{{ route('logout') }}">

@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="footer-left">
-        <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved</p>
+        <p>&copy; Kiat Teknik <script>document.write(new Date().getFullYear());</script>. Hak cipta dilindungi undang-undang</p>
     </div>
     <div class="footer-right">
       2.3.0
