@@ -8,9 +8,11 @@ use App\Models\Feature\OrderDetail;
 use App\Models\PurchaseOrder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
+    use SoftDeletes;
     use HasFactory;
     protected $guarded = [];
     protected $appends = ['thumbnails_path','price_rupiah','total_sold'];

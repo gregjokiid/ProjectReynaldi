@@ -61,7 +61,8 @@ class ProductController extends Controller
 
     public function delete($id)
     {
-        $this->product->hardDelete($id);
+        $product = Product::find($id);
+        $product->delete();
         return back()->with('success',__('message.harddelete'));
     }
 }
