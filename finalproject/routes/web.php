@@ -70,6 +70,7 @@ Route::prefix('app')->group(function () {
                 Route::get('/edit/{id}',[ProductController::class,'edit'])->name('edit');
                 Route::post('/update/{id}',[ProductController::class,'update'])->name('update');
                 Route::get('/delete/{id}',[ProductController::class,'delete'])->name('delete');
+                Route::get('/deleted',[ProductController::class,'deleted'])->name('deleted');
             });
 
             Route::prefix('supplier')->name('supplier.')->group(function(){

@@ -6,7 +6,7 @@
                 @slot('header')
                     <h4 class="card-title">{{ __('menu.product') }}</h4>
                     <div class="card-header-action">
-                        <a href="{{ route('master.product.deleted') }}" class="btn btn-warning">Lihat Produk di Nonaktifkan
+                        <a href="{{ route('master.product.index') }}" class="btn btn-warning">Lihat Produk Aktif
                         </a>
                         <a href="{{ route('master.product.create') }}" class="btn btn-primary">{{ __('button.add') }}
                             {{ __('menu.product') }}</a>

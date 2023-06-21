@@ -65,4 +65,10 @@ class ProductController extends Controller
         $product->delete();
         return back()->with('success',__('message.harddelete'));
     }
+
+    public function deleted()
+    {
+        $data['product'] = Product::onlyTrashed()->get();
+        return view('backend.master.product.deleted',compact('data'));
+    }
 }
