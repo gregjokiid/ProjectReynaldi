@@ -1,155 +1,325 @@
-<section class="shop-cart spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="invoice" style="border-top: 2px solid #6777ef;">
-                    <div class="invoice-print">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="invoice-title">
-                                    <h2>Invoice</h2>
-                                    <div class="invoice-number">Order {{ $data['order']->invoice_number }}</div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <address>
-                                            <strong>{{ __('text.billed_to') }}:</strong><br>
-                                            {{ $data['order']->Customer->name }}<br>
-                                            {{ $data['order']->Customer->email }}<br>
-                                        </address>
-                                    </div>
-                                    <div class="col-md-6 text-md-right">
-                                        <address>
-                                            <strong>{{ __('text.shipped_to') }}:</strong><br>
-                                            {{ $data['order']->recipient_name }}<br>
-                                            {{ $data['order']->address_detail }}<br>
-                                            {{ $data['order']->destination }}
-                                        </address>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <address>
-                                            <strong>{{ __('text.order_status') }}:</strong>
-                                            <div class="mt-2">
-                                                {!! $data['order']->status_name !!}
-                                            </div>
-                                        </address>
-                                    </div>
-                                    <div class="col-md-6 text-md-right">
-                                        <address>
-                                            <strong>{{ __('text.order_date') }}:</strong><br>
-                                            {{ $data['order']->created_at }}<br><br>
-                                        </address>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!DOCTYPE html>
+<html>
+<head>
 
-                        <div class="row mt-4">
-                            <div class="col-md-12">
-                                <div class="section-title font-weight-bold">{{ __('text.order_summary') }}</div>
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-hover table-md">
-                                        <tbody>
-                                        <tr>
-                                            <th data-width="40" style="width: 40px;">#</th>
-                                            <th>{{ __('field.product_name') }}</th>
-                                            <th class="text-center">{{ __('field.price') }}</th>
-                                            <th class="text-center">{{ __('text.quantity') }}</th>
-                                            <th class="text-right">Total</th>
-                                        </tr>
-                                        @foreach ($data['order']->orderDetail()->get() as $detail)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td><a
-                                                        href="{{ route('product.show', ['categoriSlug' => $detail->Product->category->slug, 'productSlug' => $detail->Product->slug]) }}">{{ $detail->product->name }}</a>
-                                                </td>
-                                                <td class="text-center">{{ rupiah($detail->product->price) }}
-                                                </td>
-                                                <td class="text-center">{{ $detail->qty }}</td>
-                                                <td class="text-right">
-                                                    {{ rupiah($detail->total_price_per_product) }}</td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="row mt-4">
-                                    @if ($data['order']->status == 5 || $data['order']->status == 6 || $data['order']->status == 7)
-                                        <div class="col-lg-8"></div>
-                                    @else
-                                        <div class="col-lg-8">
-                                            <address>
-                                                <strong>{{ __('text.shipping_method') }}:</strong>
-                                                <div class="mt-2">
-                                                    <p class="section-lead text-uppercase">{{ $data['order']->courier }}
-                                                        {{ $data['order']->shipping_method }}</p>
-                                                </div>
-                                            </address>
-                                            @if ($data['order']->receipt_number != null)
-                                                <address>
-                                                    <strong>{{ __('text.receipt_number') }}:</strong>
-                                                    <div class="mt-2">
-                                                        <p class="section-lead text-uppercase">
-                                                            {{ $data['order']->receipt_number }}</p>
-                                                    </div>
-                                                </address>
-                                            @endif
-                                        </div>
-                                    @endif
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Email Receipt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        /**
+         * Google webfonts. Recommended to include the .woff version for cross-client compatibility.
+         */
+        @media screen {
+            @font-face {
+                font-family: 'Source Sans Pro';
+                font-style: normal;
+                font-weight: 400;
+                src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v10/ODelI1aHBYDBqgeIAH2zlBM0YzuT7MdOe03otPbuUS0.woff) format('woff');
+            }
 
-                                    <div class="col-lg-4 text-right">
-                                        <div class="invoice-detail-item">
-                                            @if ($data['order']->status == 5 || $data['order']->status == 6 || $data['order']->status == 7)
-                                                <div class="invoice-detail-name">Total</div>
-                                            @else
-                                                <div class="invoice-detail-name">Subtotal</div>
-                                            @endif
-                                            <div class="invoice-detail-value">{{ rupiah($data['order']->subtotal) }}
-                                            </div>
-                                        </div>
-                                        @if ($data['order']->status == 5 || $data['order']->status == 6 || $data['order']->status == 7)
-                                        @else
-                                            <div class="invoice-detail-item">
-                                                <div class="invoice-detail-name">{{ __('text.shipping_cost') }}</div>
-                                                <div class="invoice-detail-value">
-                                                    {{ rupiah($data['order']->shipping_cost) }}</div>
-                                            </div>
-                                            <hr class="mt-2 mb-2">
-                                            <div class="invoice-detail-item">
-                                                <div class="invoice-detail-name">Total</div>
-                                                <div class="invoice-detail-value invoice-detail-value-lg">
-                                                    {{ rupiah($data['order']->total_pay) }}</div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
+            @font-face {
+                font-family: 'Source Sans Pro';
+                font-style: normal;
+                font-weight: 700;
+                src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(https://fonts.gstatic.com/s/sourcesanspro/v10/toadOcfmlt9b38dHJxOBGFkQc6VGVFSmCnC_l7QZG60.woff) format('woff');
+            }
+        }
+
+        /**
+         * Avoid browser level font resizing.
+         * 1. Windows Mobile
+         * 2. iOS / OSX
+         */
+        body,
+        table,
+        td,
+        a {
+            -ms-text-size-adjust: 100%; /* 1 */
+            -webkit-text-size-adjust: 100%; /* 2 */
+        }
+
+        /**
+         * Remove extra space added to tables and cells in Outlook.
+         */
+        table,
+        td {
+            mso-table-rspace: 0pt;
+            mso-table-lspace: 0pt;
+        }
+
+        /**
+         * Better fluid images in Internet Explorer.
+         */
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /**
+         * Remove blue links for iOS devices.
+         */
+        a[x-apple-data-detectors] {
+            font-family: inherit !important;
+            font-size: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+
+        /**
+         * Fix centering issues in Android 4.4.
+         */
+        div[style*="margin: 16px 0;"] {
+            margin: 0 !important;
+        }
+
+        body {
+            width: 100% !important;
+            height: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        /**
+         * Collapse table borders to avoid space between cells.
+         */
+        table {
+            border-collapse: collapse !important;
+        }
+
+        a {
+            color: #1a82e2;
+        }
+
+        img {
+            height: auto;
+            line-height: 100%;
+            text-decoration: none;
+            border: 0;
+            outline: none;
+        }
+    </style>
+
+</head>
+<body style="background-color: #D2C7BA;">
+
+<!-- start preheader -->
+<div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
+    A preheader is the short summary text that follows the subject line when an email is viewed in the inbox.
+</div>
+<!-- end preheader -->
+
+<!-- start body -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+    <!-- start logo -->
+    <tr>
+        <td align="center" bgcolor="#D2C7BA">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+                <tr>
+                    <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                <tr>
+                    <td align="center" valign="top" style="padding: 36px 24px;">
+                        <a href="https://sendgrid.com" target="_blank" style="display: inline-block;">
+                            <img src="./img/paste-logo-light@2x.png" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px;">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+    <!-- end logo -->
+
+    <!-- start hero -->
+    <tr>
+        <td align="center" bgcolor="#D2C7BA">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+                <tr>
+                    <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                <tr>
+                    <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
+                        <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">Thank you for your order!</h1>
+                    </td>
+                </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+    <!-- end hero -->
+
+    <!-- start copy block -->
+    <tr>
+        <td align="center" bgcolor="#D2C7BA">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+                <tr>
+                    <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+
+                <!-- start copy -->
+                <tr>
+                    <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                        <p style="margin: 0;">Here is a summary of your recent order. If you have any questions or concerns about your order, please <a href="https://sendgrid.com">contact us</a>.</p>
+                    </td>
+                </tr>
+                <!-- end copy -->
+
+                <!-- start receipt table -->
+                <tr>
+                    <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" bgcolor="#D2C7BA" width="75%" style="padding: 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"><strong>Order #</strong></td>
+                                <td align="left" bgcolor="#D2C7BA" width="25%" style="padding: 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"><strong>0000224</strong></td>
+                            </tr>
+                            <tr>
+                                <td align="left" width="75%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">Item</td>
+                                <td align="left" width="25%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">$24.00</td>
+                            </tr>
+                            <tr>
+                                <td align="left" width="75%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">Item</td>
+                                <td align="left" width="25%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">$24.00</td>
+                            </tr>
+                            <tr>
+                                <td align="left" width="75%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">Shipping</td>
+                                <td align="left" width="25%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">$6.00</td>
+                            </tr>
+                            <tr>
+                                <td align="left" width="75%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">Sales Tax</td>
+                                <td align="left" width="25%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">$0.00</td>
+                            </tr>
+                            <tr>
+                                <td align="left" width="75%" style="padding: 12px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-top: 2px dashed #D2C7BA; border-bottom: 2px dashed #D2C7BA;"><strong>Total</strong></td>
+                                <td align="left" width="25%" style="padding: 12px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-top: 2px dashed #D2C7BA; border-bottom: 2px dashed #D2C7BA;"><strong>$54.00</strong></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- end reeipt table -->
+
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+    <!-- end copy block -->
+
+    <!-- start receipt address block -->
+    <tr>
+        <td align="center" bgcolor="#D2C7BA" valign="top" width="100%">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+                <tr>
+                    <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                <tr>
+                    <td align="center" valign="top" style="font-size: 0; border-bottom: 3px solid #d4dadf">
+                        <!--[if (gte mso 9)|(IE)]>
+                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+                            <tr>
+                                <td align="left" valign="top" width="300">
+                        <![endif]-->
+                        <div style="display: inline-block; width: 100%; max-width: 50%; min-width: 240px; vertical-align: top;">
+                            <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 300px;">
+                                <tr>
+                                    <td align="left" valign="top" style="padding-bottom: 36px; padding-left: 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        <p><strong>Delivery Address</strong></p>
+                                        <p>1234 S. Broadway Ave<br>Unit 2<br>Denver, CO 80211</p>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="text-md-right">
-                        <div class="float-lg-left mb-lg-0 mb-3">
-                            @if ($data['order']->status == 0)
-                                <a href="{{ route('transaction.payment', $data['order']->invoice_number) }}" class="btn btn-primary btn-icon icon-left" id="pay-button"><i
-                                        class="fa fa-credit-card"></i>
-                                    Process Payment</a>
-                                <a href="{{ route('transaction.canceled', $data['order']->invoice_number) }}" class="btn btn-danger btn-icon icon-left"><i class="fa fa-times"></i>
-                                    Cancel Order</a>
-                                <a href="{{ route('transaction.offline', $data['order']->invoice_number) }}" class="btn btn-warning btn-icon icon-left"><i class="fa fa-credit-card"></i>
-                                    Pay Offline</a>
-                            @elseif ($data['order']->status == 2)
-                                <a href="{{ route('transaction.received', $data['order']->invoice_number) }}"
-                                   class="btn btn-primary text-white btn-icon icon-left"><i
-                                        class="fa fa-credit-card"></i>
-                                    Order Received</a>
-                            @endif
+                        <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        <td align="left" valign="top" width="300">
+                        <![endif]-->
+                        <div style="display: inline-block; width: 100%; max-width: 50%; min-width: 240px; vertical-align: top;">
+                            <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 300px;">
+                                <tr>
+                                    <td align="left" valign="top" style="padding-bottom: 36px; padding-left: 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        <p><strong>Billing Address</strong></p>
+                                        <p>1234 S. Broadway Ave<br>Unit 2<br>Denver, CO 80211</p>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                        <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]-->
+                    </td>
+                </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+    <!-- end receipt address block -->
+
+    <!-- start footer -->
+    <tr>
+        <td align="center" bgcolor="#D2C7BA" style="padding: 24px;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+                <tr>
+                    <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+
+                <!-- start permission -->
+                <tr>
+                    <td align="center" bgcolor="#D2C7BA" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
+                        <p style="margin: 0;">You received this email because we received a request for [type_of_action] for your account. If you didn't request [type_of_action] you can safely delete this email.</p>
+                    </td>
+                </tr>
+                <!-- end permission -->
+
+                <!-- start unsubscribe -->
+                <tr>
+                    <td align="center" bgcolor="#D2C7BA" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
+                        <p style="margin: 0;">To stop receiving these emails, you can <a href="https://sendgrid.com" target="_blank">unsubscribe</a> at any time.</p>
+                        <p style="margin: 0;">Paste 1234 S. Broadway St. City, State 12345</p>
+                    </td>
+                </tr>
+                <!-- end unsubscribe -->
+
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+    <!-- end footer -->
+
+</table>
+<!-- end body -->
+
+</body>
+</html>
