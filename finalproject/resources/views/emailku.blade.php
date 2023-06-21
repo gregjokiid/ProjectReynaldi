@@ -187,23 +187,7 @@
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
                                 <td align="left" bgcolor="#D2C7BA" width="75%" style="padding: 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"><strong>Order #</strong></td>
-                                <td align="left" bgcolor="#D2C7BA" width="25%" style="padding: 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"><strong>0000224</strong></td>
-                            </tr>
-                            <tr>
-                                <td align="left" width="75%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">Item</td>
-                                <td align="left" width="25%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">$24.00</td>
-                            </tr>
-                            <tr>
-                                <td align="left" width="75%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">Item</td>
-                                <td align="left" width="25%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">$24.00</td>
-                            </tr>
-                            <tr>
-                                <td align="left" width="75%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">Shipping</td>
-                                <td align="left" width="25%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">$6.00</td>
-                            </tr>
-                            <tr>
-                                <td align="left" width="75%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">Sales Tax</td>
-                                <td align="left" width="25%" style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">$0.00</td>
+                                <td align="left" bgcolor="#D2C7BA" width="25%" style="padding: 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"><strong>{{ $data['order']->invoice_number }}</strong></td>
                             </tr>
                             <tr>
                                 <td align="left" width="75%" style="padding: 12px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-top: 2px dashed #D2C7BA; border-bottom: 2px dashed #D2C7BA;"><strong>Total</strong></td>
@@ -244,8 +228,9 @@
                             <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 300px;">
                                 <tr>
                                     <td align="left" valign="top" style="padding-bottom: 36px; padding-left: 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                                        <p><strong>Delivery Address</strong></p>
-                                        <p>1234 S. Broadway Ave<br>Unit 2<br>Denver, CO 80211</p>
+                                        <p><strong>Dibayar Oleh:</strong></p>
+                                        <p>{{ $data['order']->Customer->name }}<br>
+                                            {{ $data['order']->Customer->email }}<br></p>
                                     </td>
                                 </tr>
                             </table>
@@ -294,7 +279,7 @@
                 <!-- start permission -->
                 <tr>
                     <td align="center" bgcolor="#D2C7BA" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-                        <p style="margin: 0;">You received this email because we received a request for [type_of_action] for your account. If you didn't request [type_of_action] you can safely delete this email.</p>
+                        <p style="margin: 0;">You received this email because we received a request for send invoice for your account. If you didn't request send invoice you can safely delete this email.</p>
                     </td>
                 </tr>
                 <!-- end permission -->
@@ -302,8 +287,7 @@
                 <!-- start unsubscribe -->
                 <tr>
                     <td align="center" bgcolor="#D2C7BA" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-                        <p style="margin: 0;">To stop receiving these emails, you can <a href="https://sendgrid.com" target="_blank">unsubscribe</a> at any time.</p>
-                        <p style="margin: 0;">Paste 1234 S. Broadway St. City, State 12345</p>
+                        <p style="margin: 0;">Jl. Sambongan IV No.11, RT.002/RW.05, Bongkaran, Kec. Pabean Cantikan, Surabaya, Jawa Timur 60161</p>
                     </td>
                 </tr>
                 <!-- end unsubscribe -->
