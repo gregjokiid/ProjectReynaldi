@@ -71,6 +71,7 @@ Route::prefix('app')->group(function () {
                 Route::post('/update/{id}',[ProductController::class,'update'])->name('update');
                 Route::get('/delete/{id}',[ProductController::class,'delete'])->name('delete');
                 Route::get('/deleted',[ProductController::class,'deleted'])->name('deleted');
+                Route::get('/restore/{id}',[ProductController::class,'restore'])->name('restore');
             });
 
             Route::prefix('supplier')->name('supplier.')->group(function(){

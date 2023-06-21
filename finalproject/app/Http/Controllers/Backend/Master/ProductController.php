@@ -71,4 +71,11 @@ class ProductController extends Controller
         $data['product'] = Product::onlyTrashed()->get();
         return view('backend.master.product.deleted',compact('data'));
     }
+
+    public function restore($id)
+    {
+        $product = Product::onlyTrashed()->where('id', $id);
+        $product->restore();
+        return redirect()->route('master.product.deleted')->with('success',__('message.store'));
+    }
 }
