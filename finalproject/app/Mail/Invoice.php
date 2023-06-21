@@ -29,12 +29,7 @@ class Invoice extends Mailable
      */
     public function build()
     {
-        return $this->from('pengirim@malasngoding.com')
-            ->view('emailku')
-            ->with(
-                [
-                    'nama' => 'Diki Alfarabi Hadi',
-                    'website' => 'www.malasngoding.com',
-                ]);
+        return $this->from('admin@kiatteknik.my.id', 'KiatTeknik')
+            ->view('emailku');
     }
 }
