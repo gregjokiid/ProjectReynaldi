@@ -99,7 +99,6 @@ Route::prefix('app')->group(function () {
         Route::prefix('setting')->name('setting.')->group(function(){
                 Route::get('/shipping',[WebconfigController::class,'shipping'])->name('shipping');
                 Route::post('/shipping',[WebconfigController::class,'shippingUpdate'])->name('shippingUpdate');
-
                 Route::get('/web',[WebconfigController::class,'web'])->name('web');
                 Route::post('/web',[WebconfigController::class,'webUpdate'])->name('web.update');
         });
@@ -121,9 +120,9 @@ Route::middleware('verified','role:user')->group(function(){
         Route::get('/{invoice_number}/canceled',[TransacationController::class,'canceled'])->name('canceled');
         Route::get('/{invoice_number}/payment',[TransacationController::class,'payment'])->name('payment');
         Route::post('/{invoice_number}/paymentChecking',[TransacationController::class,'paymentChecking'])->name('paymentChecking');
-
         Route::get('/{invoice_number}/offline',[TransacationController::class,'offline'])->name('offline');
         Route::get('/{invoice_number}/offlinePayment',[TransacationController::class,'offlinePayment'])->name('offlinePayment');
+        Route::get('/{invoice_number}/email',[TransacationController::class,'email'])->name('email');
     });
 
     Route::prefix('checkout')->name('checkout.')->group(function(){

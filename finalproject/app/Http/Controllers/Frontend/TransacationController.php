@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Invoice;
 use App\Models\Feature\Order;
 use App\Repositories\CrudRepositories;
 use App\Services\Feature\OrderService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class TransacationController extends Controller
 {
@@ -75,5 +77,13 @@ class TransacationController extends Controller
     {
         $this->order->Query()->where('invoice_number',$invoice_number)->first()->update(['status' => 5]);
         return back()->with('success',__('message.order_received'));
+    }
+
+    public function email($invoice_number)
+    {
+        $data['order'] = $this->order->Query()->where('invoice_number',$invoice_number)->first();
+        Mail::to("testing@malasngoding.com")->send(new Invoice($data));
+
+        return "Email telah dikirim";
     }
 }
