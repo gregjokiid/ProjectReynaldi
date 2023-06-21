@@ -83,7 +83,6 @@ class TransacationController extends Controller
     {
         $data['order'] = $this->order->Query()->where('invoice_number',$invoice_number)->first();
         Mail::to("testing@malasngoding.com")->send(new Invoice($data));
-
-        return "Email telah dikirim";
+        return back()->with('success',__('message.order_received'));
     }
 }
