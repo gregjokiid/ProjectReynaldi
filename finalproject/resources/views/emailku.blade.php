@@ -124,7 +124,7 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                 <tr>
                     <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-                        <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">Thank you for your order!</h1>
+                        <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">Terima kasih atas pesanan anda!</h1>
                     </td>
                 </tr>
             </table>
@@ -150,7 +150,7 @@
                 <!-- start copy -->
                 <tr>
                     <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                        <p style="margin: 0;">Here is a summary of your recent order. If you have any questions or concerns about your order, please <a href="{{ route('contact.index') }}">contact us</a>.</p>
+                        <p style="margin: 0;">Berikut ringkasan pesanan terbaru anda. Jika anda memiliki pertanyaan atau masalah tentang pesanan anda, silakan <a href="{{ route('contact.index') }}">hubungi kami</a>.</p>
                     </td>
                 </tr>
                 <!-- end copy -->
@@ -287,7 +287,7 @@
                 <!-- start permission -->
                 <tr>
                     <td align="center" bgcolor="#D2C7BA" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-                        <p style="margin: 0;">You received this email because we received a request for send invoice for your account. If you didn't request send invoice you can safely delete this email.</p>
+                        <p style="margin: 0;">Anda menerima email ini karena kami menerima permintaan untuk mengirim faktur untuk akun anda. Jika anda tidak meminta kirim faktur, anda dapat menghapus email ini dengan aman.</p>
                     </td>
                 </tr>
                 <!-- end permission -->
@@ -295,7 +295,7 @@
                 <!-- start unsubscribe -->
                 <tr>
                     <td align="center" bgcolor="#D2C7BA" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-                        <p style="margin: 0;">Jl. Sambongan IV No.11, RT.002/RW.05, Bongkaran, Kec. Pabean Cantikan, Surabaya, Jawa Timur 60161</p>
+                        <p style="margin: 0;">Jl. Sambongan IV No.11, RT.002/RW.05, Bongkaran, Kec. Pabean Cantikan<br>Surabaya, Jawa Timur 60161</p>
                     </td>
                 </tr>
                 <!-- end unsubscribe -->
