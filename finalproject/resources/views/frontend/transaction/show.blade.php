@@ -149,6 +149,8 @@
                         <hr>
                         <div class="text-md-right">
                             <div class="float-lg-left mb-lg-0 mb-3">
+                                <a href="{{ route('transaction.email', $data['order']->invoice_number) }}" class="btn btn-info btn-icon icon-left" id="pay-button"><i class="fa fa-envelope"></i>
+                                    Send Email</a>
                                 @if ($data['order']->status == 0)
                                     <a href="{{ route('transaction.payment', $data['order']->invoice_number) }}" class="btn btn-primary btn-icon icon-left" id="pay-button"><i
                                             class="fa fa-credit-card"></i>
