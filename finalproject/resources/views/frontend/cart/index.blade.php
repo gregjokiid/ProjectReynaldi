@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
-                        <span>Cart</span>
+                        <a href="{{ url('/') }}"><i class="fa fa-home"></i> Beranda</a>
+                        <span>Keranjang</span>
                     </div>
                 </div>
             </div>
@@ -24,9 +24,9 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
+                                    <th>Produk</th>
+                                    <th>Harga</th>
+                                    <th>Jumlah</th>
                                     <th>Total</th>
                                     <th></th>
                                 </tr>
@@ -66,14 +66,14 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="cart__btn">
-                        <a href="{{ route('product.index') }}">Continue Shopping</a>
+                        <a href="{{ route('product.index') }}">Lanjutkan belanja</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="cart__btn update__btn">
                         @if(empty($carts))
                         @else
-                            <button type="submit"><span class="icon_loading"></span> Update cart</button>
+                            <button type="submit"><span class="icon_loading"></span> Perbarui keranjang</button>
                         @endif
                     </form>
                     </div>
@@ -96,11 +96,11 @@
                     </div>
                     <div class="col-lg-4 offset-lg-2">
                         <div class="cart__total__procced">
-                            <h6>Cart total</h6>
+                            <h6>Total keranjang</h6>
                             <ul>
                                 <li>Total <span>{{ rupiah($data['carts']->sum('total_price_per_product')) }}</span></li>
                             </ul>
-                            <a href="{{ route('checkout.index') }}" class="primary-btn">Proceed to checkout</a>
+                            <a href="{{ route('checkout.index') }}" class="primary-btn">Proses</a>
                         </div>
                     </div>
                 </div>
