@@ -30,6 +30,6 @@ class Invoice extends Mailable
     public function build()
     {
         return $this->from('admin@kiatteknik.my.id', 'KiatTeknik')
-            ->view('emailku');
+            ->view('email/invoice');
     }
 }
