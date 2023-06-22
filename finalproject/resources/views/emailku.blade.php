@@ -113,32 +113,6 @@
 <!-- start body -->
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 
-    <!-- start logo -->
-    <tr>
-        <td align="center" bgcolor="#D2C7BA">
-            <!--[if (gte mso 9)|(IE)]>
-            <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
-                <tr>
-                    <td align="center" valign="top" width="600">
-            <![endif]-->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                <tr>
-                    <td align="center" valign="top" style="padding: 36px 24px;">
-                        <a href="https://sendgrid.com" target="_blank" style="display: inline-block;">
-                            <img src="./img/paste-logo-light@2x.png" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px;">
-                        </a>
-                    </td>
-                </tr>
-            </table>
-            <!--[if (gte mso 9)|(IE)]>
-            </td>
-            </tr>
-            </table>
-            <![endif]-->
-        </td>
-    </tr>
-    <!-- end logo -->
-
     <!-- start hero -->
     <tr>
         <td align="center" bgcolor="#D2C7BA">
@@ -254,6 +228,38 @@
                         <!--[if (gte mso 9)|(IE)]>
                         </td>
                         </tr>
+
+                        <tr>
+                            <td align="left" valign="top" width="300">
+                        <![endif]-->
+                        <div style="display: inline-block; width: 100%; max-width: 50%; min-width: 240px; vertical-align: top;">
+                            <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 300px;">
+                                <tr>
+                                    <td align="left" valign="top" style="padding-bottom: 36px; padding-left: 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        <p><strong>Status Pesanan:</strong></p>
+                                        <p>{!! $data['order']->status_name !!}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        <td align="left" valign="top" width="300">
+                        <![endif]-->
+                        <div style="display: inline-block; width: 100%; max-width: 50%; min-width: 240px; vertical-align: top;">
+                            <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 300px;">
+                                <tr>
+                                    <td align="left" valign="top" style="padding-bottom: 36px; padding-left: 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        <p><strong>Tanggal Pesanan:</strong></p>
+                                        <p>{{ $data['order']->created_at }}<br><br></p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        </tr>
+
                         </table>
                         <![endif]-->
                     </td>
