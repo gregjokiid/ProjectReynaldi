@@ -150,7 +150,7 @@
                 <!-- start copy -->
                 <tr>
                     <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                        <p style="margin: 0;">Berikut ringkasan pesanan terbaru anda. Jika anda memiliki pertanyaan atau masalah tentang pesanan anda, silakan <a href="{{ route('contact.index') }}">hubungi kami</a>.</p>
+                        <p style="margin: 0;">Berikut ringkasan pesanan terbaru anda. Jika anda memiliki pertanyaan atau masalah tentang pesanan anda, silahkan <a href="{{ route('contact.index') }}">hubungi kami</a>.</p>
                     </td>
                 </tr>
                 <!-- end copy -->
