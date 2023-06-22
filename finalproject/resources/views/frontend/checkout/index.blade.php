@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
-                        <span>Checkout</span>
+                        <a href="{{ url('/') }}"><i class="fa fa-home"></i> Beranda</a>
+                        <span>Proses</span>
                     </div>
                 </div>
             </div>
@@ -21,25 +21,25 @@
                 @csrf
                 <div class="row">
                     <div class="col-lg-8 mb-4">
-                        <h5>Billing detail</h5>
+                        <h5>Detail pembayaran</h5>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="checkout__form__input">
-                                    <p>Recipient Name <span>*</span></p>
+                                    <p>Nama penerima <span>*</span></p>
                                     <input type="text" name="recipient_name" value="{{ auth()->user()->name }}" required>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="checkout__form__input">
-                                    <p>Phone Number <span>*</span></p>
+                                    <p>Nomor telepon <span>*</span></p>
                                     <input type="text" name="phone_number"  required>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
-                                    <p>Province <span>*</span></p>
+                                    <p>Provinsi <span>*</span></p>
                                     <select name="province_id" id="province_id" class="select-2" required>
-                                        <option value="" selected disabled>-- Select Province --</option>
+                                        <option value="" selected disabled>-- Pilih provinsi --</option>
                                         @foreach ($data['provinces'] as $province)
                                             <option value="{{ $province['province'] }}" data-id="{{ $province['province_id'] }}">{{ $province['province'] }}
                                             </option>
@@ -49,21 +49,21 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
-                                    <p>City <span>*</span></p>
+                                    <p>Kota <span>*</span></p>
                                     <select name="city_id" id="city_id" class="select-2" disabled required>
-                                        <option value="" selected disabled>-- Select City --</option>
+                                        <option value="" selected disabled>-- Pilih kota --</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="checkout__form__input">
-                                    <p>Address Detail <span>*</span></p>
+                                    <p>Detail alamat <span>*</span></p>
                                     <input type="text" name="address_detail" required>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="checkout__form__input">
-                                    <p>Courier <span>*</span></p>
+                                    <p>Kurir <span>*</span></p>
                                     <select name="courier" id="courier">
                                         <option value="jne" selected>JNE</option>
                                         <option value="tiki">TIKI</option>
@@ -73,7 +73,7 @@
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="checkout__form__input">
-                                    <p>Shipment Method <span>*</span></p>
+                                    <p>Metode pengiriman <span>*</span></p>
                                     <select name="shipping_method" id="shipping_method" required>
                                     </select>
                                 </div>
@@ -82,11 +82,11 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="checkout__order">
-                            <h5>Your order</h5>
+                            <h5>Pesanan anda</h5>
                             <div class="checkout__order__product">
                                 <ul>
                                     <li>
-                                        <span class="top__text">Product</span>
+                                        <span class="top__text">Produk</span>
                                         <span class="top__text__right">Total</span>
                                     </li>
                                     @foreach ($data['carts'] as $cart)
@@ -95,7 +95,7 @@
                                         </li>
                                     @endforeach
                                     <li>
-                                        <span class="top__text">Total Weight</span>
+                                        <span class="top__text">Berat total</span>
                                         <span class="top__text__right">{{ $data['carts']->sum('total_weight_per_product') / 1000 }} Kg</span>
                                         <input type="hidden" name="total_weight" id="total_weight" value="{{ $data['carts']->sum('total_weight_per_product') }}">
                                     </li>
@@ -105,12 +105,12 @@
                                 <ul>
                                     <li>Subtotal <span>{{ rupiah($data['carts']->sum('total_price_per_product')) }}</span>
                                     </li>
-                                    <li>Shipping Cost <span id="text-cost">Rp 0</span></li>
+                                    <li>Biaya pengiriman <span id="text-cost">Rp 0</span></li>
                                     <li>Total <span id="total">{{ rupiah($data['carts']->sum('total_price_per_product')) }}</span></li>
                                     <input type="hidden" name="shipping_cost" id="shipping_cost" >
                                 </ul>
                             </div>
-                            <button type="submit" class="site-btn">Place oder</button>
+                            <button type="submit" class="site-btn">Konfirmasi</button>
                         </div>
                     </div>
                 </div>
