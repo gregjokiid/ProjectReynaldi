@@ -186,7 +186,7 @@
                     <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
-                                <td align="left" bgcolor="#D2C7BA" width="75%" style="padding: 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"><strong>Order #</strong></td>
+                                <td align="left" bgcolor="#D2C7BA" width="75%" style="padding: 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"><strong>Order</strong></td>
                                 <td align="left" bgcolor="#D2C7BA" width="25%" style="padding: 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"><strong>{{ $data['order']->invoice_number }}</strong></td>
                             </tr>
                             <tr>
@@ -243,8 +243,10 @@
                             <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 300px;">
                                 <tr>
                                     <td align="left" valign="top" style="padding-bottom: 36px; padding-left: 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                                        <p><strong>Billing Address</strong></p>
-                                        <p>1234 S. Broadway Ave<br>Unit 2<br>Denver, CO 80211</p>
+                                        <p><strong>Dikirim Ke:</strong></p>
+                                        <p>{{ $data['order']->recipient_name }}<br>
+                                            {{ $data['order']->address_detail }}<br>
+                                            {{ $data['order']->destination }}</p>
                                     </td>
                                 </tr>
                             </table>
