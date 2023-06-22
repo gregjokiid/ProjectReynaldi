@@ -36,12 +36,12 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4">
                     <div class="section-title">
-                        <h4>New product</h4>
+                        <h4>Produk baru</h4>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8">
                     <ul class="filter__controls">
-                        <li class="active" data-filter="*">All</li>
+                        <li class="active" data-filter="*">Semua</li>
                         @foreach ($data['new_categories'] as $new_categories)
                             <li data-filter=".{{ $new_categories->slug }}">{{ $new_categories->name }}</li>
                         @endforeach
