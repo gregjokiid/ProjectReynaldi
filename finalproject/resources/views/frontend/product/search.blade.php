@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="./index.html"><i class="fa fa-home"></i> Beranda</a>
+                        <a href="{{ url('/') }}"><i class="fa fa-home"></i> Beranda</a>
                         <span>Pencarian</span>
                     </div>
                 </div>
