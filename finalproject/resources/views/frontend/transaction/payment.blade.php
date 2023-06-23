@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
-                        <a href="{{ route('transaction.index') }}"> Transaction</a>
+                        <a href="{{ url('/') }}"><i class="fa fa-home"></i> Beranda</a>
+                        <a href="{{ route('transaction.index') }}"> Transaksi</a>
                         <span>{{ $data['order']->invoice_number }}</span>
                     </div>
                 </div>
@@ -39,8 +39,8 @@
                                 </div>
                                 <hr>
                                 <div class="text-md-right">
-                                    <a href="{{ Route('transaction.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
-                                    <button type="submit" class="btn btn-primary " href="#">Submit</button>
+                                    <a href="{{ Route('transaction.index') }}" class="btn btn-secondary " href="#">Batal</a>
+                                    <button type="submit" class="btn btn-primary " href="#">Proses</button>
                                 </div>
                             </div>
                         </div>

@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
-                        <span>Transaction</span>
+                        <a href="{{ url('/') }}"><i class="fa fa-home"></i> Beranda</a>
+                        <span>Transaksi</span>
                     </div>
                 </div>
             </div>
@@ -22,10 +22,10 @@
                         <table class="table table-striped">
                           <tbody><tr>
                             <th>Invoice ID</th>
-                            <th>Products</th>
+                            <th>Produk</th>
                             <th>Status</th>
-                            <th>Created At</th>
-                            <th>Action</th>
+                            <th>Dibuat Tanggal</th>
+                            <th>Aksi</th>
                           </tr>
                           @foreach ($data['orders'] as $order)
                           <tr>
