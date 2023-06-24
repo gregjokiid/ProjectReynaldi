@@ -21,8 +21,8 @@ class CartService{
         }else{
             $this->cart->store([
                 'product_id' => $data['cart_product_id'],
-                'qty'        => $data['cart_qty'],
                 'price'      => $data['cart_price'],
+                'qty'        => $data['cart_qty'],
                 'user_id'    => auth()->user()->id,
             ]);
         }
@@ -38,8 +38,8 @@ class CartService{
         }else{
             $this->cart->store([
                 'product_id' => $data['cart_product_id'],
-                'qty'        => $data['cart_qty'],
                 'price'      => $data['cart_price'],
+                'qty'        => $data['cart_qty'],
                 'user_id'    => auth()->user()->id,
             ]);
         }
