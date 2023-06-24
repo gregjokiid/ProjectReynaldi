@@ -25,7 +25,7 @@ class CartService{
                 'user_id'    => auth()->user()->id,
             ]);
         }
-        
+
     }
 
     public function update($data)
@@ -41,14 +41,14 @@ class CartService{
                 'user_id'    => auth()->user()->id,
             ]);
         }
-        
+
     }
 
     public function getUserCart()
     {
         return $this->cart->Query()->where('user_id',auth()->user()->id)->get();
     }
-    
+
     public function deleteUserCart()
     {
         return $this->cart->Query()->where('user_id',auth()->user()->id)->delete();

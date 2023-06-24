@@ -44,6 +44,7 @@
                                     <input type="number" name="cart_qty" value="1" max="{{ $data['product']->stock }}">
                                 </div>
                                 <input type="hidden" name="cart_product_id" value="{{ $data['product']->id }}">
+                                <input type="hidden" name="cart_price" value="{{ $data['product']->price }}">
                             </div>
                             @if(empty($data['product']->stock))
                                 <button type="submit" class="cart-btn" disabled><span class="icon_bag_alt"></span> Tambah Ke Keranjang</button>
