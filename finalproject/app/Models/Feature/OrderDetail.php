@@ -23,7 +23,7 @@ class OrderDetail extends Model
 
     public function getTotalPricePerProductAttribute()
     {
-        $price = $this->qty * $this->Product->price;
+        $price = $this->qty * $this->price;
         return $price;
     }
 }
