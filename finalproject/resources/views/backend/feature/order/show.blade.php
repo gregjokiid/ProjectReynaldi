@@ -84,7 +84,7 @@
                                                 <td><a
                                                         href="{{ route('product.show', ['categoriSlug' => $detail->Product->category->slug, 'productSlug' => $detail->Product->slug]) }}">{{ $detail->product->name }}</a>
                                                 </td>
-                                                <td class="text-center">{{ rupiah($detail->product->price) }}</td>
+                                                <td class="text-center">{{ rupiah($detail->price) }}</td>
                                                 <td class="text-center">{{ $detail->qty }}</td>
                                                 <td class="text-right">{{ rupiah($detail->total_price_per_product) }}
                                                 </td>
