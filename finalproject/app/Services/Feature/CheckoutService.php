@@ -49,4 +49,35 @@ class CheckoutService{
         $this->cartService->deleteUserCart();
     }
 
+    public function offlineProcess($request)
+    {
+        date_default_timezone_set("Asia/Jakarta");
+        $userCart = $this->cartService->getUserCart();
+        $subtotal =  $userCart->sum('total_price_per_product');
+        $total_pay = $subtotal;
+        $dataOrder = [
+            'invoice_number' => auth()->user()->id.date("YmdHis"),
+            'total_pay' => $total_pay,
+            'recipient_name' => auth()->user()->name,
+            'destination' =>  "offline",
+            'address_detail' => "offline",
+            'courier' => "offline",
+            'subtotal' => $subtotal,
+            'shipping_cost' => "offline",
+            'shipping_method' => "offline",
+            'total_weight' => "offline",
+            'status' => 0,
+            'user_id' => auth()->user()->id
+        ];
+        $orderStore = $this->order->store($dataOrder);
+        foreach($userCart as $cart){
+            $this->orderDetail->store([
+                'order_id' => $orderStore->id,
+                'product_id' => $cart->product_id,
+                'price' => $cart->price,
+                'qty' => $cart->qty
+            ]);
+        }
+        $this->cartService->deleteUserCart();
+    }
 }

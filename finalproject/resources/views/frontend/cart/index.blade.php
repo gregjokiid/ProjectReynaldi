@@ -100,6 +100,10 @@
                             <ul>
                                 <li>Total <span>{{ rupiah($data['carts']->sum('total_price_per_product')) }}</span></li>
                             </ul>
+                            <form action="{{ route('checkout.offlineProcess') }}" class="checkout__form" method="POST">
+                                @csrf
+                                <button type="submit" class="site-btn">Konfirmasi</button>
+                            </form>
                             <a href="{{ route('checkout.index') }}" class="primary-btn">Proses</a>
                         </div>
                     </div>
