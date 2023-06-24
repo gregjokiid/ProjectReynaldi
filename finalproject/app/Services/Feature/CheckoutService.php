@@ -42,6 +42,7 @@ class CheckoutService{
             $this->orderDetail->store([
                 'order_id' => $orderStore->id,
                 'product_id' => $cart->product_id,
+                'price' => $cart->price,
                 'qty' => $cart->qty
             ]);
         }
