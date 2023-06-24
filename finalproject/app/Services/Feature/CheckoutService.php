@@ -66,7 +66,7 @@ class CheckoutService{
             'shipping_cost' => "offline",
             'shipping_method' => "offline",
             'total_weight' => "offline",
-            'status' => 0,
+            'status' => 6,
             'user_id' => auth()->user()->id
         ];
         $orderStore = $this->order->store($dataOrder);
