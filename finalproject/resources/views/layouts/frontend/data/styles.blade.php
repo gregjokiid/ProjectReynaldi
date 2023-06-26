@@ -17,6 +17,7 @@ rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('ashion') }}/css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="{{ asset('ashion') }}/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="{{ asset('ashion') }}/css/style.css" type="text/css">
+<link rel="stylesheet" href="{{ asset('ashion') }}/css/image.css" type="text/css">
 <link rel="stylesheet" href="{{ asset('stisla') }}/css/style2.css">
 <link rel="stylesheet" href="{{ asset('stisla') }}/css/components.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
