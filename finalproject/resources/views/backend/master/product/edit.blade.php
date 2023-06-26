@@ -28,7 +28,10 @@
                     <x-forms.input type="textarea" name="description" id="description" :label="__('field.description')" :isRequired="true" value="{{ $data['product']->description }}"/>
 
                     <x-forms.input type="file" name="thumbnails" id="thumbnails" :label="__('field.thumbnails')" hintText="Kosongkan jika tidak akan mengubah file"/>
-
+                    <x-forms.input type="file" name="thumbnails2" id="thumbnails2" :label="__('field.thumbnails')" hintText="Kosongkan jika tidak akan mengubah file"/>
+                    <x-forms.input type="file" name="thumbnails3" id="thumbnails3" :label="__('field.thumbnails')" hintText="Kosongkan jika tidak akan mengubah file"/>
+                    <x-forms.input type="file" name="thumbnails4" id="thumbnails4" :label="__('field.thumbnails')" hintText="Kosongkan jika tidak akan mengubah file"/>
+                    <x-forms.input type="file" name="thumbnails5" id="thumbnails5" :label="__('field.thumbnails')" hintText="Kosongkan jika tidak akan mengubah file"/>
 
                     <div class="text-right">
                         <a href="{{ Route('master.product.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
