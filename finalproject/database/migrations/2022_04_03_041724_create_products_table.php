@@ -19,6 +19,10 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('thumbnails');
+            $table->string('thumbnails2')->nullable();
+            $table->string('thumbnails3')->nullable();
+            $table->string('thumbnails4')->nullable();
+            $table->string('thumbnails5')->nullable();
             $table->string('price');
             $table->string('weight');
             $table->string('stock');
