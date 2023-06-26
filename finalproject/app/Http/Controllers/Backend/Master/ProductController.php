@@ -52,7 +52,7 @@ class ProductController extends Controller
     public function update(Request $request,$id)
     {
         if(isset($request->thumbnails)){
-            $this->product->update($id,$request->all('_token'),true,['thumbnails'],'product/thumbnails');
+            $this->product->update($id,$request->all('_token'),true,['thumbnails', 'thumbnails2', 'thumbnails3', 'thumbnails4', 'thumbnails5'],'product/thumbnails');
         }else{
             $this->product->update($id,$request->except('_token'));
         }
