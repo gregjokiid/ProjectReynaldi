@@ -25,7 +25,13 @@
                     <div class="product__details__pic">
                         <div class="product__details__slider__content">
                             <div class="product__details__pic__slider owl-carousel">
-                                <img data-hash="product-1" class="product__big__img" src="{{ asset($data['product']->thumbnails_path) }}" alt="">
+                                <img data-hash="product-1" class="product__big__img" id="myImg" src="{{ asset($data['product']->thumbnails_path) }}" alt="">
+                            </div>
+                            <!-- The Modal -->
+                            <div id="myModal" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img01">
+                                <div id="caption"></div>
                             </div>
                         </div>
                     </div>
