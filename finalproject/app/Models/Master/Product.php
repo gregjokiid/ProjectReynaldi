@@ -15,7 +15,7 @@ class Product extends Model
     use SoftDeletes;
     use HasFactory;
     protected $guarded = [];
-    protected $appends = ['thumbnails_path','price_rupiah','total_sold'];
+    protected $appends = ['thumbnails_path','price_rupiah','total_sold','thumbnails_path2','thumbnails_path3','thumbnails_path4','thumbnails_path5'];
 
     public function Category()
     {
@@ -30,6 +30,26 @@ class Product extends Model
     public function getThumbnailsPathAttribute()
     {
         return asset('storage/' . $this->thumbnails);
+    }
+
+    public function getThumbnailsPath2Attribute()
+    {
+        return asset('storage/' . $this->thumbnails2);
+    }
+
+    public function getThumbnailsPath3Attribute()
+    {
+        return asset('storage/' . $this->thumbnails3);
+    }
+
+    public function getThumbnailsPath4Attribute()
+    {
+        return asset('storage/' . $this->thumbnails4);
+    }
+
+    public function getThumbnailsPath5Attribute()
+    {
+        return asset('storage/' . $this->thumbnails5);
     }
 
     public function getPriceRupiahAttribute()
