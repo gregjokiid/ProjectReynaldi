@@ -19,9 +19,7 @@
                 <div class="dropdown-list-content dropdown-list-icons">
                     @foreach($products as $product)
                         <a href="#" class="dropdown-item dropdown-item-unread">
-                            <div class="dropdown-item-icon bg-primary text-white">
-                                <i class="fas fa-code"></i>
-                            </div>
+                            <img class="dropdown-item-icon bg-primary text-white" src="{{ asset('storage/' . $product->thumbnails) }}">
                             <div class="dropdown-item-desc">
                                 {{ $product->name }}
                                 <div class="time text-primary">{{ $product->stock }}</div>
