@@ -28,7 +28,7 @@
                     @endforeach
                 </div>
                 <div class="dropdown-footer text-center">
-                    <a href="#">Lihat semua <i class="fas fa-chevron-right"></i></a>
+                    <a href="{{ route('master.product.index') }}">Ke halaman produk <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
         </li>
