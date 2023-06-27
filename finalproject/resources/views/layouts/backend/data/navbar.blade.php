@@ -12,16 +12,22 @@
             <div class="dropdown-menu dropdown-list dropdown-menu-right">
                 <div class="dropdown-header">Notifikasi
                 </div>
+                @php
+                    use App\Models\Master\Product;
+                    $products = Product::where('stock', '<', 4)->get();
+                @endphp
                 <div class="dropdown-list-content dropdown-list-icons">
-                    <a href="#" class="dropdown-item dropdown-item-unread">
-                        <div class="dropdown-item-icon bg-primary text-white">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="dropdown-item-desc">
-                            Template versi terbaru telah tersedia!
-                            <div class="time text-primary">2 menit lalu</div>
-                        </div>
-                    </a>
+                    @foreach($products as $product)
+                        <a href="#" class="dropdown-item dropdown-item-unread">
+                            <div class="dropdown-item-icon bg-primary text-white">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="dropdown-item-desc">
+                                {{ $product->name }}
+                                <div class="time text-primary">{{ $product->stock }}</div>
+                            </div>
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </li>
