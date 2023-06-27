@@ -11,6 +11,9 @@
                 class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right">
                 <div class="dropdown-header">Notifikasi
+                    <div class="float-right">
+                        <a href="#">Tandai sudah dibaca</a>
+                    </div>
                 </div>
                 @php
                     use App\Models\Master\Product;
@@ -26,6 +29,9 @@
                             </div>
                         </a>
                     @endforeach
+                </div>
+                <div class="dropdown-footer text-center">
+                    <a href="#">Lihat semua <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
         </li>
