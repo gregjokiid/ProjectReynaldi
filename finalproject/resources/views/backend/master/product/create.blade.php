@@ -29,10 +29,10 @@
                     <x-forms.input type="textarea" name="description" id="description" :label="__('field.description')" :isRequired="true" />
 
                     <x-forms.input type="file" name="thumbnails" id="thumbnails" :label="__('field.thumbnails')" :isRequired="true" />
-                    <x-forms.input type="file" name="thumbnails2" id="thumbnails2" :label="__('field.thumbnails')" :isRequired="true" />
-                    <x-forms.input type="file" name="thumbnails3" id="thumbnails3" :label="__('field.thumbnails')" :isRequired="true" />
-                    <x-forms.input type="file" name="thumbnails4" id="thumbnails4" :label="__('field.thumbnails')" :isRequired="true" />
-                    <x-forms.input type="file" name="thumbnails5" id="thumbnails5" :label="__('field.thumbnails')" :isRequired="true" />
+                    <x-forms.input type="file" name="thumbnails2" id="thumbnails2" label="Gambar 2"/>
+                    <x-forms.input type="file" name="thumbnails3" id="thumbnails3" label="Gambar 3"/>
+                    <x-forms.input type="file" name="thumbnails4" id="thumbnails4" label="Gambar 4"/>
+                    <x-forms.input type="file" name="thumbnails5" id="thumbnails5" label="Gambar 5"/>
 
                     <div class="text-right">
                         <a href="{{ Route('master.product.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
