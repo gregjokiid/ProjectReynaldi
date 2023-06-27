@@ -43,6 +43,10 @@
                     </div>
                     <div class="col-md-6">
                         <img src="{{ $data['product']->thumbnails_path }}" alt="" class="w-100">
+                        <img src="{{ $data['product']->thumbnails_path2 }}" alt="" class="w-100">
+                        <img src="{{ $data['product']->thumbnails_path3 }}" alt="" class="w-100">
+                        <img src="{{ $data['product']->thumbnails_path4 }}" alt="" class="w-100">
+                        <img src="{{ $data['product']->thumbnails_path5 }}" alt="" class="w-100">
                     </div>
                 </div>
                 </div>
