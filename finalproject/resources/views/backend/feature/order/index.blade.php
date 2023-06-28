@@ -22,7 +22,7 @@
                         <tr>
                             <td>{{ $order->invoice_number }}</td>
                             <td>{{ $order->Customer->name }}</td>
-                            <td>{{ $order->total_pay }}</td>
+                            <td>{{ rupiah($order->total_pay) }}</td>
                             <td>{!! $order->status_name !!}</td>
                             <td>{{ $order->created_at }}</td>
                             <td>
