@@ -30,7 +30,7 @@
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->category->name }}</td>
                             <td><img src="{{ $product->thumbnails_path }}" class="img-thumbnail" width="100" alt=""></td>
-                            <td>{{ $product->price }}</td>
+                            <td>{{ rupiah($product->price) }}</td>
                             <td>{{ $product->total_sold }}</td>
                             <td>{{ $product->stock }}</td>
                             <td>{{ tanggal($product->created_at) }}</td>
