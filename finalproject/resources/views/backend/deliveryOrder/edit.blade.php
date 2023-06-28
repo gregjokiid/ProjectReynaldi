@@ -38,7 +38,7 @@
                         </select>
                     </div>
 
-                    <x-forms.input type="number" name="qty" id="qty" label="Kuantitas" :isRequired="true" value="{{ $purchaseOrder->qty }}"/>
+                    <x-forms.input type="number" name="qty" id="qty" label="Jumlah" :isRequired="true" value="{{ $purchaseOrder->qty }}"/>
 
                     <x-forms.input type="number" name="price" id="price" label="Harga" :isRequired="true" value="{{ $purchaseOrder->price }}"/>
 

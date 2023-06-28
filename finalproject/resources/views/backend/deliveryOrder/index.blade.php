@@ -4,18 +4,18 @@
         <div class="col-md-12">
             @component('components.backend.card.card-table')
                 @slot('header')
-                    <h4 class="card-title">Delivery Order</h4>
+                    <h4 class="card-title">Pengiriman Pesanan</h4>
                 @endslot
                 @slot('thead')
                     <tr>
-                        <th>Product ID</th>
-                        <th>Supplier ID</th>
+                        <th>Nama Produk</th>
+                        <th>Nama Supplier</th>
                         <th>Status</th>
-                        <th>Qty</th>
-                        <th>Price</th>
+                        <th>Jumlah</th>
+                        <th>Harga</th>
                         <th>Dibuat</th>
                         <th>Diupdate</th>
-                        <th>Action</th>
+                        <th>Aksi</th>
                     </tr>
                 @endslot
                 @slot('tbody')
