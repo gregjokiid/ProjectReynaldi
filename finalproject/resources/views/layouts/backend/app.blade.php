@@ -13,6 +13,7 @@
             @include('layouts.backend.data.sidebar')
             <div class="main-content">
                 <section class="section">
+                    @include('layouts.backend.data.breadcrumbs')
                     @if (session()->has('error') || session()->has('success'))
                         <div class="container-fluid">
                             @if (session()->has('error'))
