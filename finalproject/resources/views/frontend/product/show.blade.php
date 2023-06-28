@@ -45,7 +45,7 @@
                         <h3>{{ $data['product']->name }} <span>Kategori: {{ $data['product']->Category->name }}</span></h3>
                         <span>Stok: {{ $data['product']->stock }}</span>
                         <form action="{{ route('cart.store') }}" method="POST">
-                        <div class="product__details__price">{{ $data['product']->price }} <span></div>
+                        <div class="product__details__price">{{ rupiah($data['product']->price) }} <span></div>
                         @csrf
                         <div class="product__details__button">
                             <div class="quantity">
