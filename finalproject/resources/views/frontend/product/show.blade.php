@@ -28,6 +28,22 @@
                                 <a href="{{ $data['product']->thumbnails_path }}" class="image-popup">
                                     <image data-hash="product-1" class="product__big__img" src="{{ asset($data['product']->thumbnails_path) }}" alt=""></image>
                                 </a>
+
+                                <a href="{{ $data['product']->thumbnails_path2 }}" class="image-popup">
+                                    <image data-hash="product-1" class="product__big__img" src="{{ asset($data['product']->thumbnails_path2) }}" alt=""></image>
+                                </a>
+
+                                <a href="{{ $data['product']->thumbnails_path3 }}" class="image-popup">
+                                    <image data-hash="product-1" class="product__big__img" src="{{ asset($data['product']->thumbnails_path3) }}" alt=""></image>
+                                </a>
+
+                                <a href="{{ $data['product']->thumbnails_path4 }}" class="image-popup">
+                                    <image data-hash="product-1" class="product__big__img" src="{{ asset($data['product']->thumbnails_path4) }}" alt=""></image>
+                                </a>
+
+                                <a href="{{ $data['product']->thumbnails_path5 }}" class="image-popup">
+                                    <image data-hash="product-1" class="product__big__img" src="{{ asset($data['product']->thumbnails_path5) }}" alt=""></image>
+                                </a>
                             </div>
                         </div>
                     </div>
