@@ -11,7 +11,7 @@
     @yield('content')
     @include('layouts.frontend.data.footer')
 
-    <a href="#"><img src="upbutton.png" id="fixedbutton"></a>
+    <a href="#"><img src="{{ asset('ashion') }}/img/whatsapp.png" id="fixedbutton" height="10%"></a>
 
     <!-- Search Begin -->
     <div class="search-model">
