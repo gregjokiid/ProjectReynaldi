@@ -16,7 +16,7 @@
                     <tr>
                         <th>{{ __('field.product_name') }}</th>
                         <th>{{ __('field.category_name') }}</th>
-                        <th>{{ __('field.thumbnails') }}</th>
+                        <th>Gambar</th>
                         <th>{{ __('field.price') }}</th>
                         <th>{{ __('field.stock') }}</th>
                         <th>{{ __('field.created_at') }}</th>

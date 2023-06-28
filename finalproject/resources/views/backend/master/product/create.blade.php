@@ -28,7 +28,7 @@
 
                     <x-forms.input type="textarea" name="description" id="description" :label="__('field.description')" :isRequired="true" />
 
-                    <x-forms.input type="file" name="thumbnails" id="thumbnails" :label="__('field.thumbnails')" :isRequired="true" />
+                    <x-forms.input type="file" name="thumbnails" id="thumbnails" label="Gambar 1" :isRequired="true" />
                     <x-forms.input type="file" name="thumbnails2" id="thumbnails2" label="Gambar 2"/>
                     <x-forms.input type="file" name="thumbnails3" id="thumbnails3" label="Gambar 3"/>
                     <x-forms.input type="file" name="thumbnails4" id="thumbnails4" label="Gambar 4"/>

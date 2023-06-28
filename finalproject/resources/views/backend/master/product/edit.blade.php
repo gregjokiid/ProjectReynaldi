@@ -27,7 +27,7 @@
 
                     <x-forms.input type="textarea" name="description" id="description" :label="__('field.description')" :isRequired="true" value="{{ $data['product']->description }}"/>
 
-                    <x-forms.input type="file" name="thumbnails" id="thumbnails" :label="__('field.thumbnails')" hintText="Kosongkan jika tidak akan mengubah file"/>
+                    <x-forms.input type="file" name="thumbnails" id="thumbnails" label="Gambar 1" hintText="Kosongkan jika tidak akan mengubah file"/>
                     <x-forms.input type="file" name="thumbnails2" id="thumbnails2" label="Gambar 2" hintText="Kosongkan jika tidak akan mengubah file"/>
                     <x-forms.input type="file" name="thumbnails3" id="thumbnails3" label="Gambar 3" hintText="Kosongkan jika tidak akan mengubah file"/>
                     <x-forms.input type="file" name="thumbnails4" id="thumbnails4" label="Gambar 4" hintText="Kosongkan jika tidak akan mengubah file"/>
