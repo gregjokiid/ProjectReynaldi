@@ -14,7 +14,7 @@
                     <tr>
                         <th>{{ __('field.category_name') }}</th>
                         <th>{{ __('field.slug') }}</th>
-                        <th>{{ __('field.thumbnails') }}</th>
+                        <th>Gambar</th>
                         <th>{{ __('text.total') }}</th>
                         <th>{{ __('field.action') }}</th>
                     </tr>

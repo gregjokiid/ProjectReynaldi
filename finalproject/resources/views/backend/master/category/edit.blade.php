@@ -9,8 +9,8 @@
                     <x-forms.input name="name" id="name" :label="__('field.category_name')" :isRequired="true" value="{{ $data['category']->name }}"/>
 
                     <x-forms.input name="slug" id="slug" :label="__('field.slug')" :isRequired="true" readonly value="{{ $data['category']->slug }}"/>
-                    <x-forms.input type="file" name="thumbnails" id="thumbnails" :label="__('field.thumbnails')" />
-                    <p>Kosongkan jika tidak akan mengubah thumbnails.</p>
+                    <x-forms.input type="file" name="thumbnails" id="thumbnails" label="Gambar" />
+                    <p>Kosongkan jika tidak akan mengubah gambar.</p>
 
                     <div class="text-right">
                         <a href="{{ Route('master.category.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
