@@ -6,14 +6,16 @@ use App\Models\Master\Product;
 use App\Models\PurchaseOrder;
 use App\Models\Supplier;
 use App\Repositories\CrudRepositories;
+use App\Services\Feature\PurchaseOrderAcceptService;
 use Illuminate\Http\Request;
 
 class PurchaseOrderController extends Controller
 {
     protected $purchaseOrder;
-    public function __construct(PurchaseOrder $purchaseOrder)
+    public function __construct(PurchaseOrder $purchaseOrder, PurchaseOrderAcceptService $purchaseOrderAcceptService)
     {
         $this->purchaseOrder = new CrudRepositories($purchaseOrder);
+        $this->purchaseOrderAcceptService = $purchaseOrderAcceptService;
     }
     /**
      * Display a listing of the resource.
@@ -117,6 +119,7 @@ class PurchaseOrderController extends Controller
 
     public function done($id)
     {
+        $this->purchaseOrderAcceptService->process($id);
         $this->purchaseOrder->Query()->where('id',$id)->first()->update(['status' => 1]);
         return back()->with('success',__('message.order_received'));
     }
