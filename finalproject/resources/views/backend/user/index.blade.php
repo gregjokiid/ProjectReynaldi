@@ -24,15 +24,15 @@
                             @foreach ($roles as $role)
                                 @if ($user->id == $role->model_id)
                                     <td>
-                                        @if($role->model_id == 1)
+                                        @if($role->role_id == 1)
                                             admin
-                                        @elseif($role->model_id == 2)
+                                        @elseif($role->role_id == 2)
                                             user
-                                        @elseif($role->model_id == 3)
+                                        @elseif($role->role_id == 3)
                                             purchasing
-                                        @elseif($role->model_id == 4)
+                                        @elseif($role->role_id == 4)
                                             cashier
-                                        @elseif($role->model_id == 5)
+                                        @elseif($role->role_id == 5)
                                             owner
                                         @endif
                                     </td>
