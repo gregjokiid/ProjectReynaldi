@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Feature;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Invoice;
 use App\Models\Feature\Order;
 use App\Models\User;
 use App\Repositories\CrudRepositories;
