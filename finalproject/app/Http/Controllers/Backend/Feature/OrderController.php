@@ -49,12 +49,18 @@ class OrderController extends Controller
     {
         $this->orderAcceptService->process($id);
         $this->order->Query()->where('id',$id)->first()->update(['status' => 2]);
+        $data['order'] = $this->order->Query()->where('id',$id)->first();
+        $user = User::where('id', '=', $data['order']->user_id)->first();
+        Mail::to($user->email)->send(new Invoice($data));
         return back()->with('success',__('message.order_received'));
     }
 
     public function refuse($id)
     {
         $this->order->Query()->where('id',$id)->first()->update(['status' => 4]);
+        $data['order'] = $this->order->Query()->where('id',$id)->first();
+        $user = User::where('id', '=', $data['order']->user_id)->first();
+        Mail::to($user->email)->send(new Invoice($data));
         return back()->with('success',__('message.order_received'));
     }
 
