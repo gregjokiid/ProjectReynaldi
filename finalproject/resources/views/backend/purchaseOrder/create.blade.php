@@ -28,7 +28,7 @@
 
                     <x-forms.input name="status" id="status" value=0 hidden/>
 
-                    <x-forms.input type="number" name="qty" id="qty" label="Kuantitas" :isRequired="true" />
+                    <x-forms.input type="number" name="qty" id="qty" label="Jumlah" :isRequired="true" />
 
                     <div class="text-right">
                         <a href="{{ Route('purchaseOrder.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
