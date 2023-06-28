@@ -26,6 +26,7 @@
                             <h4>Kiat Teknik Surabaya</h4>
                             <p>Jl. Sambongan IV No.11</p>
                             <p>082232769157</p>
+                            <a href="https://wa.me/6282232769157"><i class="fab fa-whatsapp-square"></i></a>
                         </div>
                     </div>
                 </div>
