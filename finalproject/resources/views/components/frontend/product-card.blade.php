@@ -2,9 +2,9 @@
     <div class="product__item__pic set-bg"
         data-setbg="{{ $image }}">
         @if(empty($stock))
-            <div class="label stockout">Stockout</div>
+            <div class="label stockout">Habis</div>
         @else
-            <div class="label new">New</div>
+            <div class="label new">Baru</div>
         @endif
         <ul class="product__hover">
             <li><a href="{{ $image }}"
