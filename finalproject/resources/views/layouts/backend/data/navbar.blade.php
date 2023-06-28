@@ -22,7 +22,7 @@
                             <img class="dropdown-item-icon bg-primary text-white" src="{{ asset('storage/' . $product->thumbnails) }}">
                             <div class="dropdown-item-desc">
                                 {{ $product->name }}
-                                <div class="time text-primary">{{ $product->stock }}</div>
+                                <div class="time text-primary">Stok: {{ $product->stock }}</div>
                             </div>
                         </a>
                     @endforeach
