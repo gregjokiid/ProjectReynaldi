@@ -10,9 +10,9 @@
 
                     <x-forms.input type="text" name="name" id="name" label="Nama" :isRequired="true" value="{{ $supplier->name }}"/>
 
-                    <x-forms.input type="text" name="address" id="address" label="Address" :isRequired="true" value="{{ $supplier->address }}"/>
+                    <x-forms.input type="text" name="address" id="address" label="Alamat" :isRequired="true" value="{{ $supplier->address }}"/>
 
-                    <x-forms.input type="number" name="phone" id="phone" label="Phone" :isRequired="true" value="{{ $supplier->phone }}"/>
+                    <x-forms.input type="number" name="phone" id="phone" label="No Telepon" :isRequired="true" value="{{ $supplier->phone }}"/>
 
                     <x-forms.input type="email" name="email" id="email" label="Email" :isRequired="true" value="{{ $supplier->email }}"/>
 

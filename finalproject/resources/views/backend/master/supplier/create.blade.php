@@ -12,7 +12,7 @@
 
                     <x-forms.input type="text" name="address" id="address" label="Alamat" :isRequired="true" />
 
-                    <x-forms.input type="number" name="phone" id="phone" label="Nomor Telepon" :isRequired="true" />
+                    <x-forms.input type="number" name="phone" id="phone" label="No Telepon" :isRequired="true" />
 
                     <x-forms.input type="email" name="email" id="email" label="Email" :isRequired="true" />
 

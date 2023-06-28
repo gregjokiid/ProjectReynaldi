@@ -6,17 +6,16 @@
                 @slot('header')
                     <h4 class="card-title">Supplier</h4>
                     <div class="card-header-action">
-                        <a href="{{ route('master.supplier.create') }}" class="btn btn-primary">{{ __('button.add') }}
-                            {{ __('menu.product') }}</a>
+                        <a href="{{ route('master.supplier.create') }}" class="btn btn-primary">Tambah Supplier</a>
                     </div>
                 @endslot
                 @slot('thead')
                     <tr>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Phone</th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>No Telepon</th>
                         <th>Email</th>
-                        <th>Action</th>
+                        <th>Aksi</th>
                     </tr>
                 @endslot
                 @slot('tbody')
