@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Backend\Feature;
 
 use App\Http\Controllers\Controller;
 use App\Models\Feature\Order;
+use App\Models\User;
 use App\Repositories\CrudRepositories;
 use App\Services\Feature\OrderAcceptService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -59,6 +61,9 @@ class OrderController extends Controller
     {
         $this->orderAcceptService->process($id);
         $this->order->Query()->where('id',$id)->first()->update(['status' => 5]);
+        $data['order'] = $this->order->Query()->where('id',$id)->first();
+        $user = User::where('id', '=', $data['order']->user_id)->first();
+        Mail::to($user->email)->send(new Invoice($data));
         return back()->with('success',__('message.order_received'));
     }
 }
