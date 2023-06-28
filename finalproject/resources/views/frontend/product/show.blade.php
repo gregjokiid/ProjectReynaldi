@@ -25,7 +25,9 @@
                     <div class="product__details__pic">
                         <div class="product__details__slider__content">
                             <div class="product__details__pic__slider owl-carousel">
-                                <img data-hash="product-1" class="product__big__img" id="myImg" src="{{ asset($data['product']->thumbnails_path) }}" alt="">
+                                <a href="{{ $data['product']->thumbnails_path }}" class="image-popup">
+                                    <image data-hash="product-1" class="product__big__img" src="{{ asset($data['product']->thumbnails_path) }}" alt=""></image>
+                                </a>
                             </div>
                         </div>
                     </div>
