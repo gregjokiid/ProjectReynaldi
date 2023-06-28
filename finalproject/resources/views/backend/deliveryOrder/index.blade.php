@@ -41,7 +41,7 @@
                                 <td>Selesai</td>
                             @endif
                             <td>{{ $purchaseOrder->qty }}</td>
-                            <td>{{ $purchaseOrder->price }}</td>
+                            <td>{{ rupiah($purchaseOrder->price) }}</td>
                             <td>{{ $purchaseOrder->created_at }}</td>
                             <td>{{ $purchaseOrder->updated_at }}</td>
                             <td>
