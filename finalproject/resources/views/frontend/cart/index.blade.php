@@ -51,7 +51,7 @@
                                         <input type="hidden" name="cart_id[]" value="{{ $carts->id }}">
                                         <td class="cart__quantity">
                                             <div class="pro-qty">
-                                                <input type="number" name="cart_qty[]" value="{{ $carts->qty }}" max="{{ $carts->Product->stock }}">
+                                                <input type="number" name="cart_qty[]" value="{{ $carts->qty }}" min="1" max="{{ $carts->Product->stock }}">
                                             </div>
                                         </td>
                                         <td class="cart__total">{{ rupiah($carts->total_price_per_product) }}</td>
