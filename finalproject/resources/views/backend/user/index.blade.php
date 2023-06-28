@@ -6,13 +6,13 @@
                 @slot('header')
                     <h4>User</h4>
                     <div class="card-header-action">
-                      <a href="{{ route('user.create') }}" class="btn btn-primary">Add User</a>
+                      <a href="{{ route('user.create') }}" class="btn btn-primary">Tambahkan User</a>
                     </div>
                 @endslot
                 @slot('thead')
                     <tr>
                         <th>Nama</th>
-                        <th>Role</th>
+                        <th>Jabatan</th>
                         <th>Email</th>
                         <th>Bergabung</th>
                     </tr>
