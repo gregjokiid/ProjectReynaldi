@@ -9,7 +9,7 @@
             <div class="col">
                 <div class="mb-3">
                     <label>{{ $item['label'] }}</label>
-                    <input name="field[{{ $item['id'] }}]" id="{{ $item['id'] }}" class="form-control @error($item['id']) is-invalid @enderror" 
+                    <input name="field[{{ $item['id'] }}]" id="{{ $item['id'] }}" class="form-control @error($item['id']) is-invalid @enderror"
                     type="text" autocomplete="false" value="{{ $item['value'] }}">
                     @error($item['id'])
                         <p class="text-danger">{{ $message }}</p>
