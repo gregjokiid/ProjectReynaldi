@@ -26,7 +26,7 @@
                             <hr class="mb-2">
                             <div class="invoice-title">
                                 <h2>Invoice</h2>
-                                <div class="invoice-number">Order {{ $data['order']->invoice_number }}</div>
+                                <div class="invoice-number">{{ $data['order']->invoice_number }}</div>
                             </div>
                             <hr>
                             <div class="row">
@@ -73,10 +73,10 @@
                                     <tbody>
                                         <tr>
                                             <th data-width="40" style="width: 40px;">#</th>
-                                            <th>Item</th>
-                                            <th class="text-center">Price</th>
-                                            <th class="text-center">Quantity</th>
-                                            <th class="text-right">Totals</th>
+                                            <th>Nama Produk</th>
+                                            <th class="text-center">Harga</th>
+                                            <th class="text-center">Jumlah</th>
+                                            <th class="text-right">Total</th>
                                         </tr>
                                         @foreach ($data['order']->orderDetail()->get() as $detail)
                                             <tr>
