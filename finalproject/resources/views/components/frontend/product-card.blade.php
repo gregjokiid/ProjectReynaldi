@@ -21,9 +21,3 @@
         <div class="product__price">{{ rupiah($price) }}</div>
     </div>
 </div>
-
-{{--<ul class="product__hover">--}}
-{{--    <li><a href="{{ $image }}"--}}
-{{--           class="image-popup"><span class="arrow_expand"></span></a></li>--}}
-{{--    <li><a href="{{ $route }}"><span><i class="fa fa-eye"></i></span></a></li>--}}
-{{--</ul>--}}
