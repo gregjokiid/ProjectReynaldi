@@ -99,7 +99,9 @@
              <div class="col-lg-3">
                  <div class="header__right">
                      <ul class="header__right__widget">
-                         <li><span class="icon_search search-switch"></span></li>
+                         <li><form method="get" action="{{ route('product.search') }}">
+                                 <input type="text" id="search-input" name="q" placeholder="Cari di sini.....">
+                             </form></li>
                          <li><a href="{{ route('cart.index') }}"><span class="icon_bag_alt"></span>
                              <div class="tip">
                                  {{ $totalCart ?? 0 }}
