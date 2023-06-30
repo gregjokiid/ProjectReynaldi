@@ -68,7 +68,7 @@
                                 <ul>
                                     <li>Subtotal <span>{{ rupiah($data['carts']->sum('total_price_per_product')) }}</span>
                                     </li>
-                                    <li>Biaya pengiriman <span id="text-cost">Rp 0</span></li>
+                                    <li>Biaya pengiriman <span id="text-cost">Rp 20.000</span></li>
                                     <li>Total <span id="total">{{ rupiah($data['carts']->sum('total_price_per_product')) }}</span></li>
                                     <input type="hidden" name="shipping_cost" id="shipping_cost" >
                                 </ul>
