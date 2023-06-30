@@ -31,6 +31,14 @@ class CheckoutController extends Controller
         return view('frontend.checkout.index',compact('data'));
     }
 
+    public function cod()
+    {
+        $data['carts'] = $this->cartService->getUserCart();
+        $data['provinces'] = $this->rajaongkirService->getProvince();
+        $data['shipping_address'] = ShippingAddress::first();
+        return view('frontend.checkout.cod',compact('data'));
+    }
+
     public function process(Request $request)
     {
         try{
