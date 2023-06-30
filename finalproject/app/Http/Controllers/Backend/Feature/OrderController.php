@@ -32,7 +32,22 @@ class OrderController extends Controller
 
     public function show($id)
     {
-        $data['order'] = Order::find($id);
+        $order = Order::find($id);
+        $data['order'] = $order;
+        if(isset($order->receipt_number)){
+            $key = env('BINDERBYTE_KEY', 'some32charstring');
+            $ch = curl_init();
+            $url = "https://api.binderbyte.com/v1/track?api_key=".$key."&courier=jne&awb=".$order->receipt_number;
+            // dd($url);
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $output = curl_exec($ch);
+            curl_close($ch);
+
+            $order['tracking'] = json_decode($output);
+            // dd(json_decode($output));
+
+        }
         $path = '/storage/file/order/payment/';
         $file_path = $data['order']->proof;
         return view('backend.feature.order.show',compact(['data', 'path', 'file_path']));
@@ -47,8 +62,11 @@ class OrderController extends Controller
 
     public function accept($id)
     {
+        // dd($id);
+        $request = request();
+        $resi = $request->resi;
         $this->orderAcceptService->process($id);
-        $this->order->Query()->where('id',$id)->first()->update(['status' => 2]);
+        $this->order->Query()->where('id',$id)->first()->update(['status' => 2, 'receipt_number' => $resi]);
         $data['order'] = $this->order->Query()->where('id',$id)->first();
         $user = User::where('id', '=', $data['order']->user_id)->first();
         Mail::to($user->email)->send(new Invoice($data));
