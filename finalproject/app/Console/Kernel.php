@@ -18,7 +18,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            $orders = Order::where('status', 0)
+            $orders = Order::where('status', 0)->orWhere('status', 6)
                 ->where('created_at', '<=', Carbon::now()->subHours(1))
                 ->get();
 
