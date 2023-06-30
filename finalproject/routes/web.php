@@ -129,6 +129,7 @@ Route::middleware('verified','role:user')->group(function(){
         Route::get('/',[CheckoutController::class,'index'])->name('index');
         Route::get('/cod',[CheckoutController::class,'cod'])->name('cod');
         Route::post('/process',[CheckoutController::class,'process'])->name('process');
+        Route::post('/codProcess',[CheckoutController::class,'codProcess'])->name('codProcess');
         Route::post('/offlineProcess',[CheckoutController::class,'offlineProcess'])->name('offlineProcess');
     });
 });
