@@ -24,7 +24,7 @@
 
                     <x-forms.input type="number" name="price" id="price" :label="__('field.price')" :isRequired="true" />
 
-                    <x-forms.input type="number" name="stock" id="stock" :label="__('field.stock')" :isRequired="true" />
+                    <x-forms.input type="number" name="stock" id="stock" :label="__('field.stock')" :isRequired="true" min="1"/>
 
                     <x-forms.input type="textarea" name="description" id="description" :label="__('field.description')" :isRequired="true" />
 
