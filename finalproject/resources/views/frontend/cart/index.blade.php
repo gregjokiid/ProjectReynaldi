@@ -108,7 +108,7 @@
                                 <form action="{{ route('checkout.offlineProcess') }}" class="checkout__form" method="POST">
                                 @csrf
 
-                                    <button type="submit" class="primary-btn3">Ambil di toko</button>
+                                    <button type="submit" class="primary-btn2">Ambil di toko</button>
                             </form>
                             </center>
                         </div>
