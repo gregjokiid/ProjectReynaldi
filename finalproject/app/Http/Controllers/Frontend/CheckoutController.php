@@ -49,6 +49,16 @@ class CheckoutController extends Controller
         }
     }
 
+    public function codProcess(Request $request)
+    {
+        try{
+            $this->checkoutService->codProcess($request->all());
+            return redirect()->route('transaction.index')->with('success',__('message.order_success'));
+        }catch(Exception $e){
+            dd($e);
+        }
+    }
+
     public function offlineProcess(Request $request)
     {
         try{
