@@ -100,7 +100,8 @@
                             <ul>
                                 <li>Total <span>{{ rupiah($data['carts']->sum('total_price_per_product')) }}</span></li>
                             </ul>
-                            <a href="{{ route('checkout.index') }}" class="primary-btn">Bayar di tempat</a>
+                            <a href="{{ route('checkout.index') }}" class="primary-btn">Pemesanan</a>
+                            <a href="{{ route('checkout.cod') }}" class="primary-btn">Bayar di tempat</a>
                             <center>
                             or
                             <form action="{{ route('checkout.offlineProcess') }}" class="checkout__form" method="POST">
