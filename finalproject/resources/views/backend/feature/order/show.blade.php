@@ -190,6 +190,8 @@
                                                     @endforeach
                                                     </tbody>
                                                 </table>
+                                            </tbody>
+                                        </table>
                                     @endif
                                 </div>
                             @endforeach
