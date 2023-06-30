@@ -2,11 +2,6 @@
     <a href="{{ $route }}">
         <div class="product__item__pic set-bg"
              data-setbg="{{ $image }}">
-            @if(empty($stock))
-                <div class="label stockout">Habis</div>
-            @else
-                <div class="label new">Baru</div>
-            @endif
         </div>
     </a>
     <div class="product__item__text">
