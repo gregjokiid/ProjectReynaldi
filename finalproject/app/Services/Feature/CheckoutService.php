@@ -22,7 +22,7 @@ class CheckoutService{
         date_default_timezone_set("Asia/Jakarta");
         $userCart = $this->cartService->getUserCart();
         $subtotal =  $userCart->sum('total_price_per_product');
-        $total_pay = $subtotal + $request['shipping_cost'];
+        $total_pay = $subtotal + 20000;
         foreach($userCart as $cart){
             $dataOrder = [
                 'invoice_number' => $cart->id.auth()->user()->id.date("Ymd"),
