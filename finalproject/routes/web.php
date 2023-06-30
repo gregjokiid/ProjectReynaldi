@@ -127,6 +127,7 @@ Route::middleware('verified','role:user')->group(function(){
 
     Route::prefix('checkout')->name('checkout.')->group(function(){
         Route::get('/',[CheckoutController::class,'index'])->name('index');
+        Route::get('/cod',[CheckoutController::class,'cod'])->name('cod');
         Route::post('/process',[CheckoutController::class,'process'])->name('process');
         Route::post('/offlineProcess',[CheckoutController::class,'offlineProcess'])->name('offlineProcess');
     });
