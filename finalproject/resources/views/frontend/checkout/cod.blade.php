@@ -17,7 +17,7 @@
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
-            <form action="{{ route('checkout.process') }}" class="checkout__form" method="POST">
+            <form action="{{ route('checkout.codProcess') }}" class="checkout__form" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-lg-8 mb-4">
