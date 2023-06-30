@@ -104,8 +104,8 @@
                             <br>
                             <a href="{{ route('checkout.cod') }}" class="primary-btn" style="background: #1515CA">Bayar di tempat</a>
                             <center>
-                            or
-                            <form action="{{ route('checkout.offlineProcess') }}" class="checkout__form" method="POST">
+                                <br>
+                                <form action="{{ route('checkout.offlineProcess') }}" class="checkout__form" method="POST">
                                 @csrf
 
                                     <button type="submit" style="display: inline-block;
