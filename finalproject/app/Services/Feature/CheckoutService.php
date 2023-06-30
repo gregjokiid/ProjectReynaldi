@@ -22,6 +22,40 @@ class CheckoutService{
         date_default_timezone_set("Asia/Jakarta");
         $userCart = $this->cartService->getUserCart();
         $subtotal =  $userCart->sum('total_price_per_product');
+        $total_pay = $subtotal + $request['shipping_cost'];
+        foreach($userCart as $cart){
+            $dataOrder = [
+                'invoice_number' => $cart->id.auth()->user()->id.date("Ymd"),
+                'total_pay' => $total_pay,
+                'recipient_name' => $request['recipient_name'],
+                'destination' =>  $request['city_id'] . ', ' . $request['province_id'] ,
+                'address_detail' => $request['address_detail'],
+                'courier' => $request['courier'],
+                'subtotal' => $subtotal,
+                'shipping_cost' => $request['shipping_cost'],
+                'shipping_method' => $request['shipping_method'],
+                'total_weight' => $request['total_weight'],
+                'status' => 0,
+                'user_id' => auth()->user()->id
+            ];
+        }
+        $orderStore = $this->order->store($dataOrder);
+        foreach($userCart as $cart){
+            $this->orderDetail->store([
+                'order_id' => $orderStore->id,
+                'product_id' => $cart->product_id,
+                'price' => $cart->price,
+                'qty' => $cart->qty
+            ]);
+        }
+        $this->cartService->deleteUserCart();
+    }
+
+    public function codProcess($request)
+    {
+        date_default_timezone_set("Asia/Jakarta");
+        $userCart = $this->cartService->getUserCart();
+        $subtotal =  $userCart->sum('total_price_per_product');
         $total_pay = $subtotal + 20000;
         foreach($userCart as $cart){
             $dataOrder = [
