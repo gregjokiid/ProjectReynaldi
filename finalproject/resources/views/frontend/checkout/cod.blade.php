@@ -35,26 +35,6 @@
                                     <input type="text" name="phone_number"  required>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="checkout__form__input">
-                                    <p>Provinsi <span>*</span></p>
-                                    <select name="province_id" id="province_id" class="select-2" required>
-                                        <option value="" selected disabled>-- Pilih provinsi --</option>
-                                        @foreach ($data['provinces'] as $province)
-                                            <option value="{{ $province['province'] }}" data-id="{{ $province['province_id'] }}">{{ $province['province'] }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="checkout__form__input">
-                                    <p>Kota <span>*</span></p>
-                                    <select name="city_id" id="city_id" class="select-2" disabled required>
-                                        <option value="" selected disabled>-- Pilih kota --</option>
-                                    </select>
-                                </div>
-                            </div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="checkout__form__input">
                                     <p>Detail alamat <span>*</span></p>
