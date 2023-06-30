@@ -22,7 +22,7 @@
 
                     <x-forms.input type="number" name="weight" id="weight" :label="__('field.weight')" :isRequired="true"/>
 
-                    <x-forms.input type="number" name="price" id="price" :label="__('field.price')" :isRequired="true" />
+                    <x-forms.input type="number" name="price" id="price" :label="__('field.price')" :isRequired="true" min="100"/>
 
                     <x-forms.input type="number" name="stock" id="stock" :label="__('field.stock')" :isRequired="true" min="1"/>
 
