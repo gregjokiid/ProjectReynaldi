@@ -32,7 +32,14 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $request->except('_token');
-        $this->product->store($data,true,['thumbnails', 'thumbnails2', 'thumbnails3', 'thumbnails4', 'thumbnails5'],'product/thumbnails');
+        $thumbnails = ['thumbnails', 'thumbnails2', 'thumbnails3', 'thumbnails4', 'thumbnails5'];
+        $thisThumbnails = [];
+        foreach ($thumbnails as $key => $value) {
+            if(isset($data[$value])){
+                array_push($thisThumbnails, $value);
+            }
+        }
+        $this->product->store($data,true,$thisThumbnails,'product/thumbnails');
         return redirect()->route('master.product.index')->with('success',__('message.store'));
     }
 
