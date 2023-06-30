@@ -6,13 +6,6 @@
     </a>
     <div class="product__item__text">
         <h6><a href="{{ $route }}">{{ $name }}</a></h6>
-        <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-        </div>
         <div class="product__price">{{ rupiah($price) }}</div>
     </div>
 </div>
