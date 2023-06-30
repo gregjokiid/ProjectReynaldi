@@ -108,7 +108,13 @@
                             <form action="{{ route('checkout.offlineProcess') }}" class="checkout__form" method="POST">
                                 @csrf
 
-                                    <button type="submit">Ambil di toko</button>
+                                    <button type="submit" style="display: inline-block;
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: 600;
+	padding: 12px 30px 10px;
+	color: #ffffff;
+	background: #15CA15;">Ambil di toko</button>
                             </form>
                             </center>
                         </div>
