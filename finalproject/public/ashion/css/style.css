@@ -168,6 +168,18 @@ ol {
 	background: #ca1515;
 }
 
+.primary-btn3 {
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 12px 30px 10px;
+    color: #ffffff;
+    background: #7015CA;
+    padding: 12px 85px 10px;
+    border-radius: 50px;
+}
+
 .site-btn {
 	font-size: 14px;
 	color: #ffffff;
