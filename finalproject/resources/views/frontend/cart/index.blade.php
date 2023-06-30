@@ -114,7 +114,9 @@
 	font-weight: 600;
 	padding: 12px 30px 10px;
 	color: #ffffff;
-	background: #7015CA;">Ambil di toko</button>
+	background: #7015CA;
+	padding: 12px 85px 10px;
+	border-radius: 50px;">Ambil di toko</button>
                             </form>
                             </center>
                         </div>
