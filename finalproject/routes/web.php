@@ -25,6 +25,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/verified', [\App\Http\Controllers\Auth\VerifyEmailController::class,'verified'])->name('verified.index');
+});
+
 Route::prefix('app')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::get('dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
