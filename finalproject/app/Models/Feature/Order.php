@@ -56,8 +56,8 @@ class Order extends Model
             '2' => '<div class="badge badge-info">Pembayaran Selesai</div>',
             '3' => '<div class="badge badge-success">Pesanan Selesai</div>',
             '4' => '<div class="badge badge-secondary">Pesanan Dibatalkan</div>',
-            '5' => '<div class="badge badge-secondary">Pesanan Selesai - Offline</div>',
-            '6' => '<div class="badge badge-secondary">Menunggu Pembayaran - Offline</div>',
+            '5' => '<div class="badge badge-success">Pesanan Selesai - Offline</div>',
+            '6' => '<div class="badge badge-warning">Menunggu Pembayaran - Offline</div>',
             '7' => '<div class="badge badge-secondary">Pesanan Kadaluarsa</div>',
         ];
         return $status[$this->status];
