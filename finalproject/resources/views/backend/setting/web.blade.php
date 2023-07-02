@@ -51,10 +51,8 @@
         @endif
         @endforeach
 
-        <div class="col">
-            <div class="text-end">
-                <button type="submit" class="btn btn-primary me-0" href="#">Simpan</button>
-            </div>
+        <div class="text-right">
+            <button type="submit" class="btn btn-primary me-0" href="#">Simpan</button>
         </div>
         @endslot
     @endcomponent
