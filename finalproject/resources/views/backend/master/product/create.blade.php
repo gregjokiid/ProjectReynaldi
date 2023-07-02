@@ -35,8 +35,8 @@
                     <x-forms.input type="file" name="thumbnails5" id="thumbnails5" label="Gambar 5"/>
 
                     <div class="text-right">
-                        <a href="{{ Route('master.product.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
-                        <button type="submit" class="btn btn-primary " href="#">{{ __('button.save') }}</button>
+                        <a href="{{ Route('master.product.index') }}" class="btn btn-danger" href="#">{{ __('button.cancel') }}</a>
+                        <button type="submit" class="btn btn-primary" href="#">{{ __('button.save') }}</button>
                     </div>
 
                 @endslot
