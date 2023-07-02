@@ -22,8 +22,8 @@
                     <x-forms.input name="password" type="password" label="Kata Sandi" :isRequired="true" />
 
                     <div class="text-right">
-                        <a href="{{ Route('user.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
-                        <button type="submit" class="btn btn-primary " href="#">{{ __('button.save') }}</button>
+                        <a href="{{ Route('user.index') }}" class="btn btn-danger" href="#">{{ __('button.cancel') }}</a>
+                        <button type="submit" class="btn btn-primary" href="#">{{ __('button.save') }}</button>
                     </div>
                 @endslot
             @endcomponent
