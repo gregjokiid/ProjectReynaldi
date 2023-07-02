@@ -24,7 +24,6 @@
             <div class="text-right">
                 <button type="submit" class="btn btn-primary me-0" href="#">Simpan</button>
             </div>
-            </div>
         @endslot
     @endcomponent
 @endsection
