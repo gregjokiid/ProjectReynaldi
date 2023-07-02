@@ -10,7 +10,7 @@
                                 <div class="text-md-right">
                                     <div class="mb-lg-0 mb-3">
                                         <a href="{{ route('feature.order.index') }}"
-                                           class="btn btn-primary btn-icon icon-left"><i class="fa fa-arrow-left"></i>
+                                           class="btn btn-success btn-icon icon-left"><i class="fa fa-arrow-left"></i>
                                             Kembali</a>
                                         @if ($data['order']->status == 1)
                                             <!-- <a href="{{ route('feature.order.accept', $data['order']->id) }}" class="btn btn-primary btn-icon icon-left"><i class="fa fa-check"></i>
