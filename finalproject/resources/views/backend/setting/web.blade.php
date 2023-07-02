@@ -56,7 +56,6 @@
                 <button type="submit" class="btn btn-primary me-0" href="#">Simpan</button>
             </div>
         </div>
-    </div>
         @endslot
     @endcomponent
 @endsection
