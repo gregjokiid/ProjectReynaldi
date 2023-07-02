@@ -2,6 +2,7 @@
 namespace App\Services\Feature;
 
 use App\Models\Feature\Cart;
+use App\Models\Master\Product;
 use App\Repositories\CrudRepositories;
 use Illuminate\Support\Str;
 class CartService{
@@ -15,9 +16,15 @@ class CartService{
     public function store($data)
     {
         $cek = $this->cart->Query()->where(['user_id' => auth()->user()->id,'product_id' => $data['cart_product_id']])->first();
+        $product = Product::where('id', $data['cart_product_id'])->first();
         if($cek){
             $cek->qty = $cek->qty + $data['cart_qty'];
-            $cek->update();
+            if($cek->qty <= $product->stock){
+                $cek->update();
+            } else{
+                $cek->qty = $product->stock;
+                $cek->update();
+            }
         }else{
             $this->cart->store([
                 'product_id' => $data['cart_product_id'],
@@ -26,15 +33,20 @@ class CartService{
                 'user_id'    => auth()->user()->id,
             ]);
         }
-
     }
 
     public function update($data)
     {
         $cek = $this->cart->Query()->where(['user_id' => auth()->user()->id,'product_id' => $data['cart_product_id']])->first();
+        $product = Product::where('id', $data['cart_product_id'])->first();
         if($cek){
             $cek->qty = $cek->qty + $data['cart_qty'];
-            $cek->update();
+            if($cek->qty <= $product->stock){
+                $cek->update();
+            } else{
+                $cek->qty = $product->stock;
+                $cek->update();
+            }
         }else{
             $this->cart->store([
                 'product_id' => $data['cart_product_id'],
@@ -43,7 +55,6 @@ class CartService{
                 'user_id'    => auth()->user()->id,
             ]);
         }
-
     }
 
     public function getUserCart()
