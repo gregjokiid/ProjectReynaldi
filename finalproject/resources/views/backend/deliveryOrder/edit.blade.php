@@ -43,8 +43,8 @@
                     <x-forms.input type="number" name="price" id="price" label="Harga" :isRequired="true" value="{{ $purchaseOrder->price }}"/>
 
                     <div class="text-right">
-                        <a href="{{ Route('deliveryOrder.index') }}" class="btn btn-secondary " href="#">{{ __('button.cancel') }}</a>
-                        <button type="submit" class="btn btn-primary " href="#">{{ __('button.save') }}</button>
+                        <a href="{{ Route('deliveryOrder.index') }}" class="btn btn-danger" href="#">{{ __('button.cancel') }}</a>
+                        <button type="submit" class="btn btn-primary" href="#">{{ __('button.save') }}</button>
                     </div>
 
                 @endslot
