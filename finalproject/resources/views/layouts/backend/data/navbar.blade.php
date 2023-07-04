@@ -38,17 +38,6 @@
                 <div class="d-sm-none d-lg-inline-block">Hai, {{ auth()->user()->name }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">Login 5 menit yang lalu</div>
-                <a href="#" class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Profil
-                </a>
-                <a href="#" class="dropdown-item has-icon">
-                    <i class="fas fa-bolt"></i> Aktivitas
-                </a>
-                <a href="#" class="dropdown-item has-icon">
-                    <i class="fas fa-cog"></i> Pengaturan
-                </a>
-                <div class="dropdown-divider"></div>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <a href="{{ route('logout')  }}" onclick="event.preventDefault();
