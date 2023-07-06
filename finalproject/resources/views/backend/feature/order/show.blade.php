@@ -163,7 +163,6 @@
                             @foreach($data['order']->tracking->data as $key => $order)
                                 <div>
                                     <h1>{{ucfirst($key)}}</h1>
-
                                     @if($key == "history")
                                         <table class="table">
                                             <thead>
