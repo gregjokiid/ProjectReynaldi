@@ -30,7 +30,7 @@
                                         <div class="col-lg-12">
                                             <div class="invoice-title">
                                                 <h2>Upload Bukti Pembayaran</h2>
-                                                <div class="invoice-number">Total {{ $data['order']->total_pay }}</div>
+                                                <div class="invoice-number">Total {{ rupiah($data['order']->total_pay) }}</div>
                                             </div>
                                             <hr>
                                             <x-forms.input type="file" name="payment" id="payment" :label="__('field.payment')" :isRequired="true" />
