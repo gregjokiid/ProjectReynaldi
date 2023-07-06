@@ -83,11 +83,11 @@
                                                         <td><a
                                                                 href="{{ route('product.show', ['categoriSlug' => $detail->Product->category->slug, 'productSlug' => $detail->Product->slug]) }}">{{ $detail->product->name }}</a>
                                                         </td>
-                                                        <td class="text-center">{{ rupiah($detail->price) }}
+                                                        <td class="text-center">{{ $detail->price }}
                                                         </td>
                                                         <td class="text-center">{{ $detail->qty }}</td>
                                                         <td class="text-right">
-                                                            {{ rupiah($detail->total_price_per_product) }}</td>
+                                                            {{ $detail->total_price_per_product }}</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -124,7 +124,7 @@
                                                 @else
                                                     <div class="invoice-detail-name">Subtotal</div>
                                                 @endif
-                                                <div class="invoice-detail-value">{{ rupiah($data['order']->subtotal) }}
+                                                <div class="invoice-detail-value">{{ $data['order']->subtotal }}
                                                 </div>
                                             </div>
                                             @if ($data['order']->status == 5 || $data['order']->status == 6 || $data['order']->status == 7)
@@ -132,13 +132,13 @@
                                                 <div class="invoice-detail-item">
                                                     <div class="invoice-detail-name">Ongkos Kirim</div>
                                                     <div class="invoice-detail-value">
-                                                        {{ rupiah($data['order']->shipping_cost) }}</div>
+                                                        {{ $data['order']->shipping_cost }}</div>
                                                 </div>
                                                 <hr class="mt-2 mb-2">
                                                 <div class="invoice-detail-item">
                                                     <div class="invoice-detail-name">Total</div>
                                                     <div class="invoice-detail-value invoice-detail-value-lg">
-                                                        {{ rupiah($data['order']->total_pay) }}</div>
+                                                        {{ $data['order']->total_pay }}</div>
                                                 </div>
                                             @endif
                                         </div>
