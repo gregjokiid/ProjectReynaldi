@@ -131,8 +131,11 @@
                                             @else
                                                 <div class="invoice-detail-item">
                                                     <div class="invoice-detail-name">Ongkos Kirim</div>
-                                                    <div class="invoice-detail-value">
-                                                        {{ rupiah($data['order']->shipping_cost) }}</div>
+                                                    @if($data['order']->shipping_cost == "offline")
+                                                        <div class="invoice-detail-value">{{ rupiah("0") }}</div>
+                                                    @else
+                                                        <div class="invoice-detail-value">{{ rupiah($data['order']->shipping_cost) }}</div>
+                                                    @endif
                                                 </div>
                                                 <hr class="mt-2 mb-2">
                                                 <div class="invoice-detail-item">
