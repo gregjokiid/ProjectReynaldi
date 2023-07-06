@@ -149,6 +149,44 @@
                                 </div>
                             </div>
                         </div>
+                        @if ($data['order']->status == 1 || $data['order']->status == 2 || $data['order']->status == 3)
+                            <img src=" {{ $path.$file_path }}" alt="" width="1000">
+                        @endif
+
+                        @if(isset($data['order']->tracking))
+                            @foreach($data['order']->tracking->data as $key => $order)
+                                <h1>{{ucfirst($key)}}</h1>
+                                @if($key == "history")
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Desc</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach(array_reverse($order) as $thisKey => $value)
+                                            <tr>
+                                                <td>{{$value->date}}</td>
+                                                <td>{{$value->desc}}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                @else
+                                    <table class="table">
+                                        <tbody>
+                                        @foreach($order as $thisKey => $value)
+                                            <tr>
+                                                <th scope="row">{{ucfirst($thisKey)}}</th>
+                                                <td>{{$value}}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                @endif
+                            @endforeach
+                        @endif
                         <hr>
                         <div class="text-md-right">
                             <div class="float-lg-left mb-lg-0 mb-3">
