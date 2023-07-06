@@ -65,7 +65,7 @@
                                 <input type="hidden" name="cart_price" value="{{ $data['product']->price }}">
                             </div>
                             @if(empty($data['product']->stock))
-                                <button type="submit" class="cart-btn" disabled><span class="icon_bag_alt"></span> Tambah Ke Keranjang</button>
+                                <button type="submit" class="cart-btn" hidden><span class="icon_bag_alt"></span> Tambah Ke Keranjang</button>
                             @else
                                 <button type="submit" class="cart-btn"><span class="icon_bag_alt"></span> Tambah Ke Keranjang</button>
                             @endif
