@@ -161,23 +161,22 @@
                         </div>
                         @if(isset($data['order']->tracking))
                             @foreach($data['order']->tracking->data as $key => $order)
-                                <div>
-                                    <h1>{{ucfirst($key)}}</h1>
-                                    @if($key == "history")
-                                        <table class="table">
-                                            <thead>
+                                <h1>{{ucfirst($key)}}</h1>
+                                @if($key == "history")
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Desc</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach(array_reverse($order) as $thisKey => $value)
                                             <tr>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Desc</th>
+                                                <td>{{$value->date}}</td>
+                                                <td>{{$value->desc}}</td>
                                             </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach(array_reverse($order) as $thisKey => $value)
-                                                <tr>
-                                                    <td>{{$value->date}}</td>
-                                                    <td>{{$value->desc}}</td>
-                                                </tr>
-                                            @endforeach
+                                        @endforeach
                                         @else
                                             <table class="table">
                                                 <tbody>
@@ -189,10 +188,9 @@
                                                 @endforeach
                                                 </tbody>
                                             </table>
-                                            </tbody>
-                                        </table>
-                                    @endif
-                                </div>
+                                        </tbody>
+                                    </table>
+                                @endif
                             @endforeach
                         @endif
                     </div>
