@@ -96,9 +96,9 @@
                                                 <td><a
                                                         href="{{ route('product.show', ['categoriSlug' => $detail->Product->category->slug, 'productSlug' => $detail->Product->slug]) }}">{{ $detail->product->name }}</a>
                                                 </td>
-                                                <td class="text-center">{{ $detail->price }}</td>
+                                                <td class="text-center">{{ rupiah($detail->price) }}</td>
                                                 <td class="text-center">{{ $detail->qty }}</td>
-                                                <td class="text-right">{{ $detail->total_price_per_product }}
+                                                <td class="text-right">{{ rupiah($detail->total_price_per_product) }}
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -135,20 +135,23 @@
                                             @else
                                                 <div class="invoice-detail-name">Subtotal</div>
                                             @endif
-                                            <div class="invoice-detail-value">{{ $data['order']->subtotal }}</div>
+                                            <div class="invoice-detail-value">{{ rupiah($data['order']->subtotal) }}</div>
                                         </div>
                                         @if ($data['order']->status == 5 || $data['order']->status == 6)
                                         @else
                                             <div class="invoice-detail-item">
                                                 <div class="invoice-detail-name">{{ __('text.shipping_cost') }}</div>
-                                                <div class="invoice-detail-value">
-                                                    {{ $data['order']->shipping_cost }}</div>
+                                                @if($data['order']->shipping_cost == "offline")
+                                                    <div class="invoice-detail-value">{{ rupiah("0") }}</div>
+                                                @else
+                                                    <div class="invoice-detail-value">{{ rupiah($data['order']->shipping_cost) }}</div>
+                                                @endif
                                             </div>
                                             <hr class="mt-2 mb-2">
                                             <div class="invoice-detail-item">
                                                 <div class="invoice-detail-name">Total</div>
                                                 <div class="invoice-detail-value invoice-detail-value-lg">
-                                                    {{ $data['order']->total_pay }}</div>
+                                                    {{ rupiah($data['order']->total_pay) }}</div>
                                             </div>
                                         @endif
                                     </div>
