@@ -29,8 +29,25 @@ class TransacationController extends Controller
 
     public function show($invoice_number)
     {
-        $data['order'] = $this->order->Query()->where('invoice_number',$invoice_number)->first();
-        return view('frontend.transaction.show',compact('data'));
+        $order = $this->order->Query()->where('invoice_number',$invoice_number)->first();
+        $data['order'] = $order;
+        if(isset($order->receipt_number)){
+            $key = env('BINDERBYTE_KEY', 'some32charstring');
+            $ch = curl_init();
+            $url = "https://api.binderbyte.com/v1/track?api_key=".$key."&courier=jne&awb=".$order->receipt_number;
+            // dd($url);
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $output = curl_exec($ch);
+            curl_close($ch);
+
+            $order['tracking'] = json_decode($output);
+            // dd(json_decode($output));
+
+        }
+        $path = '/storage/file/order/payment/';
+        $file_path = $data['order']->proof;
+        return view('frontend.transaction.show',compact(['data', 'path', 'file_path']));
     }
 
     public function received($invoice_number)
