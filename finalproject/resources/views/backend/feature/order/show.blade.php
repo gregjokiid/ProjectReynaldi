@@ -178,17 +178,17 @@
                                                     <td>{{$value->desc}}</td>
                                                 </tr>
                                             @endforeach
-                                            @else
-                                                <table class="table">
-                                                    <tbody>
-                                                    @foreach($order as $thisKey => $value)
-                                                        <tr>
-                                                            <th scope="row">{{ucfirst($thisKey)}}</th>
-                                                            <td>{{$value}}</td>
-                                                        </tr>
-                                                    @endforeach
-                                                    </tbody>
-                                                </table>
+                                        @else
+                                            <table class="table">
+                                                <tbody>
+                                                @foreach($order as $thisKey => $value)
+                                                    <tr>
+                                                        <th scope="row">{{ucfirst($thisKey)}}</th>
+                                                        <td>{{$value}}</td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
                                             </tbody>
                                         </table>
                                     @endif
